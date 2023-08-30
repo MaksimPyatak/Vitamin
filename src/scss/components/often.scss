@@ -1,0 +1,174 @@
+@mixin container {
+   max-width: 1290px;
+   height: 100%;
+   padding: 0 var(--pdng-conteiner);
+   margin: 0 auto;
+   box-sizing: content-box;
+}
+
+@mixin button {
+   background: #337D5A;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #FFFFFF;
+   cursor: pointer;
+
+   &:hover {
+      background: transparent;
+      border: 1.5px solid #337D5A;
+      color: #337D5A;
+   }
+}
+
+@mixin button-empty {
+   border: 1.5px solid #337D5A;
+   background: transparent;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #337D5A;
+   cursor: pointer;
+
+   &:hover {
+      background: #337D5A;
+      border: none;
+
+      div {
+         color: #FFFFFF;
+      }
+   }
+
+   div {
+      color: #337D5A;
+   }
+}
+
+@mixin swiper-button {
+   .swiper-button-prev {
+      left: 0;
+   }
+
+   .swiper-button-next {
+      left: 70.5px;
+
+      @media screen and (max-width: 768px) {
+         left: 55px;
+      }
+   }
+
+   .swiper-button-prev,
+   .swiper-button-next {
+      top: auto;
+      bottom: 1px;
+      width: 70.5px;
+      height: 56.5px;
+      background: #337D5A;
+      font-size: 18px;
+      font-weight: 400;
+      color: #FFFFFF;
+
+      @media screen and (max-width: 768px) {
+         width: 55px;
+         height: 40px;
+         font-size: 14px;
+      }
+
+      &::after {
+         content: "";
+      }
+
+      &.swiper-button-disabled {
+         opacity: 1;
+
+         i {
+            color: rgba(255, 255, 255, 0.5);
+         }
+      }
+   }
+}
+
+@mixin mt-section {
+
+   @media screen and (max-width: 1024px) {
+      margin-top: 120px;
+   }
+
+   @media screen and (max-width: 425px) {
+      margin-top: 80px;
+   }
+
+}
+
+@mixin date {
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 13px;
+   line-height: 22px;
+   letter-spacing: 0.01em;
+   color: #8A8A8A;
+}
+
+@mixin read-link {
+   font-weight: 700;
+   font-size: 14px;
+   line-height: 143%;
+   letter-spacing: 0.01em;
+
+   &:hover {
+      color: #337D5A;
+   }
+
+
+   i {
+      margin: 0 0 0 4px;
+      font-weight: normal;
+      font-size: 10px;
+   }
+
+}
+
+@mixin active-account-item {
+   border-bottom: 2px solid #337D5A;
+   color: #337D5A;
+}
+
+// Текст з двома лініями з двох боків -ТЕКСТ----
+//Додаємо в основний блок
+//@mixin discover-more($color: inherit, $background: rgba(255, 255, 255, 0.4)) {
+//   width: fit-content;
+//   height: 13px;
+
+//   .discover-more__link {
+//      position: relative;
+//      font-size: 10px;
+//      line-height: 120%;
+//      letter-spacing: 0.12em;
+//      text-transform: uppercase;
+//      color: $color;
+//      display: flex;
+//      padding: 0 65px 0 16px;
+
+//      &::before,
+//      &::after {
+//         content: " ";
+//         position: absolute;
+//         top: 35%;
+//         display: block;
+//         background: $background;
+//      }
+
+//      &::before {
+//         left: 0;
+//         width: 8px;
+//         height: 1px;
+//      }
+
+//      &::after {
+//         right: 0;
+//         width: 56px;
+//         height: 1px;
+//      }
+//   }
+//}

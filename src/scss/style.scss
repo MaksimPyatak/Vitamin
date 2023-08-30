@@ -1,0 +1,55 @@
+@import "./components/nullstyle";
+// Підключення шрифтів
+//&display=swap - додати при підключенні через плагін
+//@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;800&display=swap');
+
+@import "fonts/fonts";
+
+//Те що часто використовується
+@import "./components/often";
+
+// Variable
+@import "./components/variable";
+
+// Загальні стилі
+@import "./components/global";
+
+body {
+   font-family: "Raleway";
+   font-weight: 800;
+   font-size: 14px;
+   color: #1A2F3F;
+   background: #FFFFFF;
+   display: flex;
+   flex-direction: column;
+}
+
+._lock {
+   overflow: hidden;
+}
+
+.wrapper {
+   position: relative;
+   max-width: 1920px;
+   min-height: 100%;
+   margin: 0 auto;
+}
+
+main {
+   margin: 179px 0 0 0;
+   flex: 1 1 auto;
+
+   @media screen and (max-width: 1024px) {
+      margin: 117px 0 0 0;
+   }
+}
+
+//.main-page {}
+
+//@import "../../node_modules/swiper/swiper.scss";
+//@import '../../node_modules/swiper/modules/navigation/navigation.scss';
+//@import '../../node_modules/swiper/modules/pagination/pagination.scss';
+//@import '../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
+
+//@import "./components/header.scss";
+//@import "./components/footer";
