@@ -3,12 +3,16 @@
   @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
   <!--, "style-preload": "css/main.min.css"-->
   <body>
-    @@include('html/header.html',{})
-    <main class="main-page"></main>
-    <!-- Підключення додаткового файлу стилів -->
-    <!--<link rel="stylesheet" href="main.min.css" />-->
-    @@include('html/footer.html',{})
-    <!---->
+    <div class="wrapper">
+      @@include('html/header.html',{})
+      <main class="main-page">
+        <h1>Sign in</h1>
+      </main>
+      <!-- Підключення додаткового файлу стилів -->
+      <!--<link rel="stylesheet" href="main.min.css" />-->
+      @@include('html/footer.html',{})
+      <!---->
+    </div>
     <script src="js/app.min.js"></script>
   </body>
 </html>

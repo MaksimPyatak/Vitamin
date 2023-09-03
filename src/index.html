@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
+  @@include('html/head.html',{ "title":"Medstogo - Home", "style": "css/style.min.css" })
   <!--, "style-preload": "css/main.min.css"-->
   <body>
-    @@include('html/header.html',{})
-    <main class="main-page">
-      <div class="main-page__wrpper"></div>
-    </main>
-    <!-- Підключення додаткового файлу стилів -->
-    <!--<link rel="stylesheet" href="main.min.css" />-->
-    @@include('html/footer.html',{})
-    <!---->
+    <div class="wrapper">
+      @@include('html/header.html',{"logo-class":"white-logo"})
+      <main class="main-page">
+        <!--  -->
+        @@include('html/components/home-pahe/title-section.html',{})
+        <!--  -->
+      </main>
+      <!-- Підключення додаткового файлу стилів -->
+      <!--<link rel="stylesheet" href="main.min.css" />-->
+      @@include('html/footer.html',{})
+      <!---->
+    </div>
     <script src="js/app.min.js"></script>
   </body>
 </html>

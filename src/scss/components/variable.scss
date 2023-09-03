@@ -1,13 +1,42 @@
 :root {
 
-   //--breakpoint-xs: 320px; 
-   --breakpoint-sm: 480px;
-   --breakpoint-md: 767px;
-   --breakpoint-lg: 1023px;
-   --breakpoint-xl: 1439px;
-   //--breakpoint-xxl: 480px; 
+   --bp-xxs: 375px;
+   --bp-xs: 480px;
+   --bp-s: 650px;
+   --bp-sm: 768px;
+   --bp-md: 1024px;
+   --bp-lg: 1440px;
+   --bp-l: 1650px;
+   --bp-xl: 1920px;
 
-   --pdng-conteiner: 56px;
+   --main-orange: #FF7D4E;
+   --main-purple: #8172DD;
+   --btn-purple: #6E5DDC;
+   --goods-purple: #9C91E0;
+   --goods-mint: #94D6BE;
+   --goods-pink: #DA91E0;
+   --goods-blue: #91CAF2;
+   --goods-orange: #F2B385;
+   --goods-green: #A5B3FF;
+   --goods-red: #E8939D;
+
+   --pdng-conteiner: 92px;
+
+   @media (max-width: 1440px) {
+      --pdng-conteiner: 64px;
+   }
+
+   @media (max-width: 1024px) {
+      --pdng-conteiner: 56px;
+   }
+
+   @media (max-width: 768px) {
+      --pdng-conteiner: 48px;
+   }
+
+   @media (max-width: 425px) {
+      --pdng-conteiner: 20px;
+   }
 
    //@media screen and (max-width: 1440px) {
    //   --pdng-conteiner: 56px;

@@ -11,29 +11,137 @@
   разного объема."
   />
 
-  <link rel="stylesheet" href="css/style.min.css" />
-  <!--<link rel="preload" href="css/style.min.css-preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/style.min.css?_v=20230903232749" />
+  <!--<link rel="preload" href="css/style.min.css-preload?_v=20230903232749" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css" />-->
-  <title>Главная - Орех Причерноморья</title>
+  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230903232749" />-->
+  <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
+  <title>Medstogo - Home</title>
 </head>
 
   <!--, "style-preload": "css/main.min.css"-->
   <body>
-    <header class="header">
+    <div class="wrapper">
+      <header class="header">
   <div class="header__zero"></div>
+  <div class="header__header-container">
+    <div class="header__burger">
+      <span></span>
+    </div>
+    <a href="index.html" class="header__logo">
+      <img src="img/header/logo.svg" alt="Logotype" />
+    </a>
+    <div class="header__body">
+      <a href="profile.html" class="header__profile-logo">
+        <img src="img/header/profile-icon.svg" alt="profile-logo" />
+      </a>
+      <div class="header__cart-icon">
+        <img src="img/header/cart-icon.svg" alt="Cart" />
+      </div>
+      <button class="header__button" onclick="handlerButtonClick()">Take the quiz</button>
+    </div>
+  </div>
 </header>
 
-    <main class="main-page">
-      <div class="main-page__wrpper"></div>
-    </main>
-    <!-- Підключення додаткового файлу стилів -->
-    <!--<link rel="stylesheet" href="main.min.css" />-->
-    <footer class="footer"></footer>
+      <main class="main-page">
+        <!--  -->
+        <section class="title-section">
+  <div class="title-section__container">
+    <div class="title-section__content-box">
+      <h1 class="title-section__title">Find out what <span>vitamins</span> your body needs right now.</h1>
+      <div class="title-section__subtitle subtitle-20">Answer a few simple questions and automatically get a personalazed list of vitamins in minutes</div>
+      <div class="title-section__links-block">
+        <button class="title-section__button">Take the quiz</button>
+        <a href="catalogue.html" class="title-section__shop-link">
+          <p>Go to the shop</p>
+          <img src="img/home-page/arrow-right.svg" alt="right arrow" />
+        </a>
+      </div>
+    </div>
+    <div class="title-section__img-box">
+      <div class="title-section__big-circle">
+        <div>
+          <img src="img/home-page/big-circle.svg" alt="big purple circle" />
+        </div>
+      </div>
+      <div class="title-section__jars">
+        <div><picture><source srcset="img/home-page/jar.webp" type="image/webp"><img src="img/home-page/jar.png" alt="jars" /></picture></div>
+      </div>
+    </div>
+  </div>
+  <div class="title-section__bg-container">
+    <div class="title-section__left-block"></div>
+  </div>
+  <div class="title-section__little-circle">
+    <div>
+      <img src="img/home-page/little-yellow-circle.svg" alt="yellow circle" />
+    </div>
+  </div>
+  <div class="title-section__yellow-arc">
+    <img src="img/home-page/yellow-arc.svg" alt="yellow arc" />
+  </div>
+  <div class="title-section__arc">
+    <img src="img/home-page/arc.svg" alt="arc" />
+  </div>
+</section>
 
-    <!---->
-    <script src="js/app.min.js"></script>
+        <!--  -->
+      </main>
+      <!-- Підключення додаткового файлу стилів -->
+      <!--<link rel="stylesheet" href="main.min.css?_v=20230903232749" />-->
+      <footer class="footer">
+  <div class="footer__container">
+    <div class="footer__logo">
+      <img src="img/header/logo.svg" alt="Logotype" />
+    </div>
+    <div class="footer__copyright">© 2020 Vitamins.com / All rights reserved</div>
+    <div class="footer__menu menu-footer">
+      <div class="menu-footer__shop">
+        <div class="menu-footer__title">Shop</div>
+        <ul class="menu-footer__list">
+          <div class="menu-footer__part-list">
+            <li class="menu-footer__item"><a href="catalogue.html">Vitamins & Dietary Supplements</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html">Weight Loss</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html">Minerals</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html">Antioxidants</a></li>
+          </div>
+          <div class="menu-footer__part-list">
+            <li class="menu-footer__item"><a href="catalogue.html">Probiotics</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html">Pain Relief</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html">Prenatal Vitamins</a></li>
+          </div>
+        </ul>
+      </div>
+      <div class="menu-footer__information">
+        <div class="menu-footer__title">Information</div>
+        <ul class="menu-footer__list">
+          <li class="menu-footer__item"><a href="subscription-text.html">Terms & Conditions</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Privacy Policy</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Return Policy</a></li>
+        </ul>
+      </div>
+      <div class="menu-footer__contact">
+        <div class="menu-footer__title">Contact</div>
+        <ul class="menu-footer__list">
+          <li class="menu-footer__item"><a href="mailto:support@medstogo.com">support@medstogo.com</a></li>
+          <li class="menu-footer__item">
+            <a href="https://www.facebook.com/"><img src="img/footer/facebook.svg" alt="Facebook" />Facebook</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="https://www.instagram.com/"><img src="img/footer/insta.svg" alt="instagram" />Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      <!---->
+    </div>
+    <script src="js/app.min.js?_v=20230903232749"></script>
   </body>
 </html>

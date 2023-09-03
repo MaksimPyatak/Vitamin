@@ -1,119 +1,172 @@
+@import "./components/nullstyle";
+// Підключення шрифтів
+//&display=swap - додати при підключенні через плагін
+//@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;800&display=swap');
+
+@import "fonts/fonts";
+
+//Те що часто використовується
+@import "./components/mixins";
+
+// Variable
+@import "./components/variable";
+
+
+body {
+   font-family: "Open Sans";
+   font-weight: 400;
+   font-size: 1rem;
+   color: #000000;
+   //background: #FFFFFF;
+   display: flex;
+   flex-direction: column;
+}
+
+._lock {
+   overflow: hidden;
+}
+
+[class*="__container"] {
+   max-width: 1580px;
+   padding-left: 92px;
+   padding-right: 92px;
+   margin: 0 auto;
+
+   @media (max-width: 1440px) {
+      padding-left: 64px;
+      padding-right: 64px;
+   }
+
+   @media (max-width: 1024px) {
+      padding-left: 56px;
+      padding-right: 56px;
+   }
+
+   @media (max-width: 768px) {
+      padding-left: 48px;
+      padding-right: 48px;
+   }
+
+   @media (max-width: 425px) {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
+
+.wrapper {
+   position: relative;
+   min-height: 100%;
+   //overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
 .icon {
    font-family: "nut";
    font-style: normal;
 }
 
 h1 {
-   font-size: 62px;
-   line-height: 73px;
+   font-family: Effra;
+   font-size: 56px;
+   font-weight: 500;
+   line-height: 121%;
 
    @media (max-width: 1024px) {
-      font-size: 48px;
-      line-height: 56px;
+      font-size: 50px;
    }
 
    @media (max-width: 768px) {
       font-size: 36px;
-      line-height: 42px;
    }
 
    @media (max-width: 425px) {
-      font-size: 28px;
-      line-height: 33px;
+      font-size: 24px;
    }
 }
 
 h2 {
-   font-weight: 800;
-   font-size: 45px;
-   line-height: 122%;
+   font-family: Effra;
+   font-size: 50px;
+   font-weight: 500;
 
    @media (max-width: 1024px) {
-      font-size: 40px;
+      font-size: 45px;
    }
 
    @media (max-width: 768px) {
-      font-size: 36px;
+      font-size: 40px;
       line-height: 42px;
    }
 
    @media (max-width: 425px) {
-      font-size: 32px;
+      font-size: 24px;
    }
 }
 
 h3 {
-   font-size: 32px;
-   letter-spacing: 0.01em;
+   font-family: Effra;
+   font-size: 40px;
+   font-weight: 500;
+   //@media (max-width: 1024px) {
+   //   font-size: 28px;
+   //}
 
-   @media (max-width: 1024px) {
-      font-size: 28px;
-   }
+   //@media (max-width: 768px) {
+   //   font-size: 25px;
+   //}
 
-   @media (max-width: 768px) {
-      font-size: 25px;
-   }
-
-   @media (max-width: 425px) {
-      font-size: 22px;
-   }
+   //@media (max-width: 425px) {
+   //   font-size: 22px;
+   //}
 }
 
 h4 {
-   font-size: 18px;
-   font-weight: 700;
-   line-height: 178%;
-   //letter-spacing: 0.01em;
+   font-family: Effra;
+   font-size: 36px;
+   font-weight: 500;
 }
 
 h5 {
-   font-size: 24px;
-   font-weight: 700;
-   line-height: 28px;
-   letter-spacing: 0.01em;
+   font-family: Effra;
+   font-size: 30px;
+   font-weight: 500;
 
    @media (max-width: 1024px) {
-      font-size: 22px;
-      line-height: 25px;
+      font-size: 25px;
    }
 
    @media (max-width: 768px) {
-      font-size: 19px;
-      line-height: 22px;
+      font-size: 20px;
    }
 
    @media (max-width: 425px) {
-      font-size: 17px;
-      line-height: 20px;
+      font-size: 14px;
    }
 }
 
 h6 {
-   font-weight: 300;
-   font-size: 11px;
-   line-height: 17.7px;
-   letter-spacing: 0.06em;
+   font-family: Effra;
+   font-size: 26px;
+   font-weight: 500;
 }
 
-.subtitle-h1 {
-   font-weight: 600;
-   font-size: 25px;
-   line-height: 32px;
-   letter-spacing: 0.01em;
+.subtitle-20 {
+   font-size: 1.4286rem;
+   line-height: 163.418%;
+   /* 32.684px */
+   color: #808080;
 
    @media (max-width: 1024px) {
-      font-size: 22px;
-      line-height: 26px;
+      font-size: 1.2857rem;
    }
 
    @media (max-width: 768px) {
-      font-size: 19px;
-      line-height: 22px;
+      font-size: 1.1429rem;
    }
 
    @media (max-width: 425px) {
-      font-size: 17px;
-      line-height: 23px;
+      font-size: 1rem;
    }
 }
 
