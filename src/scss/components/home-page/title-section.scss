@@ -2,7 +2,6 @@
    position: relative;
    overflow: hidden;
 
-
    &__container {
       position: relative;
       z-index: 2;
@@ -20,20 +19,25 @@
 
       @media (max-width: 650px) {
          padding-top: 110px;
-         padding-bottom: 10px;
+         padding-bottom: 14px;
       }
 
+      @media (max-width:320px) {
+         padding-bottom: 18px;
+      }
    }
 
    &__content-box {
       position: relative;
       z-index: 3;
+      padding-right: 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
 
       @media (max-width: 768px) {
+         padding-right: 0px;
          align-items: center;
       }
    }
