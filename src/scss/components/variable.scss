@@ -38,6 +38,18 @@
       --pdng-conteiner: 20px;
    }
 
+   //--------------падінг верхнього відступу в секції
+
+   --pdt-section: 150px;
+
+   @media (max-width: 768px) {
+      --pdt-section: 100px;
+   }
+
+   @media (max-width: 425px) {
+      --pdt-section: 60px;
+   }
+
    //--------------width-smaller-container
    --width-smaller-container: 1044px;
 

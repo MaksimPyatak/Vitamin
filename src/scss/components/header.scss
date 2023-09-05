@@ -185,7 +185,7 @@
    }
 
    &__button {
-      @include oval-button($width: 154px, $hight: 50px, $font-size: 1.1429rem);
+      @include oval-button($width: 154px, $hight: 50px, $font-size: 1.1429rem, $width-xs: 154px, $hight-xs: 50px, );
 
       @media (max-width:650px) {
          display: none;

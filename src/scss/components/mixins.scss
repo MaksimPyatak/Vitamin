@@ -153,7 +153,7 @@
 
 
 
-@mixin button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $width-xs: $width, $hight-xs: $hight, ) {
+@mixin button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $width-xs, $hight-xs ) {
    width: $width;
    height: $hight;
    font-size: $font-size;
@@ -164,10 +164,10 @@
    //transition: box-shadow 0.2s;
    transition: transform 0.2s, box-shadow 0.2s;
 
-   //@media (max-width: 425px) {
-   //   width: $width-xs;
-   //   height: $hight-xs;
-   //}
+   @media (max-width: 425px) {
+      width: $width-xs;
+      height: $hight-xs;
+   }
 
    &:hover {
       //animation: shake 0.9s infinite;
@@ -176,15 +176,15 @@
    }
 }
 
-@mixin oval-button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $width-xs: $width, $hight-xs: $hight, ) {
-   @include button($width, $hight, $font-size, $bg-color, $width-xs: $width, $hight-xs: $hight, );
+@mixin oval-button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $width-xs, $hight-xs, ) {
+   @include button($width, $hight, $font-size, $bg-color, $width-xs, $hight-xs );
    border-radius: calc($hight/2);
    background: $bg-color;
    color: #FFF;
 }
 
-@mixin empty-button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $color: #000000, $br-color: rgba(211, 44, 44, 0.2), $width-xs: $width, $hight-xs: $hight, ) {
-   @include button($width, $hight, $font-size, $bg-color, $width-xs: $width, $hight-xs: $hight, );
+@mixin empty-button ($width: 100%, $hight: 50px, $font-size: 1.25rem, $bg-color: var(--main-orange), $color: #000000, $br-color: rgba(211, 44, 44, 0.2), $width-xs, $hight-xs, ) {
+   @include button($width, $hight, $font-size, $bg-color, $width-xs, $hight-xs );
    border: 2px solid $br-color;
    border-radius: calc($hight/2);
    background: $bg-color;
