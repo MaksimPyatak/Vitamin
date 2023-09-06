@@ -1,0 +1,69 @@
+.swiper-card {
+   max-width: 400px;
+   padding: 62px 30px 40px;
+   border-radius: 15px;
+
+   @media (max-width:480px) {
+      max-width: unset;
+   }
+
+   @media (max-width:425px) {
+      padding: 30px 20px 33px;
+   }
+
+   &__img {
+      width: 189px;
+      height: 211px;
+      margin: 0px auto 55px;
+
+      @media (max-width:425px) {
+         width: 142.642px;
+         height: 159.327px;
+         margin: 0px auto 27.67px;
+      }
+
+      img {
+         height: 100%;
+         object-fit: contain;
+      }
+   }
+
+   &__medical-kind {
+      margin-bottom: 17px;
+      color: #FFF;
+      opacity: 0.5;
+      font-weight: 600;
+
+      @media (max-width:425px) {
+         margin-bottom: 17px;
+         font-size: 12px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 21px;
+      color: #FFF;
+      font-family: Effra;
+      font-size: 24px;
+      font-weight: 500;
+
+      @media (max-width:425px) {
+         margin-bottom: 17px;
+         font-size: 18px;
+      }
+   }
+
+   &__description {
+      color: #FFF;
+      opacity: 0.7;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 163.418%;
+      /* 26.147px */
+
+      @media (max-width:425px) {
+         font-size: 14px;
+         line-height: normal;
+      }
+   }
+}

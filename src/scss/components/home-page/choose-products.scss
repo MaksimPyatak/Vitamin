@@ -1,0 +1,208 @@
+.choose-products {
+   position: relative;
+   max-width: 1920px;
+   width: 100%;
+   //overflow: hidden;
+
+   &__second-block {
+      width: 100%;
+      height: 825px;
+      display: flex;
+      margin: var(--pdt-section) 0 0 0;
+
+      @media (max-width: 1440px) {
+         flex-direction: column-reverse;
+      }
+
+      @media (max-width:425px) {
+         height: auto;
+      }
+   }
+
+   &__swiper-box {
+      width: 50%;
+      padding: 0 0 26px var(--pdng-conteiner);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      @media (max-width: 1440px) {
+         width: 100%;
+         margin: -120px 0 0 0;
+         padding: -0 var(--pdng-conteiner) 0 var(--pdng-conteiner);
+
+      }
+
+      @media (max-width: 768px) {
+         //padding: -0 0 0 var(--pdng-conteiner);
+         padding: 0;
+      }
+
+      //@media (max-width: 480px) {
+      //   padding: 0;
+      //}
+
+      @media (max-width:425px) {
+         margin: 0;
+      }
+   }
+
+   &__swiper {
+      //max-width: 92.588889%;
+      max-width: 833px;
+      /* 827/900 */
+      //width: 100%;
+      height: max-content;
+      margin: 0 -16.740974% 0 0;
+      /* 135/698 */
+
+      @media (max-width: 1440px) {
+         //max-width: unset;
+         margin: 0 auto;
+      }
+   }
+
+   &__title-block {
+      position: relative;
+      width: 50%;
+      padding: 0 var(--pdng-conteiner) 0 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      @media (max-width: 1440px) {
+         width: 100%;
+         padding: 0 var(--pdng-conteiner) 0 var(--pdng-conteiner);
+         justify-content: center;
+      }
+   }
+
+   &__bg-title-block {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      max-width: 960px;
+      width: 100%;
+      height: 100%;
+
+      @media (max-width: 1440px) {
+         max-width: 100%;
+      }
+
+      @media (max-width:425px) {
+         height: 370px;
+      }
+   }
+
+   &__bg-logo {
+      position: absolute;
+      top: -86.606061%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E99478;
+      //overflow: hidden;
+   }
+
+   &__bg-title-block,
+   &__bg-logo {
+      .choose-products__bg-title-wrapper {
+         position: absolute;
+         left: 36.777778%;
+         bottom: 7.033939%;
+         width: 63.222222%;
+         /* 569/900 */
+         overflow: hidden;
+      }
+
+      img {
+         width: 253.964851%;
+         /* 1445.06/569 */
+         object-fit: cover;
+         object-position: 0 0;
+
+
+         //position: absolute;
+         //bottom: 7.033939%;
+         ///* 58.03/825 */
+         //left: 36.777778%;
+         ///* 331/900 */
+         //width: 160.562222%;
+         ///* 1445.06/900 */
+      }
+   }
+
+   &__title-block-content {
+      max-width: 698px;
+      padding: 0px 0 0 31.422222%;
+      color: #FFF;
+
+      @media (max-width: 1440px) {
+         max-width: 1000px;
+         padding: 100px 0 200px 0;
+         text-align: center;
+      }
+
+      @media (max-width:425px) {
+         padding: 60px 0px 40px 0;
+      }
+   }
+
+   &__title {
+      margin-bottom: 32px;
+      margin-top: -4px;
+
+      @media (max-width:425px) {
+         margin-bottom: 15px;
+      }
+   }
+
+   &__subtitle {
+      margin-bottom: 34px;
+      color: #FFF;
+
+      @media (max-width:425px) {
+         margin-bottom: 24px;
+         line-height: 165.418%;
+      }
+   }
+
+   &__shop-link {
+      display: flex;
+      font-family: Effra;
+      font-size: 20px;
+
+      @media (max-width: 1440px) {
+         margin: 0 auto;
+         display: inline-flex;
+      }
+
+      @media (max-width:425px) {
+         font-size: 14px;
+
+         p {
+            margin-right: 8px;
+         }
+
+         img {
+            width: 6px;
+            height: 8px;
+            margin-top: 3px;
+         }
+      }
+
+      p {
+         margin-right: 10px;
+      }
+   }
+}
+
+.swiper {}
+
+.swiper-wrapper {}
+
+.swiper-slide {
+   height: max-content;
+}

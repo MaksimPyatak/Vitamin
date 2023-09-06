@@ -1,19 +1,15 @@
 // Загальні стилі
 @import "./components/global";
-//.wrapper {
-//   position: relative;
-//   max-width: 1920px;
-//   min-height: 100%;
-//   margin: 0 auto;
-//}
 
 main {
+   max-width: 1920px;
+   width: 100%;
    flex: 1 1 auto;
 }
 
 //.main-page {}
 
-//@import "../../node_modules/swiper/swiper.scss";
+@import "../../node_modules/swiper/swiper.scss";
 //@import '../../node_modules/swiper/modules/navigation/navigation.scss';
 //@import '../../node_modules/swiper/modules/pagination/pagination.scss';
 //@import '../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
@@ -23,3 +19,5 @@ main {
 @import "./components/home-page/title-section";
 @import "./components/home-page/second-section";
 @import "./components/home-page/tell-about-yourself";
+@import "./components/home-page/swiper-slider";
+@import "./components/home-page/choose-products";
