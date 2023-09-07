@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Sign up", "style": "css/sign-up.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Sign up</h1>
+      @@include('html/registration-header.html',{})
+      <main class="sign-up">
+        <div class="sign-up__box">
+          <div class="sign-up__content">
+            <div class="sign-up__tabs">
+              <!--  -->
+              @@include('html/components/registration/tabs.html',{})
+            </div>
+            <h6 class="sign-up__title">
+              <span></span>
+              Sign up with
+              <span></span>
+            </h6>
+            <div class="sign-up__social-block">
+              <!--  -->
+              @@include('html/components/common/socials.html',{})
+            </div>
+            <div class="sign-up__subtitle">
+              <span></span>
+              or sign up using your email address...
+              <span></span>
+            </div>
+            <form method="post" id="sign-up-form">
+              <input type="email" name="email" id="email" placeholder="Email" />
+              <div id="error-file"></div>
+              <input type="text" name="first-name" id="first-name" placeholder="First Name" />
+              <div id="error-file"></div>
+              <input type="text" name="last-name" id="last-name" placeholder="Last Name" />
+              <div id="error-file"></div>
+              <input type="password" name="password" id="password" placeholder="Password" />
+              <div id="error-file"></div>
+              <!--<div class="sign-up__add-file">-->
+              <!--  -->
+              @@include('html/components/common/add-file.html',{})
+              <!--</div>-->
+              <button class="sign-up__submit no-active-button">Create my account</button>
+            </form>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
+      @@include('html/registration-footer.html',{"text":"Already have an account?", "link":"Sign in"})
     </div>
     <script src="js/app.min.js"></script>
   </body>

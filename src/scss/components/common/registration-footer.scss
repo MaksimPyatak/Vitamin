@@ -1,0 +1,27 @@
+.footer {
+   width: 100%;
+   padding: 40px 0;
+
+   @media (max-width: 650px) {
+      padding: 44px 0;
+   }
+
+   &__no-account {
+      width: max-content;
+      margin: 0 auto;
+      font-size: 16px;
+      display: flex;
+
+      @media (max-width: 650px) {
+         font-size: 14px;
+      }
+   }
+
+   &__link {
+      color: var(--main-orange) !important;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}

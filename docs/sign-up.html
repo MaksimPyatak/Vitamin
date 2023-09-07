@@ -11,96 +11,111 @@
   разного объема."
   />
 
-  <link rel="stylesheet" href="css/style.min.css?_v=20230907004103" />
-  <!--<link rel="preload" href="css/style.min.css-preload?_v=20230907004103" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/sign-up.min.css" />
+  <!--<link rel="preload" href="css/sign-up.min.css-preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230907004103" />-->
+  <!--<link rel="stylesheet" href="css/style.min.css" />-->
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
-  <title>Главная - Орех Причерноморья</title>
+  <title>Medstogo - Sign up</title>
 </head>
 
-  <!--, "style-preload": "css/main.min.css"-->
   <body>
     <div class="wrapper">
       <header class="header">
-  <div class="header__zero"></div>
-  <div class="header__header-container">
-    <div class="header__burger">
-      <span></span>
-    </div>
-    <a href="index.html" class="header__logo">
-      <img src="img/header/logo.svg" alt="Logotype" />
-    </a>
-    <div class="header__body">
-      <a href="profile.html" class="header__profile-logo">
-        <img src="img/header/profile-icon.svg" alt="profile-logo" />
-      </a>
-      <div class="header__cart-icon">
-        <img src="img/header/cart-icon.svg" alt="Cart" />
-      </div>
-      <button class="header__button" data-link="quiz.html">Take the quiz</button>
-    </div>
+  <div class="header__logo">
+    <a href="index.html"><img src="img/header/logo.svg" alt="Logotype" /></a>
   </div>
 </header>
 
-      <main class="main-page">
-        <h1>Sign up</h1>
+      <main class="sign-up">
+        <div class="sign-up__box">
+          <div class="sign-up__content">
+            <div class="sign-up__tabs">
+              <!--  -->
+              <div class="tabs">
+  <button id="regular-tab" class="tabs__tab active-tab">Regular customer</button>
+  <button id="wholesale-tab" class="tabs__tab">Wholesale customer</button>
+</div>
+
+            </div>
+            <h6 class="sign-up__title">
+              <span></span>
+              Sign up with
+              <span></span>
+            </h6>
+            <div class="sign-up__social-block">
+              <!--  -->
+              <div class="socials">
+  <a href="https://www.google.com" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Google_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Google</div>
+    <div class="socials__ampty"></div>
+  </a>
+  <a href="https://www.apple.com/" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Apple_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Apple</div>
+    <div class="socials__ampty"></div>
+  </a>
+  <a href="https://www.facebook.com/" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Facebook_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Facebook</div>
+    <div class="socials__ampty"></div>
+  </a>
+</div>
+
+            </div>
+            <div class="sign-up__subtitle">
+              <span></span>
+              or sign up using your email address...
+              <span></span>
+            </div>
+            <form method="post" id="sign-up-form">
+              <input type="email" name="email" id="email" placeholder="Email" />
+              <div id="error-file"></div>
+              <input type="text" name="first-name" id="first-name" placeholder="First Name" />
+              <div id="error-file"></div>
+              <input type="text" name="last-name" id="last-name" placeholder="Last Name" />
+              <div id="error-file"></div>
+              <input type="password" name="password" id="password" placeholder="Password" />
+              <div id="error-file"></div>
+              <!--<div class="sign-up__add-file">-->
+              <!--  -->
+              <div class="add-file">
+  <div class="add-file__info">
+    <span>Wholesale purchase permission</span>
+    <span>Permission</span>
+  </div>
+  <label for="file">
+    Upload
+    <input type="file" name="file" id="file" accept="image/*,.pdf" />
+  </label>
+</div>
+<div class="error" id="error-file">
+  <span>Please attach wholesale purchase permission</span>
+</div>
+
+              <!--</div>-->
+              <button class="sign-up__submit no-active-button">Create my account</button>
+            </form>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css?_v=20230907004103" />-->
       <footer class="footer">
-  <div class="footer__container">
-    <div class="footer__logo">
-      <img src="img/header/logo.svg" alt="Logotype" />
-    </div>
-    <div class="footer__copyright">© 2020 Vitamins.com / All rights reserved</div>
-    <div class="footer__menu menu-footer">
-      <div class="menu-footer__shop">
-        <div class="menu-footer__title">Shop</div>
-        <ul class="menu-footer__list">
-          <div class="menu-footer__part-list">
-            <li class="menu-footer__item"><a href="catalogue.html">Vitamins & Dietary Supplements</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Weight Loss</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Minerals</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Antioxidants</a></li>
-          </div>
-          <div class="menu-footer__part-list">
-            <li class="menu-footer__item"><a href="catalogue.html">Probiotics</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Pain Relief</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Prenatal Vitamins</a></li>
-          </div>
-        </ul>
-      </div>
-      <div class="menu-footer__information">
-        <div class="menu-footer__title">Information</div>
-        <ul class="menu-footer__list">
-          <li class="menu-footer__item"><a href="subscription-text.html">Terms & Conditions</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Privacy Policy</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Return Policy</a></li>
-        </ul>
-      </div>
-      <div class="menu-footer__contact">
-        <div class="menu-footer__title">Contact</div>
-        <ul class="menu-footer__list">
-          <li class="menu-footer__item"><a href="mailto:support@medstogo.com">support@medstogo.com</a></li>
-          <li class="menu-footer__item">
-            <a href="https://www.facebook.com/"><img src="img/footer/facebook.svg" alt="Facebook" />Facebook</a>
-          </li>
-          <li class="menu-footer__item">
-            <a href="https://www.instagram.com/"><img src="img/footer/insta.svg" alt="instagram" />Instagram</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="footer__no-account">
+    <p>Already have an account?&nbsp;</p>
+    <a href="sign-up.html" class="footer__link"> Sign in </a>
   </div>
 </footer>
 
-      <!---->
     </div>
-    <script src="js/app.min.js?_v=20230907004103"></script>
+    <script src="js/app.min.js"></script>
   </body>
 </html>
