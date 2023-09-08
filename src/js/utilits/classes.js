@@ -1,3 +1,9 @@
+/**
+         * Додає клас до елементу @param objectClass
+         * @param tabsClass клас об'єкта, де розміщені кнопки управління
+         * В об'єкті з класом @param tabsClass мають бути дата атрибут data-class-for-tab з назвою класу для підсвічування активної кнопки та дата атрибут data-class-for-obj, з назвою класу, що додається до @param objectClass
+         * @param tabClass клас кнопок, що керують @param objectClass
+         */
 export class ClassToggler {
    constructor(tabsClass, tabClass, objectClass) {
       this.tabsClass = tabsClass;
@@ -63,6 +69,7 @@ export class ClassToggler {
    }
 }
 
+//    #addClassToTab -- приватний клас
 //   iOS 14.5 підтримується на наступних пристроях Apple:
 //      - iPhone 6s і новіші моделі.
 //      - iPad Air 2 і новіші моделі.
