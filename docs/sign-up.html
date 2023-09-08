@@ -11,12 +11,12 @@
   разного объема."
   />
 
-  <link rel="stylesheet" href="css/sign-up.min.css?_v=20230907171803" />
-  <!--<link rel="preload" href="css/sign-up.min.css-preload?_v=20230907171803" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/sign-up.min.css" />
+  <!--<link rel="preload" href="css/sign-up.min.css-preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230907171803" />-->
+  <!--<link rel="stylesheet" href="css/style.min.css" />-->
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
   <title>Medstogo - Sign up</title>
 </head>
@@ -34,7 +34,7 @@
           <div class="sign-up__content">
             <div class="sign-up__tabs">
               <!--  -->
-              <div class="tabs">
+              <div class="tabs" data-class-for-tab="active-tab" data-class-for-obj="active">
   <button id="regular-tab" class="tabs__tab active-tab">Regular customer</button>
   <button id="wholesale-tab" class="tabs__tab">Wholesale customer</button>
 </div>
@@ -89,17 +89,19 @@
               <!--<div class="sign-up__add-file">-->
               <!--  -->
               <div class="add-file">
-  <div class="add-file__info">
-    <span>Wholesale purchase permission</span>
-    <span>Permission</span>
+  <div class="add-file__content">
+    <div class="add-file__info">
+      <span>Wholesale purchase permission</span>
+      <span>Permission</span>
+    </div>
+    <label for="file">
+      Upload
+      <input type="file" name="file" id="file" accept="image/*,.pdf" />
+    </label>
   </div>
-  <label for="file">
-    Upload
-    <input type="file" name="file" id="file" accept="image/*,.pdf" />
-  </label>
-</div>
-<div class="error" id="error-file">
-  <span>Please attach wholesale purchase permission</span>
+  <div class="error" id="error-file">
+    <span>Please attach wholesale purchase permission</span>
+  </div>
 </div>
 
               <!--</div>-->
@@ -116,6 +118,6 @@
 </footer>
 
     </div>
-    <script src="js/app.min.js?_v=20230907171803"></script>
+    <script src="js/registration.min.js"></script>
   </body>
 </html>

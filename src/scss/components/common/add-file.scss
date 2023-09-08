@@ -1,17 +1,22 @@
 .add-file {
    width: 100%;
-   height: 56px;
    margin-bottom: 15px;
-   padding: 0 10px 0 24px;
-   border-radius: 12px;
-   background: #FAF8F6;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   font-size: 18px;
+   display: none;
 
    @media (max-width: 650px) {
       margin-bottom: 10px;
+   }
+
+   &__content {
+      width: 100%;
+      height: 56px;
+      padding: 0 10px 0 24px;
+      border-radius: 12px;
+      background: #FAF8F6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
    }
 
    &__info {
@@ -57,4 +62,8 @@
          display: none;
       }
    }
+}
+
+.active {
+   display: block;
 }
