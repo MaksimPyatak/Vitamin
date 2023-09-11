@@ -11,12 +11,12 @@
   разного объема."
   />
 
-  <link rel="stylesheet" href="css/sign-up.min.css?_v=20230908123850" />
-  <!--<link rel="preload" href="css/sign-up.min.css-preload?_v=20230908123850" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/sign-up.min.css?_v=20230911234813" />
+  <!--<link rel="preload" href="css/sign-up.min.css-preload?_v=20230911234813" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230908123850" />-->
+  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230911234813" />-->
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
   <title>Medstogo - Sign up</title>
 </head>
@@ -77,26 +77,26 @@
               or sign up using your email address...
               <span></span>
             </div>
-            <form method="post" id="sign-up-form">
+            <form id="sign-up-form" name="sign_up">
               <input type="email" name="email" id="email" placeholder="Email" />
-              <div id="error-file"></div>
-              <input type="text" name="first-name" id="first-name" placeholder="First Name" />
-              <div id="error-file"></div>
-              <input type="text" name="last-name" id="last-name" placeholder="Last Name" />
-              <div id="error-file"></div>
+              <div class="error" id="error-email"></div>
+              <input type="text" name="first" id="first-name" placeholder="First Name" />
+              <div class="error" id="error-first"></div>
+              <input type="text" name="last" id="last-name" placeholder="Last Name" />
+              <div class="error" id="error-last"></div>
               <input type="password" name="password" id="password" placeholder="Password" />
-              <div id="error-file"></div>
+              <div class="error" id="error-password"></div>
               <!--<div class="sign-up__add-file">-->
               <!--  -->
               <div class="add-file">
-  <div class="add-file__content">
+  <div class="add-file__content input-file-wrapper">
     <div class="add-file__info">
       <span>Wholesale purchase permission</span>
       <span>Permission</span>
     </div>
     <label for="file">
       Upload
-      <input type="file" name="file" id="file" accept="image/*,.pdf" />
+      <input type="file" name="file" id="file" accept="image/*,.pdf" disabled />
     </label>
   </div>
   <div class="error" id="error-file">
@@ -105,7 +105,7 @@
 </div>
 
               <!--</div>-->
-              <button class="sign-up__submit no-active-button">Create my account</button>
+              <button type="submit" class="sign-up__submit no-active-button">Create my account</button>
             </form>
           </div>
         </div>
@@ -118,6 +118,6 @@
 </footer>
 
     </div>
-    <script src="js/registration.min.js?_v=20230908123850"></script>
+    <script src="js/sign-up.min.js?_v=20230911234813"></script>
   </body>
 </html>

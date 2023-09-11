@@ -15,6 +15,7 @@
 	"author": "FLS",
 	"license": "ISC",
 	"dependencies": {
+		"firebase": "^10.3.1",
 		"gulp-cli": "^2.3.0"
 	},
 	"devDependencies": {

@@ -25,26 +25,26 @@
               or sign up using your email address...
               <span></span>
             </div>
-            <form method="post" id="sign-up-form">
+            <form id="sign-up-form" name="sign_up">
               <input type="email" name="email" id="email" placeholder="Email" />
-              <div id="error-file"></div>
-              <input type="text" name="first-name" id="first-name" placeholder="First Name" />
-              <div id="error-file"></div>
-              <input type="text" name="last-name" id="last-name" placeholder="Last Name" />
-              <div id="error-file"></div>
+              <div class="error" id="error-email"></div>
+              <input type="text" name="first" id="first-name" placeholder="First Name" />
+              <div class="error" id="error-first"></div>
+              <input type="text" name="last" id="last-name" placeholder="Last Name" />
+              <div class="error" id="error-last"></div>
               <input type="password" name="password" id="password" placeholder="Password" />
-              <div id="error-file"></div>
+              <div class="error" id="error-password"></div>
               <!--<div class="sign-up__add-file">-->
               <!--  -->
               @@include('html/components/common/add-file.html',{})
               <!--</div>-->
-              <button class="sign-up__submit no-active-button">Create my account</button>
+              <button type="submit" class="sign-up__submit no-active-button">Create my account</button>
             </form>
           </div>
         </div>
       </main>
       @@include('html/registration-footer.html',{"text":"Already have an account?", "link":"Sign in"})
     </div>
-    <script src="js/registration.min.js"></script>
+    <script src="js/sign-up.min.js"></script>
   </body>
 </html>
