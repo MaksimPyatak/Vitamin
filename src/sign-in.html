@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Sign in", "style": "css/sign-in.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Sign in</h1>
+      @@include('html/registration-header.html',{})
+      <main class="sign-in">
+        <div class="sign-in__box">
+          <div class="sign-in__content">
+            <h6 class="sign-in__title">Sign in with email</h6>
+            <div class="sign-in__title-subtitle">Please enter your e-mail and password:</div>
+            <form id="sign-in-form" name="sign_in">
+              <input type="email" name="email" id="email" placeholder="Email" />
+              <div class="error" id="error-email"></div>
+              <div class="sign-in__input-wrapper">
+                <input type="password" name="password" id="password" placeholder="Password" />
+                <a class="sign-in__forgot-password" href="pass-recovery.html">Forgot password?</a>
+              </div>
+              <div class="error" id="error-password"></div>
+              <button type="submit" class="sign-in__submit no-active-button">Sign in</button>
+            </form>
+            <div class="sign-in__subtitle">
+              <span></span>
+              or sign in with...
+              <span></span>
+            </div>
+            <div class="sign-in__social-block">
+              <!--  -->
+              @@include('html/components/common/socials.html',{})
+            </div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
+      @@include('html/registration-footer.html',{"text":"Don't have an account?", "link":"Create one", "href":"sign-up.html"})
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/sign-in.min.js"></script>
   </body>
 </html>

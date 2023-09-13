@@ -11,96 +11,82 @@
   разного объема."
   />
 
-  <link rel="stylesheet" href="css/style.min.css?_v=20230911234813" />
-  <!--<link rel="preload" href="css/style.min.css-preload?_v=20230911234813" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/sign-in.min.css?_v=20230913233216" />
+  <!--<link rel="preload" href="css/sign-in.min.css-preload?_v=20230913233216" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230911234813" />-->
+  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230913233216" />-->
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
-  <title>Главная - Орех Причерноморья</title>
+  <title>Medstogo - Sign in</title>
 </head>
 
-  <!--, "style-preload": "css/main.min.css"-->
   <body>
     <div class="wrapper">
       <header class="header">
-  <div class="header__zero"></div>
-  <div class="header__header-container">
-    <div class="header__burger">
-      <span></span>
-    </div>
-    <a href="index.html" class="header__logo">
-      <img src="img/header/logo.svg" alt="Logotype" />
-    </a>
-    <div class="header__body">
-      <a href="profile.html" class="header__profile-logo">
-        <img src="img/header/profile-icon.svg" alt="profile-logo" />
-      </a>
-      <div class="header__cart-icon">
-        <img src="img/header/cart-icon.svg" alt="Cart" />
-      </div>
-      <button class="header__button" data-link="quiz.html">Take the quiz</button>
-    </div>
+  <div class="header__logo">
+    <a href="index.html"><img src="img/header/logo.svg" alt="Logotype" /></a>
   </div>
 </header>
 
-      <main class="main-page">
-        <h1>Sign in</h1>
+      <main class="sign-in">
+        <div class="sign-in__box">
+          <div class="sign-in__content">
+            <h6 class="sign-in__title">Sign in with email</h6>
+            <div class="sign-in__title-subtitle">Please enter your e-mail and password:</div>
+            <form id="sign-in-form" name="sign_in">
+              <input type="email" name="email" id="email" placeholder="Email" />
+              <div class="error" id="error-email"></div>
+              <div class="sign-in__input-wrapper">
+                <input type="password" name="password" id="password" placeholder="Password" />
+                <a class="sign-in__forgot-password" href="pass-recovery.html">Forgot password?</a>
+              </div>
+              <div class="error" id="error-password"></div>
+              <button type="submit" class="sign-in__submit no-active-button">Sign in</button>
+            </form>
+            <div class="sign-in__subtitle">
+              <span></span>
+              or sign in with...
+              <span></span>
+            </div>
+            <div class="sign-in__social-block">
+              <!--  -->
+              <div class="socials">
+  <a href="https://www.google.com" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Google_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Google</div>
+    <div class="socials__ampty"></div>
+  </a>
+  <a href="https://www.apple.com/" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Apple_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Apple</div>
+    <div class="socials__ampty"></div>
+  </a>
+  <a href="https://www.facebook.com/" class="socials__social">
+    <div class="socials__social-icon">
+      <img src="img/registration/Facebook_logo.svg" alt="Google logotype" />
+    </div>
+    <div class="socials__social-name">Facebook</div>
+    <div class="socials__ampty"></div>
+  </a>
+</div>
+
+            </div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css?_v=20230911234813" />-->
       <footer class="footer">
-  <div class="footer__container">
-    <div class="footer__logo">
-      <img src="img/header/logo.svg" alt="Logotype" />
-    </div>
-    <div class="footer__copyright">© 2020 Vitamins.com / All rights reserved</div>
-    <div class="footer__menu menu-footer">
-      <div class="menu-footer__shop">
-        <div class="menu-footer__title">Shop</div>
-        <ul class="menu-footer__list">
-          <div class="menu-footer__part-list">
-            <li class="menu-footer__item"><a href="catalogue.html">Vitamins & Dietary Supplements</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Weight Loss</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Minerals</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Antioxidants</a></li>
-          </div>
-          <div class="menu-footer__part-list">
-            <li class="menu-footer__item"><a href="catalogue.html">Probiotics</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Pain Relief</a></li>
-            <li class="menu-footer__item"><a href="catalogue.html">Prenatal Vitamins</a></li>
-          </div>
-        </ul>
-      </div>
-      <div class="menu-footer__information">
-        <div class="menu-footer__title">Information</div>
-        <ul class="menu-footer__list">
-          <li class="menu-footer__item"><a href="subscription-text.html">Terms & Conditions</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Privacy Policy</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
-          <li class="menu-footer__item"><a href="subscription-text.html">Return Policy</a></li>
-        </ul>
-      </div>
-      <div class="menu-footer__contact">
-        <div class="menu-footer__title">Contact</div>
-        <ul class="menu-footer__list">
-          <li class="menu-footer__item"><a href="mailto:support@medstogo.com">support@medstogo.com</a></li>
-          <li class="menu-footer__item">
-            <a href="https://www.facebook.com/"><img src="img/footer/facebook.svg" alt="Facebook" />Facebook</a>
-          </li>
-          <li class="menu-footer__item">
-            <a href="https://www.instagram.com/"><img src="img/footer/insta.svg" alt="instagram" />Instagram</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="footer__no-account">
+    <p>Don't have an account?&nbsp;</p>
+    <a href="sign-up.html" class="footer__link"> Create one </a>
   </div>
 </footer>
 
-      <!---->
     </div>
-    <script src="js/app.min.js?_v=20230911234813"></script>
+    <script src="js/sign-in.min.js?_v=20230913233216"></script>
   </body>
 </html>

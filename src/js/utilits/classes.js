@@ -30,10 +30,10 @@ export class ClassToggler {
 
    addListener() {
       this.#getOllObject();
-      this.#tabs.addEventListener('click', (e) => this.#changeClass(e))
+      this.#tabs.addEventListener('click', (e) => this.changeClass(e))
    }
 
-   #changeClass(e) {
+   changeClass(e) {
       let btn = e.target.closest(`.${this.tabClass}`);
       if (!btn) {
          return
@@ -57,6 +57,7 @@ export class ClassToggler {
          console.log(`Element containing class ${this.objectClass} not found.`);
       }
    }
+
 
    #addClassToTab(tab) {
       if (this.#classForTab) {
