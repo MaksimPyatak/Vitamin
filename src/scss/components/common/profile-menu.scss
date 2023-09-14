@@ -1,0 +1,18 @@
+.profile-menu {
+   width: 100%;
+
+   &__list {
+      width: 100%;
+
+   }
+
+   &__item {
+      font-family: Effra;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+
+      .item__sign-out {}
+   }
+}
