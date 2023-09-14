@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Sign up", "style": "css/sign-up-wholesale-step-2.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Sign up wholesale step 2</h1>
+      @@include('html/registration-header.html',{})
+      <main class="sign-up">
+        <div class="sign-up__box">
+          <div class="sign-up__content">
+            <h6 class="sign-up__title">Wholesale purchase permission</h6>
+            <div class="sign-up__title-subtitle">Please attach file to continue</div>
+            <form id="sign-up-form" name="sign_up">
+              @@include('html/components/common/add-file.html',{})
+              <button type="submit" class="sign-up__submit no-active-button">Create my account</button>
+            </form>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
+      @@include('html/registration-footer.html',{"text":"Don't have an account?", "link":"Create one", "href":"sign-up.html"})
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/sign-up-wholesale-step-2.min.js"></script>
   </body>
 </html>
