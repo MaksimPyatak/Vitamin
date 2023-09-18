@@ -13,20 +13,13 @@
 
    &__header {
       position: relative;
-
-
       height: 56px;
       padding: 0 24px;
       border-radius: 12px;
       background: #FAF8F6;
+      display: flex;
+      align-items: center;
       font-size: 18px;
-
-      //border: 1px solid #ced4da;
-      //padding: 13.5px 35px 13.5px 15px;
-      //font-size: 16px;
-      //font-weight: 600;
-      //line-height: normal;
-      //letter-spacing: 0.01em;
       cursor: pointer;
       user-select: none;
 
@@ -49,12 +42,13 @@
          position: absolute;
          top: 47%;
          right: 15px;
+         transform-origin: 35% 68%;
          transform: translateY(-50%) rotate(-45deg);
          transition: transform 0.3s;
       }
 
       &.on {
-         border: 1px solid #337D5A;
+         border: 1px solid #ced4da;
 
          .arrow {
             transform: translateY(-50%) rotate(135deg);
@@ -65,7 +59,7 @@
 
 .new-select__list {
    position: absolute;
-   top: 45.5px;
+   top: 46px;
    left: 0;
    min-width: max-content;
    width: 100%;
@@ -77,6 +71,11 @@
 
    color: #333333;
    z-index: 3;
+
+   &--upwards {
+      top: unset;
+      bottom: calc(100% - 10px);
+   }
 }
 
 .new-select__list.on {

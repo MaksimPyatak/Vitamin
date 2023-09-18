@@ -1,6 +1,9 @@
-const selectElements = document.querySelectorAll('.select');
+//Додати ще, щоб при фокусуванні не відкривався список опцій, а просто був елемент в фокусі, а вже при натисканні ентр або стрілки в низ можна буловідкрити список. Після вибору опції залишати  елемент в фокусі для можливості здійснення повторного відкриття списку за допомогою ентр або стрілки вниз
 
+const selectElements = document.querySelectorAll('.select');
+console.log(document.forms[0].elements.state.value);
 selectElements.forEach(function (selectElement) {
+   const upwardsClassSelectList = 'new-select__list--upwards';
    const _this = selectElement;
    const selectOption = _this.querySelectorAll('option');
    const selectOptionLength = selectOption.length;
@@ -47,6 +50,8 @@ selectElements.forEach(function (selectElement) {
    selectHead.addEventListener('click', () => {
       if (!clicked) {
          choiseSelect();
+         //addNavigationForOptions();
+         //adjustOptionsListPosition(selectList, upwardsClassSelectList);
       }
    });
    newSelect.addEventListener('focus', (e) => {
@@ -57,6 +62,10 @@ selectElements.forEach(function (selectElement) {
    newSelect.addEventListener('blur', () => {
       clicked = false;
       blurSelect();
+      //addNavigationForOptions();
+
+      removeClass(selectItem, 'new-select__item--active');
+      adjustOptionsListPosition(selectList, upwardsClassSelectList);
    });
 
    const clickOutsideNewSelect = function (event) {
@@ -64,12 +73,12 @@ selectElements.forEach(function (selectElement) {
          selectList.style.display = 'none';
          selectHead.classList.remove('on');
          document.removeEventListener("click", clickOutsideNewSelect);
-         //currentElementIndex = undefined;
-         removeClass(selectItem, 'new-select__item--active');
+         currentElementIndex = undefined;
       }
    };
 
    function removeClass(arrayElements, classForRemove) {
+      currentElementIndex = undefined;
       for (let i = 0; i < arrayElements.length; i++) {
          const element = arrayElements[i];
          element.classList.remove(classForRemove)
@@ -81,6 +90,7 @@ selectElements.forEach(function (selectElement) {
          selectHead.classList.add('on');
          selectList.style.display = 'block';
          addNavigationForOptions();
+         adjustOptionsListPosition(selectList, upwardsClassSelectList);
 
          function actionsAfterSelectingOption(item) {
             let chooseItem = item.getAttribute('data-value');
@@ -91,10 +101,12 @@ selectElements.forEach(function (selectElement) {
 
             selectList.style.display = 'none';
             selectHead.classList.remove('on');
+            removeClass(selectItem, 'new-select__item--active');
+            removeUpwardsClass(selectList, upwardsClassSelectList);
             document.removeEventListener("click", clickOutsideNewSelect);
          }
 
-         document.addEventListener('keydown', downKeyEnter)
+         document.addEventListener('keydown', downKeyEnter);
          function downKeyEnter(event) {
             if (event.key === 'Enter' && selectList.style.display === 'block') {
                event.preventDefault();
@@ -109,6 +121,7 @@ selectElements.forEach(function (selectElement) {
 
          document.addEventListener("click", clickOutsideNewSelect);
 
+         //Не зайве?
          selectItem.forEach(function (item) {
             item.addEventListener('click', () => actionsAfterSelectingOption(item));
          });
@@ -116,6 +129,8 @@ selectElements.forEach(function (selectElement) {
       } else {
          selectHead.classList.remove('on');
          selectList.style.display = 'none';
+         removeUpwardsClass(selectList, upwardsClassSelectList);
+         removeClass(selectItem, 'new-select__item--active');
       }
    }
 
@@ -123,12 +138,6 @@ selectElements.forEach(function (selectElement) {
       selectHead.classList.remove('on');
       selectList.style.display = 'none';
    }
-
-   //document.addEventListener('keydown', (event) => {
-   //   if (event.key === 'Tab') {
-   //      console.log(document.activeElement);
-   //   }
-   //})
 
    function addNavigationForOptions() {
       document.removeEventListener('keydown', navigationByOptions);
@@ -176,3 +185,18 @@ selectElements.forEach(function (selectElement) {
       }
    }
 });
+
+function adjustOptionsListPosition(optionsList, upwardsClass) {
+   const windowHeight = window.innerHeight;
+   const optionsListHeight = optionsList.clientHeight;
+   const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
+
+   if (windowHeight - optionsListOffsetTop < optionsListHeight) {
+      optionsList.classList.add(upwardsClass);
+   } else {
+      optionsList.classList.remove(upwardsClass);
+   }
+}
+function removeUpwardsClass(optionsList, upwardsClass) {
+   optionsList.classList.remove(upwardsClass);
+}
