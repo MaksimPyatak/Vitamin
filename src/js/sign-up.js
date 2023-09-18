@@ -22,6 +22,7 @@ const form = document.forms.sign_up;
 const elForm = form.elements;
 const regValidator = new Validator(form);
 const submitBtn = form.querySelector('.sign-up__submit');
+const body = document.querySelector('body');
 regValidator.blurValidation();
 
 const origMethod = registrationTabs.changeClass.bind(registrationTabs);
@@ -57,7 +58,8 @@ function submitFormHandler(event) {
 
       submitBtn.classList.add('no-active-button');
       submitBtn.disabled = true;
-      submitBtn.style.cursor = 'not-allowed';
+      body.style.cursor = 'wait';
+      submitBtn.style.cursor = 'wait';
       createUserWithEmailAndPassword(auth, userProfile.email, userProfile.password)
          .then((userCredential) => {
             const user = userCredential.user;

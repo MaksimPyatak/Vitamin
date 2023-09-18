@@ -8,11 +8,24 @@
 
    &__item {
       font-family: Effra;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
+      font-size: 22px;
+      font-weight: 400;
 
-      .item__sign-out {}
+      &:not(:last-child) {
+         margin-bottom: 48px;
+      }
+
+      .item__sign-out {
+         color: #D32D2C;
+      }
+
+      &:first-child {
+         margin-top: 13px;
+      }
+
+
+      &--active {
+         font-weight: 700;
+      }
    }
 }

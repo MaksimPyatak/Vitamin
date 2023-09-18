@@ -1,0 +1,54 @@
+<fieldset class="form__fieldset">
+  <div class="form__item">
+    <label for="first_name"> First Name </label>
+    <input type="text" name="first_name" id="first_name" placeholder="" />
+    <div class="error" id="error-first_name">Required</div>
+  </div>
+  <div class="form__item">
+    <label for="last_name"> Last Name </label>
+    <input type="text" name="last_name" id="last_name" placeholder="" />
+    <div class="error" id="error-last_name"></div>
+  </div>
+  <div class="form__item">
+    <label for="first_address"> Address Line 1 </label>
+    <input type="text" name="first_address" id="first_address" placeholder="" />
+    <div class="error" id="error-first_address"></div>
+  </div>
+  <div class="form__item">
+    <label for="second_address"> Address Line 2 </label>
+    <input type="text" name="second_address" id="second_address" placeholder="" />
+    <div class="error" id="error-second_address"></div>
+  </div>
+  <div class="form__item">
+    <label for="city"> City </label>
+    <input type="text" name="city" id="city" placeholder="" />
+    <div class="error" id="error-city"></div>
+  </div>
+  <div class="form__item form__item--duble">
+    <div class="form__subitem">
+      <label for="province"> State / Province </label>
+      @@include('./select.html', {"disabled":"--", "option1":"NY", "option2": "AL", "option3":"CA"})
+      <!--<input type="text" name="province" id="province" placeholder="" />-->
+      <div class="error" id="error-province"></div>
+    </div>
+    <div class="form__subitem">
+      <label for="zip"> ZIP / Postal Code </label>
+      <input type="text" name="zip" id="zip" placeholder="" />
+      <div class="error" id="error-zip"></div>
+    </div>
+  </div>
+  <div class="form__item">
+    <label for="email"> Email </label>
+    <input type="text" name="email" id="email" placeholder="" />
+    <div class="error" id="error-email"></div>
+  </div>
+  <div class="form__item">
+    <label for="phone"> Phone Number </label>
+    <input type="text" name="phone" id="phone" placeholder="" />
+    <div class="error" id="error-phone"></div>
+  </div>
+  <div class="form__item" id="file-wrapper">
+    <label for="file"> Wholesale purchase permission </label>
+    @@include('../common/add-file.html',{"btn_text":"Update"})
+  </div>
+</fieldset>

@@ -6,6 +6,7 @@ const form = document.forms.sign_in;
 const elForm = form.elements;
 const regValidator = new Validator(form);
 const submitBtn = form.querySelector('.sign-in__submit');
+const body = document.querySelector('body');
 
 regValidator.blurValidation();
 
@@ -29,7 +30,8 @@ async function submitFormHandler(event) {
       try {
          submitBtn.classList.add('no-active-button');
          submitBtn.disabled = true;
-         submitBtn.style.cursor = 'not-allowed';
+         body.style.cursor = 'wait';
+         submitBtn.style.cursor = 'wait';
          const userCredential = await signInWithEmailAndPassword(auth, elForm.email.value, elForm.password.value);
          console.log(userCredential.user);
          window.location.replace("subscriptions.html")

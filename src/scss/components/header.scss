@@ -49,6 +49,7 @@
       display: none;
       width: 24px;
       height: 18px;
+      margin-left: 4px;
       position: relative;
       cursor: pointer;
 
@@ -92,14 +93,14 @@
 
          &::before {
             position: absolute;
-            top: 6px;
+            top: 8px;
             left: 0;
 
          }
 
          &::after {
             position: absolute;
-            bottom: 6px;
+            bottom: 8px;
             left: 0;
 
          }

@@ -1,0 +1,21 @@
+.overview-form {
+   width: 100%;
+}
+
+.form {
+
+   &__submit {
+      @include oval-button ($width: 154px, $hight: 50px, $font-size: 1.1429rem, $bg-color: var(--main-orange), $width-xs: 100%, $hight-xs: 50px, );
+      margin-top: 13px;
+
+      @media (max-width: 650px) {
+         margin-top: 10px;
+         font-size: 16px;
+      }
+   }
+}
+
+
+@import "../common/add-file";
+@import "../common/profile-inputs";
+@import "../common/select";

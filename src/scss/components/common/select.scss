@@ -1,0 +1,109 @@
+.select {
+   display: block;
+   width: 100%;
+   position: relative;
+
+   //font-size: 14px;
+   //font-family: Montserrat;
+   //font-weight: 500;
+   //line-height: 17px;
+}
+
+.new-select {
+
+   &__header {
+      position: relative;
+
+
+      height: 56px;
+      padding: 0 24px;
+      border-radius: 12px;
+      background: #FAF8F6;
+      font-size: 18px;
+
+      //border: 1px solid #ced4da;
+      //padding: 13.5px 35px 13.5px 15px;
+      //font-size: 16px;
+      //font-weight: 600;
+      //line-height: normal;
+      //letter-spacing: 0.01em;
+      cursor: pointer;
+      user-select: none;
+
+      //@media (max-width: 768px) {
+      //   font-size: 14px;
+      //}
+
+      //&:hover {
+      //   border: 1px solid hsla(0, 0%, 0%, 0.15);
+      //   background: rgba(51, 125, 90, 0.10);
+      //}
+
+      .arrow {
+         display: inline-block;
+         width: 10px;
+         height: 10px;
+         border-style: solid;
+         border-width: 2px;
+         border-color: transparent transparent rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.5);
+         position: absolute;
+         top: 47%;
+         right: 15px;
+         transform: translateY(-50%) rotate(-45deg);
+         transition: transform 0.3s;
+      }
+
+      &.on {
+         border: 1px solid #337D5A;
+
+         .arrow {
+            transform: translateY(-50%) rotate(135deg);
+         }
+      }
+   }
+}
+
+.new-select__list {
+   position: absolute;
+   top: 45.5px;
+   left: 0;
+   min-width: max-content;
+   width: 100%;
+   border: 1px solid #ced4da;
+   padding: 0 15px;
+   cursor: pointer;
+   background: #fff;
+   user-select: none;
+
+   color: #333333;
+   z-index: 3;
+}
+
+.new-select__list.on {
+   display: block;
+}
+
+.new-select__item {
+   height: 44px;
+   display: flex;
+   align-items: center;
+
+   &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+   }
+
+   span {
+      width: 100%;
+      display: block;
+   }
+}
+
+.new-select__item:hover,
+.new-select__item--active {
+   height: 45px;
+   //color: #FFFFFF;
+   margin: -1px -15px -0px;
+   padding: 0px 14.5px;
+   border: 1px solid rgba(0, 0, 0, 0.08);
+   background: #FAF8F6;
+}

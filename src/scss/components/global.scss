@@ -121,6 +121,18 @@ h4 {
    font-family: Effra;
    font-size: 36px;
    font-weight: 500;
+
+   @media (max-width: 1024px) {
+      font-size: 32px;
+   }
+
+   @media (max-width: 768px) {
+      font-size: 28px;
+   }
+
+   @media (max-width: 425px) {
+      font-size: 24px;
+   }
 }
 
 h5 {
