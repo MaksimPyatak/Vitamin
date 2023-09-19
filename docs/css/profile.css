@@ -858,6 +858,17 @@ main {
   font-size: 18px;
 }
 
+.form__item input[type=number]::-webkit-inner-spin-button,
+.form__item input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+
+.form__item .select {
+  margin-bottom: 7px;
+}
+
 .form .add-file {
   display: block;
 }

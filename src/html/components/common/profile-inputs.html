@@ -1,12 +1,12 @@
 <fieldset class="form__fieldset">
   <div class="form__item">
     <label for="first_name"> First Name </label>
-    <input type="text" name="first_name" id="first_name" placeholder="" />
-    <div class="error" id="error-first_name">Required</div>
+    <input type="text" name="first" id="first_name" placeholder="" />
+    <div class="error" id="error-first_name"></div>
   </div>
   <div class="form__item">
     <label for="last_name"> Last Name </label>
-    <input type="text" name="last_name" id="last_name" placeholder="" />
+    <input type="text" name="last" id="last_name" placeholder="" />
     <div class="error" id="error-last_name"></div>
   </div>
   <div class="form__item">
@@ -26,10 +26,10 @@
   </div>
   <div class="form__item form__item--duble">
     <div class="form__subitem">
-      <label for="province"> State / Province </label>
+      <label for="state"> State / Province </label>
       @@include('./select.html', { "name":"state", "disabled":"--", "option1":"NY", "option2": "AL", "option3":"CA"})
       <!--<input type="text" name="province" id="province" placeholder="" />-->
-      <div class="error" id="error-province"></div>
+      <div class="error" id="error-state"></div>
     </div>
     <div class="form__subitem">
       <label for="zip"> ZIP / Postal Code </label>

@@ -53,6 +53,16 @@
          //@media (max-width: 425px) {
          //   margin-bottom: 4px;
          //}
+         &[type="number"]::-webkit-inner-spin-button,
+         &[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            margin: 0
+         }
+      }
+
+      .select {
+         margin-bottom: 7px;
       }
    }
 

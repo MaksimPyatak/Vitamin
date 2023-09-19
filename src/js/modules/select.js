@@ -1,7 +1,6 @@
 //Додати ще, щоб при фокусуванні не відкривався список опцій, а просто був елемент в фокусі, а вже при натисканні ентр або стрілки в низ можна буловідкрити список. Після вибору опції залишати  елемент в фокусі для можливості здійснення повторного відкриття списку за допомогою ентр або стрілки вниз
 
 const selectElements = document.querySelectorAll('.select');
-console.log(document.forms[0].elements.state.value);
 selectElements.forEach(function (selectElement) {
    const upwardsClassSelectList = 'new-select__list--upwards';
    const _this = selectElement;
@@ -47,7 +46,7 @@ selectElements.forEach(function (selectElement) {
    const selectItem = selectList.querySelectorAll('.new-select__item');
    selectList.style.display = 'none';
    let clicked = false;
-   selectHead.addEventListener('click', () => {
+   newSelect.addEventListener('click', (event) => {
       if (!clicked) {
          choiseSelect();
          //addNavigationForOptions();
@@ -57,12 +56,13 @@ selectElements.forEach(function (selectElement) {
    newSelect.addEventListener('focus', (e) => {
       clicked = !clicked;
       choiseSelect();
-      window.setTimeout(() => clicked = false, 100)
+      window.setTimeout(() => clicked = false, 200)
    });
-   newSelect.addEventListener('blur', () => {
+   newSelect.addEventListener('blur', (event) => {
       clicked = false;
       blurSelect();
-      //addNavigationForOptions();
+      const changeEvent = new Event('blur', { bubbles: true });
+      selectElements[0].dispatchEvent(changeEvent);
 
       removeClass(selectItem, 'new-select__item--active');
       adjustOptionsListPosition(selectList, upwardsClassSelectList);
@@ -94,8 +94,10 @@ selectElements.forEach(function (selectElement) {
 
          function actionsAfterSelectingOption(item) {
             let chooseItem = item.getAttribute('data-value');
-
             _this.value = chooseItem;
+
+            const changeEvent = new Event('change', { bubbles: true });
+            _this.dispatchEvent(changeEvent);
 
             selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${item.querySelector('span').textContent}`;
 
@@ -104,6 +106,8 @@ selectElements.forEach(function (selectElement) {
             removeClass(selectItem, 'new-select__item--active');
             removeUpwardsClass(selectList, upwardsClassSelectList);
             document.removeEventListener("click", clickOutsideNewSelect);
+            clicked = true;
+            window.setTimeout(() => clicked = false, 200);
          }
 
          document.addEventListener('keydown', downKeyEnter);
@@ -121,7 +125,7 @@ selectElements.forEach(function (selectElement) {
 
          document.addEventListener("click", clickOutsideNewSelect);
 
-         //Не зайве?
+         //Зняти спостерігачі
          selectItem.forEach(function (item) {
             item.addEventListener('click', () => actionsAfterSelectingOption(item));
          });
@@ -131,6 +135,10 @@ selectElements.forEach(function (selectElement) {
          selectList.style.display = 'none';
          removeUpwardsClass(selectList, upwardsClassSelectList);
          removeClass(selectItem, 'new-select__item--active');
+
+         selectItem.forEach(function (item) {
+            item.removeEventListener('click', () => actionsAfterSelectingOption(item));
+         });
       }
    }
 
@@ -145,10 +153,10 @@ selectElements.forEach(function (selectElement) {
 
    }
    function navigationByOptions(event) {
-      if (event.key === 'ArrowDown' && (document.activeElement == (newSelect || selectHead) || document.activeElement.parentElement === selectList)) {
+      if (event.key === 'ArrowDown' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
          event.preventDefault()
          focusNextElement();
-      } else if (event.key === 'ArrowUp' && (document.activeElement == (newSelect || selectHead) || document.activeElement.parentElement === selectList)) {
+      } else if (event.key === 'ArrowUp' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
          event.preventDefault()
          focusPreviousElement();
       }

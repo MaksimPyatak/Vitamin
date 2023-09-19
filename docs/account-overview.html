@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
 
-  <link rel="stylesheet" href="css/profile.min.css?_v=20230918141611" />
-  <!--<link rel="preload" href="css/profile.min.css-preload?_v=20230918141611" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
+  <link rel="stylesheet" href="css/profile.min.css?_v=20230919231400" />
+  <!--<link rel="preload" href="css/profile.min.css-preload?_v=20230919231400" as="style" onload="this.onload=null;this.rel='stylesheet'" />-->
 
   <!--<link rel="preload" href="css/nut.min.css" />
   <link rel="preload" href="css/fonts.min.css" />-->
-  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230918141611" />-->
+  <!--<link rel="stylesheet" href="css/style.min.css?_v=20230919231400" />-->
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
   <title>Medstogo - Account</title>
 </head>
@@ -71,12 +71,12 @@
   <fieldset class="form__fieldset">
   <div class="form__item">
     <label for="first_name"> First Name </label>
-    <input type="text" name="first_name" id="first_name" placeholder="" />
-    <div class="error" id="error-first_name">Required</div>
+    <input type="text" name="first" id="first_name" placeholder="" />
+    <div class="error" id="error-first_name"></div>
   </div>
   <div class="form__item">
     <label for="last_name"> Last Name </label>
-    <input type="text" name="last_name" id="last_name" placeholder="" />
+    <input type="text" name="last" id="last_name" placeholder="" />
     <div class="error" id="error-last_name"></div>
   </div>
   <div class="form__item">
@@ -96,7 +96,7 @@
   </div>
   <div class="form__item form__item--duble">
     <div class="form__subitem">
-      <label for="province"> State / Province </label>
+      <label for="state"> State / Province </label>
       <select class="select" name="state" value="">
   <option selected value="" disabled>--</option>
   <option value="NY">NY</option>
@@ -105,7 +105,7 @@
 </select>
 
       <!--<input type="text" name="province" id="province" placeholder="" />-->
-      <div class="error" id="error-province"></div>
+      <div class="error" id="error-state"></div>
     </div>
     <div class="form__subitem">
       <label for="zip"> ZIP / Postal Code </label>
@@ -200,6 +200,6 @@
 </footer>
 
     </div>
-    <script src="js/account-overview.min.js?_v=20230918141611"></script>
+    <script src="js/account-overview.min.js?_v=20230919231400"></script>
   </body>
 </html>

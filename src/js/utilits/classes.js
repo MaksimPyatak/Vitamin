@@ -99,6 +99,8 @@ export class Validator {
    emailRegExp = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
    ///^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/;
 
+   addressRegExp = /^[а-я\s.]+?\d+/i;
+
    validation(form = this.form) {
       let isValid = true;
       let n = null;
@@ -128,7 +130,7 @@ export class Validator {
          }
          element.addEventListener('blur', (e) => {
             if (typeof this[element.name + 'Test'] == 'function') {
-               this[element.name + 'Test'](e.target)
+               this[element.name + 'Test'](e.target);
             }
          });
       }
@@ -178,13 +180,13 @@ export class Validator {
    }
    firstTest(input) {
       if (input.value.length === 0) {
-         const message = "Fild can't be blank"
+         const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input));
          return null
       } else if (input.value.length < 3 || input.value.length > 15) {
-         const message = "Fild must be at least 3 and no longer than 15 characters"
+         const message = "Field must be at least 3 and no longer than 15 characters"
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input));
@@ -231,9 +233,147 @@ export class Validator {
          return 1
       }
    }
-
    passwordValidationForBtn(input) {
       if (input.value.length >= 6 && input.value.length <= 15) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   first_addressTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      } else if (input.value.length < 2) {//|| input.value.length > 15
+         const message = "Field must be at least 2 characters"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   first_addressValidationForBtn(input) {
+      if (input.value.length >= 2 && input.value.length <= 15) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   cityTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      } else if (input.value.length < 2 || input.value.length > 15) {
+         const message = "Field must be at least 2 and no longer than 15 characters"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   cityValidationForBtn(input) {
+      if (input.value.length >= 2 && input.value.length <= 15) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   stateTest(input) {
+      const castomSelect = this.#findCastomSelect(input, 'new-select__header');
+      if (input.value === "") {
+         const message = "Select from the list";
+         this.isError(message, input);
+         if (castomSelect) {
+            castomSelect.classList.add('input-error');
+         }
+         input.addEventListener('change', (e) => this[input.name + 'Test'](input));
+         return null
+      } else {
+         if (castomSelect) {
+            console.log('error');
+            castomSelect.classList.remove('input-error');
+         }
+         this.removeError(input);
+         return 1
+      }
+   }
+   stateValidationForBtn(input) {
+      if (!input.value === null) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   zipTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      } else if (input.value.length < 7) {
+         const message = "The field must contain 6 digits"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   zipValidationForBtn(input) {
+      if (!input.value === 7) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   phoneTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      } else if (input.value.length < 15) {
+         const message = "The field must contain 11 digits"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   phoneValidationForBtn(input) {
+      if (!input.value === 15) {
          return true
       } else {
          return false
@@ -297,5 +437,15 @@ export class Validator {
             el.innerHTML = '';
          }
       })
+   }
+
+   #findCastomSelect(element, className) {
+      let parent = element.parentElement;
+      let child = parent.getElementsByClassName(className);
+      if (child) {
+         return child[0]
+      } else {
+         return
+      }
    }
 }
