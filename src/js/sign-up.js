@@ -3,20 +3,22 @@ import { auth, showLoginError, storage, db } from "./modules/firebase.js";
 
 import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 
 import "./modules/sign-up/add-file-name.js";
 
 const registrationTabs = new ClassToggler("tabs", 'tabs__tab', "add-file");
 
 const userProfile = {
-   uid: '',
-   email: '',
-   first_name: '',
-   last_name: '',
-   password: '',
-   file: {},
-   wholesale: '',
+   account_overview: {
+      uid: '',
+      email: '',
+      first_name: '',
+      last_name: '',
+      password: '',
+      file: {},
+      wholesale: '',
+   }
 };
 const form = document.forms.sign_up;
 const elForm = form.elements;
@@ -49,26 +51,24 @@ function submitFormHandler(event) {
    event.preventDefault();
 
    if (regValidator.validation()) {
-      userProfile.email = elForm.email.value;
-      userProfile.first_name = elForm.first.value;
-      userProfile.last_name = elForm.last.value;
-      userProfile.password = elForm.password.value;
-      //userProfile.file = elForm.file.files[0];
-      userProfile.wholesale = !elForm.file.disabled;
+      userProfile.account_overview.email = elForm.email.value;
+      userProfile.account_overview.first_name = elForm.first.value;
+      userProfile.account_overview.last_name = elForm.last.value;
+      userProfile.account_overview.password = elForm.password.value;
+      userProfile.account_overview.wholesale = !elForm.file.disabled;
 
       submitBtn.classList.add('no-active-button');
       submitBtn.disabled = true;
       body.style.cursor = 'wait';
       submitBtn.style.cursor = 'wait';
-      createUserWithEmailAndPassword(auth, userProfile.email, userProfile.password)
+      createUserWithEmailAndPassword(auth, userProfile.account_overview.email, userProfile.account_overview.password)
          .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
             return user
          })
          .then((user) => {
-            userProfile.uid = user.uid;
-            if (userProfile.wholesale) {
+            userProfile.account_overview.uid = user.uid;
+            if (userProfile.account_overview.wholesale) {
                const userFileRef = ref(storage, `/users/permissions/${Date.now()}${elForm.file.files[0].name}`)
                return uploadBytes(userFileRef, elForm.file.files[0])
             }
@@ -76,7 +76,7 @@ function submitFormHandler(event) {
          })
          .then((uploadResult) => {
             if (uploadResult) {
-               userProfile.file = {
+               userProfile.account_overview.file = {
                   name: uploadResult.metadata.name,
                   fullPath: uploadResult.metadata.fullPath
                }
@@ -84,7 +84,7 @@ function submitFormHandler(event) {
             return
          })
          .then(() => {
-            return addDoc(collection(db, "users"), userProfile)
+            return setDoc(doc(db, "users", userProfile.account_overview.uid), userProfile)
          })
          .then(() => window.location.replace("subscriptions.html"))
          .catch((error) => {

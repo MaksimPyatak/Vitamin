@@ -1,3 +1,5 @@
+import { signOutFunc } from "../modules/firebase.js";
+
 export function validationNumberInput(numberInput, maxLength,) {
    //input.addEventListener('input', function () {
    //   const inputValue = this.value.toString();
@@ -60,3 +62,12 @@ export function editPhone(numberInput) {
    });
 }
 
+//!!!!Потрібна?
+//export async function determineAuthState(link) {
+//   try {
+//      const user = await signOut(auth);
+//      return user
+//   } catch (error) {
+//      console.log(error);
+//   }
+//}

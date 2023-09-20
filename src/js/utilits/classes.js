@@ -153,17 +153,19 @@ export class Validator {
    }
 
    emailTest(input) {
+      console.log("email");
+      input.removeEventListener('input', (e) => this[input.name + 'Test'](input));
       if (input.value.length === 0) {
          const message = "Email can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (!this.emailRegExp.test(input.value)) {
          const message = "Email is invalid"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else {
          input.classList.remove('input-error');
@@ -183,13 +185,13 @@ export class Validator {
          const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 3 || input.value.length > 15) {
          const message = "Field must be at least 3 and no longer than 15 characters"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else {
          input.classList.remove('input-error');
@@ -219,13 +221,13 @@ export class Validator {
          const message = "Password can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 6 || input.value.length > 15) {
          const message = "Password must be at least 6 and no longer than 15 characters"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else {
          input.classList.remove('input-error');
@@ -246,13 +248,13 @@ export class Validator {
          const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 2) {//|| input.value.length > 15
          const message = "Field must be at least 2 characters"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       }
       else {
@@ -262,7 +264,7 @@ export class Validator {
       }
    }
    first_addressValidationForBtn(input) {
-      if (input.value.length >= 2 && input.value.length <= 15) {
+      if (input.value.length >= 2) {
          return true
       } else {
          return false
@@ -274,13 +276,13 @@ export class Validator {
          const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 2 || input.value.length > 15) {
          const message = "Field must be at least 2 and no longer than 15 characters"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       }
       else {
@@ -317,7 +319,7 @@ export class Validator {
       }
    }
    stateValidationForBtn(input) {
-      if (!input.value === null) {
+      if (!(input.value === null)) {
          return true
       } else {
          return false
@@ -329,13 +331,13 @@ export class Validator {
          const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 7) {
          const message = "The field must contain 6 digits"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       }
       else {
@@ -345,7 +347,7 @@ export class Validator {
       }
    }
    zipValidationForBtn(input) {
-      if (!input.value === 7) {
+      if (input.value.length === 7) {
          return true
       } else {
          return false
@@ -357,13 +359,13 @@ export class Validator {
          const message = "Field can't be blank"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 15) {
          const message = "The field must contain 11 digits"
          this.isError(message, input);
          input.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       }
       else {
@@ -373,7 +375,7 @@ export class Validator {
       }
    }
    phoneValidationForBtn(input) {
-      if (!input.value === 15) {
+      if (input.value.length === 15) {
          return true
       } else {
          return false
@@ -394,13 +396,13 @@ export class Validator {
          const message = "File must be attached"
          this.isError(message, input);
          inputWrapper.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (!['jpg', 'jpeg', 'png', 'gif', 'bmp', 'pdf'].includes(fileExtension)) {
          const message = "File must be image or PDF"
          this.isError(message, input);
          inputWrapper.classList.add('input-error');
-         input.addEventListener('input', (e) => this[input.name + 'Test'](input));
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else {
          inputWrapper.classList.remove('input-error');

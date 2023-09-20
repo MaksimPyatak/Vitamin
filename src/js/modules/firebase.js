@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, AuthErrorCodes } from "firebase/auth";
+import { getAuth, AuthErrorCodes, signOut } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
@@ -48,3 +48,34 @@ export const showSignupError = (error) => {
          break;
    }
 }
+
+export function signOutFunc() {
+   signOut(auth)
+      .then(() => {
+         console.log('You signed out');
+         window.location.replace('sign-in.html');
+      })
+      .catch((error) => {
+         console.log(error);
+      });
+}
+
+export function returnAuthUser() {
+   return new Promise(function (resolve, reject) {
+      auth.onAuthStateChanged((user) => {
+         resolve(user)
+      });
+   })
+}
+export let userAuth;
+export let uidUserAuth;
+returnAuthUser()
+   .then((result) => {
+      userAuth = result;
+      return result
+   })
+   //.then((result) => {
+   //   uidUserAuth = result.uid;
+   //   console.log(uidUserAuth);
+   //   return result
+   //});
