@@ -80,6 +80,7 @@
       label {
          margin-bottom: 0;
          opacity: 1;
+         justify-self: end;
       }
 
       input {
@@ -88,6 +89,9 @@
       }
 
       &__content {
+         display: grid;
+         grid-template-columns: auto 1fr;
+
          @media (max-width: 650px) {
             margin: 0 0 4px 0;
          }

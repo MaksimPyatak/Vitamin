@@ -1,27 +1,19 @@
 //Додати ще, щоб при фокусуванні не відкривався список опцій, а просто був елемент в фокусі, а вже при натисканні ентр або стрілки в низ можна буловідкрити список. Після вибору опції залишати  елемент в фокусі для можливості здійснення повторного відкриття списку за допомогою ентр або стрілки вниз
-
 const selectElements = document.querySelectorAll('.select');
 selectElements.forEach(function (selectElement) {
    const upwardsClassSelectList = 'new-select__list--upwards';
-   const _this = selectElement;
-   const selectOption = _this.querySelectorAll('option');
-   const selectOptionLength = selectOption.length;
-   //duration = 450;
-
-   _this.style.display = 'none';
+   const selectOption = selectElement.querySelectorAll('option');
    const selectWrapper = document.createElement('div');
+   selectElement.style.display = 'none';
    selectWrapper.classList.add('select');
-   _this.parentNode.insertBefore(selectWrapper, _this);
-   selectWrapper.appendChild(_this);
-
+   selectElement.parentNode.insertBefore(selectWrapper, selectElement);
+   selectWrapper.appendChild(selectElement);
    const newSelect = document.createElement('div');
    newSelect.classList.add('new-select');
-   _this.insertAdjacentElement('afterend', newSelect);
-
-   //const selectHead = _this.nextElementSibling;
+   selectElement.insertAdjacentElement('afterend', newSelect);
    const selectHead = document.createElement('div');
    selectHead.classList.add('new-select__header');
-   selectHead.textContent = _this.querySelector('option:disabled').textContent;
+   selectHead.textContent = selectElement.querySelector('option:disabled').textContent;
    newSelect.setAttribute('tabindex', '0');
    newSelect.appendChild(selectHead);
    const selectList = document.createElement('div');
@@ -32,14 +24,13 @@ selectElements.forEach(function (selectElement) {
        ${selectHead.innerHTML}
    `;
 
-   for (let i = 1; i < selectOptionLength; i++) {
+   for (let i = 1; i < selectOption.length; i++) {
       const newSelectItem = document.createElement('div');
       newSelectItem.classList.add('new-select__item');
       const newSelectSpan = document.createElement('span');
       newSelectSpan.textContent = selectOption[i].textContent;
       newSelectItem.appendChild(newSelectSpan);
       newSelectItem.setAttribute('data-value', selectOption[i].value);
-      //newSelectItem.setAttribute('tabindex', '0');
       selectList.appendChild(newSelectItem);
    }
 
@@ -49,8 +40,6 @@ selectElements.forEach(function (selectElement) {
    newSelect.addEventListener('click', (event) => {
       if (!clicked) {
          choiseSelect();
-         //addNavigationForOptions();
-         //adjustOptionsListPosition(selectList, upwardsClassSelectList);
       }
    });
    newSelect.addEventListener('focus', (e) => {
@@ -58,12 +47,10 @@ selectElements.forEach(function (selectElement) {
       choiseSelect();
       window.setTimeout(() => clicked = false, 200)
    });
-   newSelect.addEventListener('blur', (event) => {
+   newSelect.addEventListener('blur', () => {
       clicked = false;
       blurSelect();
-      const changeEvent = new Event('blur', { bubbles: true });
-      selectElements[0].dispatchEvent(changeEvent);
-
+      selectElements[0].dispatchEvent(new Event('blur', { bubbles: true }));
       removeClass(selectItem, 'new-select__item--active');
       adjustOptionsListPosition(selectList, upwardsClassSelectList);
    });
@@ -79,67 +66,71 @@ selectElements.forEach(function (selectElement) {
 
    function removeClass(arrayElements, classForRemove) {
       currentElementIndex = undefined;
-      for (let i = 0; i < arrayElements.length; i++) {
-         const element = arrayElements[i];
-         element.classList.remove(classForRemove)
-      }
+      arrayElements.forEach((element) => {
+         element.classList.remove(classForRemove);
+      });
    }
 
    function choiseSelect() {
-      if (!selectHead.classList.contains('on')) {
-         selectHead.classList.add('on');
-         selectList.style.display = 'block';
-         addNavigationForOptions();
-         adjustOptionsListPosition(selectList, upwardsClassSelectList);
-
-         function actionsAfterSelectingOption(item) {
-            let chooseItem = item.getAttribute('data-value');
-            _this.value = chooseItem;
-
-            const changeEvent = new Event('change', { bubbles: true });
-            _this.dispatchEvent(changeEvent);
-
-            selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${item.querySelector('span').textContent}`;
-
-            selectList.style.display = 'none';
-            selectHead.classList.remove('on');
-            removeClass(selectItem, 'new-select__item--active');
-            removeUpwardsClass(selectList, upwardsClassSelectList);
-            document.removeEventListener("click", clickOutsideNewSelect);
-            clicked = true;
-            window.setTimeout(() => clicked = false, 200);
-         }
-
-         document.addEventListener('keydown', downKeyEnter);
-         function downKeyEnter(event) {
-            if (event.key === 'Enter' && selectList.style.display === 'block') {
-               event.preventDefault();
-               for (let i = 0; i < selectItem.length; i++) {
-                  const element = selectItem[i];
-                  if (element.classList.contains('new-select__item--active')) {
-                     actionsAfterSelectingOption(element);
-                  }
-               }
-            }
-         }
-
-         document.addEventListener("click", clickOutsideNewSelect);
-
-         //Зняти спостерігачі
-         selectItem.forEach(function (item) {
-            item.addEventListener('click', () => actionsAfterSelectingOption(item));
-         });
-
+      const isOpen = selectHead.classList.contains('on');
+      if (!isOpen) {
+         openSelect();
       } else {
-         selectHead.classList.remove('on');
-         selectList.style.display = 'none';
-         removeUpwardsClass(selectList, upwardsClassSelectList);
-         removeClass(selectItem, 'new-select__item--active');
-
-         selectItem.forEach(function (item) {
-            item.removeEventListener('click', () => actionsAfterSelectingOption(item));
-         });
+         closeSelect();
       }
+   }
+
+   function openSelect() {
+      selectHead.classList.add('on');
+      selectList.style.display = 'block';
+      addNavigationForOptions();
+      adjustOptionsListPosition(selectList, upwardsClassSelectList);
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('click', clickOutsideNewSelect);
+      selectItem.forEach(item => {
+         item.addEventListener('click', handleSelectItemClick);
+      });
+   }
+
+   function closeSelect() {
+      selectHead.classList.remove('on');
+      selectList.style.display = 'none';
+      removeUpwardsClass(selectList, upwardsClassSelectList);
+      removeClass(selectItem, 'new-select__item--active');
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', clickOutsideNewSelect);
+      selectItem.forEach(item => {
+         item.removeEventListener('click', handleSelectItemClick);
+      });
+   }
+
+   function handleKeyDown(event) {
+      if (event.key === 'Enter' && selectList.style.display === 'block') {
+         event.preventDefault();
+         const activeItem = selectItem.find(item => item.classList.contains('new-select__item--active'));
+         if (activeItem) {
+            actionsAfterSelectingOption(activeItem);
+         }
+      }
+   }
+
+   function handleSelectItemClick(event) {
+      actionsAfterSelectingOption(event.currentTarget);
+   }
+
+   function actionsAfterSelectingOption(item) {
+      const chooseItem = item.getAttribute('data-value');
+      selectElement.value = chooseItem;
+      const changeEvent = new Event('change', { bubbles: true });
+      selectElement.dispatchEvent(changeEvent);
+      selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${item.querySelector('span').textContent}`;
+      selectList.style.display = 'none';
+      selectHead.classList.remove('on');
+      removeClass(selectItem, 'new-select__item--active');
+      removeUpwardsClass(selectList, upwardsClassSelectList);
+      document.removeEventListener("click", clickOutsideNewSelect);
+      clicked = true;
+      window.setTimeout(() => clicked = false, 200);
    }
 
    function blurSelect() {
@@ -150,47 +141,35 @@ selectElements.forEach(function (selectElement) {
    function addNavigationForOptions() {
       document.removeEventListener('keydown', navigationByOptions);
       document.addEventListener('keydown', navigationByOptions);
-
    }
    function navigationByOptions(event) {
       if (event.key === 'ArrowDown' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
          event.preventDefault()
-         focusNextElement();
+         focusElement(true);
       } else if (event.key === 'ArrowUp' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
          event.preventDefault()
-         focusPreviousElement();
+         focusElement(false);
       }
    }
    let currentElementIndex;
 
-   function focusNextElement() {
-      if (currentElementIndex == undefined) {
-         currentElementIndex = 0;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
-      } else if (currentElementIndex < selectItem.length - 1) {
-         selectItem[currentElementIndex].classList.remove('new-select__item--active');
-         currentElementIndex++;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
-      } else {
-         selectItem[currentElementIndex].classList.remove('new-select__item--active');
-         currentElementIndex = 0;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
-      }
-   }
-
-   function focusPreviousElement() {
+   function focusElement(isNext) {
       if (currentElementIndex === undefined) {
-         currentElementIndex = selectItem.length - 1;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
-      } else if (currentElementIndex > 0) {
-         selectItem[currentElementIndex].classList.remove('new-select__item--active');
+         currentElementIndex = isNext ? 0 : selectItem.length - 1;
+      } else if (isNext && currentElementIndex < selectItem.length - 1) {
+         currentElementIndex++;
+      } else if (!isNext && currentElementIndex > 0) {
          currentElementIndex--;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
       } else {
-         selectItem[currentElementIndex].classList.remove('new-select__item--active');
-         currentElementIndex = selectItem.length - 1;
-         selectItem[currentElementIndex].classList.add('new-select__item--active');
+         currentElementIndex = isNext ? 0 : selectItem.length - 1;
       }
+      selectItem.forEach((item, index) => {
+         if (index === currentElementIndex) {
+            item.classList.add('new-select__item--active');
+         } else {
+            item.classList.remove('new-select__item--active');
+         }
+      });
    }
 });
 
@@ -198,7 +177,6 @@ function adjustOptionsListPosition(optionsList, upwardsClass) {
    const windowHeight = window.innerHeight;
    const optionsListHeight = optionsList.clientHeight;
    const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
-
    if (windowHeight - optionsListOffsetTop < optionsListHeight) {
       optionsList.classList.add(upwardsClass);
    } else {

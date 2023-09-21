@@ -72,13 +72,9 @@ export class ClassToggler {
 
    #searchInput(obj) {
       let inputs = obj.querySelectorAll('input', 'select', 'textarea');
-      if (inputs.length) {
-         for (let i = 0; i < inputs.length; i++) {
-            const element = inputs[i];
-            let isDisabled = element.disabled;
-            element.disabled = !isDisabled;
-         }
-      }
+      inputs.forEach((element) => {
+         element.disabled = !element.disabled;
+      });
    }
 }
 
@@ -118,7 +114,6 @@ export class Validator {
       if (n !== form.elements.length) {
          return false
       } else {
-         console.log('Succses!');
          return true
       }
    }
@@ -153,8 +148,6 @@ export class Validator {
    }
 
    emailTest(input) {
-      console.log("email");
-      input.removeEventListener('input', (e) => this[input.name + 'Test'](input));
       if (input.value.length === 0) {
          const message = "Email can't be blank"
          this.isError(message, input);
@@ -311,7 +304,6 @@ export class Validator {
          return null
       } else {
          if (castomSelect) {
-            console.log('error');
             castomSelect.classList.remove('input-error');
          }
          this.removeError(input);
@@ -383,17 +375,20 @@ export class Validator {
    }
 
    fileTest(input, form = this.form) {
-      let inputWrapper = input.closest('.input-file-wrapper');
+      const inputWrapper = input.closest('.input-file-wrapper');
 
       if (!form.contains(inputWrapper)) {
          inputWrapper = input;
       }
-      let fileExtension
+      let fileExtension;
       if (input.files.length) {
          fileExtension = input.files[0].name.split('.').pop().toLowerCase();
       }
+      if (input.dataset.isfile == 'true') {
+         return 1
+      }
       if (input.files.length == 0) {
-         const message = "File must be attached"
+         const message = "File must be attached";
          this.isError(message, input);
          inputWrapper.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
@@ -415,6 +410,10 @@ export class Validator {
       let fileExtension
       if (input.files.length) {
          fileExtension = input.files[0].name.split('.').pop().toLowerCase();
+      }
+
+      if (input.dataset.isfile == 'true') {
+         return true
       }
       if (input.value.length !== 0 && ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'pdf'].includes(fileExtension)) {
          return true

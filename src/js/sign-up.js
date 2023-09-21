@@ -13,8 +13,8 @@ const userProfile = {
    account_overview: {
       uid: '',
       email: '',
-      first_name: '',
-      last_name: '',
+      first: '',
+      last: '',
       password: '',
       file: {},
       wholesale: '',
@@ -52,8 +52,8 @@ function submitFormHandler(event) {
 
    if (regValidator.validation()) {
       userProfile.account_overview.email = elForm.email.value;
-      userProfile.account_overview.first_name = elForm.first.value;
-      userProfile.account_overview.last_name = elForm.last.value;
+      userProfile.account_overview.first = elForm.first.value;
+      userProfile.account_overview.last = elForm.last.value;
       userProfile.account_overview.password = elForm.password.value;
       userProfile.account_overview.wholesale = !elForm.file.disabled;
 
