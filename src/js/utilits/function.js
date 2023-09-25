@@ -1,4 +1,4 @@
-import { signOutFunc } from "../modules/firebase.js";
+//import { signOutFunc } from "../modules/firebase.js";
 
 export function validationNumberInput(numberInput, maxLength,) {
    //input.addEventListener('input', function () {
@@ -26,7 +26,6 @@ export function validationNumberInput(numberInput, maxLength,) {
    //const numberInput = document.getElementById("numberInput");
 
    numberInput.addEventListener("input", function () {
-
       const sanitizedValue = this.value.replace(/\D/g, "");
       const firstThreeDigits = sanitizedValue.slice(0, 3);
       const restOfTheDigits = sanitizedValue.slice(3, maxLength);
@@ -37,14 +36,12 @@ export function validationNumberInput(numberInput, maxLength,) {
 
 export function editPhone(numberInput) {
    numberInput.addEventListener("input", function () {
-
       const sanitizedValue = this.value.replace(/\D/g, "");
       const firstDigit = sanitizedValue.slice(0, 1);
       const secondThreeDigits = sanitizedValue.slice(1, 4);
       const thirdThreeDigits = sanitizedValue.slice(4, 7);
       const fourthTwoDigits = sanitizedValue.slice(7, 9);
       const lastTwoDigits = sanitizedValue.slice(9, 11);
-      //const formattedValue = restOfTheDigits.length > 0 ? `${firstThreeDigits} ${restOfTheDigits}` : firstThreeDigits;
       let formattedValue = `${firstDigit}`;
       if (secondThreeDigits.length > 0) {
          formattedValue += ` ${secondThreeDigits}`;
@@ -59,6 +56,44 @@ export function editPhone(numberInput) {
          formattedValue += ` ${lastTwoDigits}`;
       }
       this.value = formattedValue;
+   });
+}
+
+export function editNumberCard(numberCardInput) {
+   numberCardInput.addEventListener("input", function () {
+      const sanitizedValue = this.value.replace(/\D/g, "");
+      const firstDigit = sanitizedValue.slice(0, 4);
+      const secondThreeDigits = sanitizedValue.slice(4, 8);
+      const thirdThreeDigits = sanitizedValue.slice(8, 12);
+      const lastTwoDigits = sanitizedValue.slice(12, 16);
+      let formattedValue = `${firstDigit}`;
+      if (secondThreeDigits.length > 0) {
+         formattedValue += ` ${secondThreeDigits}`;
+      }
+      if (thirdThreeDigits.length > 0) {
+         formattedValue += ` ${thirdThreeDigits}`;
+      }
+      if (lastTwoDigits.length > 0) {
+         formattedValue += ` ${lastTwoDigits}`;
+      }
+      this.value = formattedValue;
+   });
+}
+export function editExpiration(expirationInput) {
+   expirationInput.addEventListener("input", function () {
+      const sanitizedValue = this.value.replace(/\D/g, "");
+      const firstDigit = sanitizedValue.slice(0, 2);
+      const lastTwoDigits = sanitizedValue.slice(2, 4);
+      let formattedValue = `${firstDigit}`;
+      if (lastTwoDigits.length > 0) {
+         formattedValue += `/${lastTwoDigits}`;
+      }
+      this.value = formattedValue;
+   });
+}
+export function editCvc(cvcInput) {
+   cvcInput.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 3);
    });
 }
 

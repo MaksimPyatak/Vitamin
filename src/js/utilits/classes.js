@@ -95,7 +95,8 @@ export class Validator {
    emailRegExp = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
    ///^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/;
 
-   addressRegExp = /^[а-я\s.]+?\d+/i;
+   addressRegExp = /^[а-я\s.]+?\d+/i;            //???!!!!!
+   expirationRegExp = /^(0[1-9]|1[0-2])\/\d{2}$/;
 
    validation(form = this.form) {
       let isValid = true;
@@ -132,7 +133,7 @@ export class Validator {
    }
 
    backgroundValdation(form = this.form) {
-      let isValid = false;
+      //let isValid = false;
       let n = 0;
       for (let i = 0; i < form.elements.length; i++) {
          const element = form.elements[i];
@@ -374,6 +375,88 @@ export class Validator {
       }
    }
 
+   card_numberTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else if (input.value.length < 19) {
+         const message = "The field must contain 16 digits"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   card_numberValidationForBtn(input) {
+      if (input.value.length === 19) {
+         return true
+      } else {
+         return false
+      }
+   }
+
+   card_expirationTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else if (!this.expirationRegExp.test(input.value)) {
+         const message = "Field is invalid"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   card_expirationValidationForBtn(input) {
+      if (this.expirationRegExp.test(input.value)) {
+         return true
+      } else {
+         return false
+      }
+   }
+   card_cvcTest(input) {
+      if (input.value.length === 0) {
+         const message = "Field can't be blank"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else if (input.value.length < 3) {
+         const message = "The field must contain 3 digits"
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      }
+      else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   card_cvcValidationForBtn(input) {
+      if (input.value.length === 3) {
+         return true
+      } else {
+         return false
+      }
+   }
+
    fileTest(input, form = this.form) {
       const inputWrapper = input.closest('.input-file-wrapper');
 
@@ -411,7 +494,6 @@ export class Validator {
       if (input.files.length) {
          fileExtension = input.files[0].name.split('.').pop().toLowerCase();
       }
-
       if (input.dataset.isfile == 'true') {
          return true
       }

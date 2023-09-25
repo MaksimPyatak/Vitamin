@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Account", "style": "css/payment-methods.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Payment methods</h1>
+      @@include('html/header.html',{"logo-class":""})
+      <main class="profile-page">
+        <div class="profile-page__container">
+          <aside class="profile-page__menu">@@include('html/components/common/profile-menu.html',{})</aside>
+          <div class="profile-page__content content">
+            <div class="content__title-block">
+              <h4 class="content__title">Payment methods</h4>
+              <div class="content__customer">Wholesale customer</div>
+            </div>
+            <div class="content__form">@@include('html/components/payment-methods/form.html',{})</div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
       @@include('html/footer.html',{})
-      <!---->
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/payment-methods.min.js"></script>
   </body>
 </html>

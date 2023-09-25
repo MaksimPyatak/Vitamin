@@ -33,7 +33,10 @@ selectElements.forEach(function (selectElement) {
       newSelectItem.setAttribute('data-value', selectOption[i].value);
       selectList.appendChild(newSelectItem);
    }
-
+   selectElement.addEventListener('dowload', () => {
+      selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${selectElement.value}`;
+      console.log('update select - ' + selectElement.value)
+   }, { once: true });
    const selectItem = selectList.querySelectorAll('.new-select__item');
    selectList.style.display = 'none';
    let clicked = false;
@@ -143,12 +146,12 @@ selectElements.forEach(function (selectElement) {
       document.addEventListener('keydown', navigationByOptions);
    }
    function navigationByOptions(event) {
-      if (event.key === 'ArrowDown' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
-         event.preventDefault()
-         focusElement(true);
-      } else if (event.key === 'ArrowUp' && (document.activeElement == newSelect || document.activeElement.parentElement === selectList)) {
-         event.preventDefault()
-         focusElement(false);
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+         if (document.activeElement === newSelect || document.activeElement.parentElement === selectList) {
+            event.preventDefault();
+            const isNext = event.key === 'ArrowDown';
+            focusElement(isNext);
+         }
       }
    }
    let currentElementIndex;

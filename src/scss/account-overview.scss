@@ -41,6 +41,12 @@ main {
       @media (max-width: 1024px) {
          display: none;
       }
+
+      .profile-menu__item {
+         &:nth-child(3) {
+            font-weight: 700;
+         }
+      }
    }
 
    &__content {
@@ -78,6 +84,7 @@ main {
    }
 
    &__customer {
+      display: none;
       margin-top: 13px;
       text-align: right;
       font-family: Effra;
@@ -93,7 +100,13 @@ main {
       @media (max-width: 425px) {
          font-size: 18px;
       }
+
+      &--display--block {
+         display: block;
+      }
    }
+
+
 }
 
 

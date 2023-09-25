@@ -16,7 +16,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"firebase": "^10.3.1",
-		"gulp-cli": "^2.3.0"
+		"gulp-cli": "^2.3.0",
+		"punycode": "^2.3.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.5",

@@ -1,13 +1,10 @@
 import "./modules/select.js";
 import "./modules/sign-up/add-file-name.js";
-//import "./profileLinkIcon.js";
 
 import { Validator } from "./utilits/classes.js";
 import { validationNumberInput, editPhone } from "./utilits/function.js";
-import { db, signOutFunc, auth, returnAuthUser, userAuth } from "./modules/firebase.js";
-import { collection, doc, getDoc, setDoc, getDocs, query, where } from "firebase/firestore";
-
-
+import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
+import { doc, getDoc, setDoc, } from "firebase/firestore";
 
 const inputFile = document.querySelector('#file');
 const fileWrapper = document.querySelector('#file-wrapper');
@@ -27,22 +24,6 @@ returnAuthUser()
       } else {
          console.log('Документ не існує');
       }
-      //const userData = await getDocs(collection(db, 'users'))
-      //console.log(userData);
-      //userData.forEach((doc) => {
-      //   arr.push({
-      //      account_overview: doc.data().account_overview
-      //   })
-      //})
-      //const q = query(collection(db, 'users'), where('account_overview.uid', '==', userId));
-      //const userData = await getDocs(q);
-      //userData.forEach((doc) => {
-      //   console.log(doc.data());
-      //   if (doc.data().account_overview.uid == userId) {
-      //      userProfile = doc.data().account_overview;
-      //      console.log(doc.data());
-      //   }
-      //})
    })
    .then(() => {
       for (let i = 0; i < elForm.length; i++) {
@@ -56,11 +37,12 @@ returnAuthUser()
             inputFile.disabled = false;
             fileInfo.innerHTML = userProfile.account_overview.file.name;
          }
-
-         //!!!Додати ім'я файлу в виведення даних
+         if (element.name == 'state') {
+            element.dispatchEvent(new Event('dowload', { bubbles: true }));
+         }
       }
    })
-//.catch((error) => console.log(error))
+   .catch((error) => console.log(error))
 
 const downloadInfoBlock = document.querySelector('.header__download-info-block');
 const signOutLink = document.querySelector('.item__sign-out');
@@ -94,7 +76,6 @@ async function submitFormHandler(event) {
       return
    }
 
-   console.log('valid');
    userProfile.account_overview.email = elForm.email.value;
    userProfile.account_overview.first = elForm.first.value;
    userProfile.account_overview.last = elForm.last.value;
@@ -108,7 +89,6 @@ async function submitFormHandler(event) {
    submitBtn.disabled = true;
    body.style.cursor = 'wait';
    submitBtn.style.cursor = 'wait';
-   console.log(userProfile.account_overview);
    try {
       if (elForm.file.files.length) {
          const userFileRef = ref(storage, `/users/permissions/${Date.now()}${elForm.file.files[0].name}`);
@@ -119,8 +99,7 @@ async function submitFormHandler(event) {
          }
          inputFile.setAttribute('data-isFile', false);
       }
-      await setDoc(doc(db, "users", userId), { capital: true }, { merge: true });
-      console.log('Відправлено');
+      await setDoc(doc(db, "users", userId), userProfile, { merge: true });
       submitBtn.classList.remove('no-active-button')
       submitBtn.disabled = false;
       submitBtn.style.cursor = 'pointer';
