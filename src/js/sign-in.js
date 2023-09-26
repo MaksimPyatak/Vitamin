@@ -39,6 +39,7 @@ async function submitFormHandler(event) {
          submitBtn.classList.remove('no-active-button')
          submitBtn.disabled = false;
          submitBtn.style.cursor = 'pointer';
+         body.style.cursor = 'pointer';
          console.log(error);
          //showLoginError(error);
          if (error.code == AuthErrorCodes.INVALID_PASSWORD) {

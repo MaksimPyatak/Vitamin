@@ -1,6 +1,6 @@
 import { editNumberCard, editExpiration, editCvc } from "./utilits/function.js";
 import { Validator } from "./utilits/classes.js";
-import { db, signOutFunc, auth, returnAuthUser, userAuth } from "./modules/firebase.js";
+import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
 
 const cardNumber = document.querySelector('#card_number');
@@ -19,7 +19,11 @@ const signOutLink = document.querySelector('.item__sign-out');
 
 let userId;
 let userProfile = {
-   payment: {}
+   payment: {
+      card_number: '',
+      card_expiration: '',
+      card_cvc: '',
+   }
 };
 
 returnAuthUser()
@@ -28,7 +32,9 @@ returnAuthUser()
       const docRef = doc(db, 'users', userId);
       const docSnapshot = await getDoc(docRef);
       if (docSnapshot.exists()) {
-         userProfile.payment = docSnapshot.data().payment;
+         if (docSnapshot.data().payment) {
+            userProfile.payment = docSnapshot.data().payment;
+         }
       } else {
          console.log('Документ не існує');
       }
@@ -36,12 +42,14 @@ returnAuthUser()
    .then(() => {
       for (let i = 0; i < elForm.length; i++) {
          const element = elForm[i];
-         if (userProfile.payment[element.name] && !element.disabled && element.name != 'file') {
-            element.value = userProfile.payment[element.name];
+         if (userProfile.payment) {
+            if (userProfile.payment[element.name]) {
+               element.value = userProfile.payment[element.name];
+            }
          }
       }
    })
-   .catch((error) => console.log(error))
+//.catch((error) => console.log(error))
 
 regValidator.blurValidation();
 

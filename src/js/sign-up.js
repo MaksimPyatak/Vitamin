@@ -91,6 +91,7 @@ function submitFormHandler(event) {
             submitBtn.classList.remove('no-active-button')
             submitBtn.disabled = false;
             submitBtn.style.cursor = 'pointer';
+            body.style.cursor = 'pointer';
             switch (error.code) {
                case AuthErrorCodes.EMAIL_EXISTS:
                   const message = `The entered e-mail is already registered.`;

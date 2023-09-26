@@ -176,13 +176,13 @@ export class Validator {
    }
    firstTest(input) {
       if (input.value.length === 0) {
-         const message = "Field can't be blank"
+         const message = "Field can't be blank";
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 3 || input.value.length > 15) {
-         const message = "Field must be at least 3 and no longer than 15 characters"
+         const message = "Field must be at least 3 and no longer than 15 characters";
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
@@ -203,22 +203,22 @@ export class Validator {
    }
 
    lastTest(input) {
-      return this.firstTest(input)
+      return this.firstTest(input);
    }
 
    lastValidationForBtn(input) {
-      return this.firstValidationForBtn(input)
+      return this.firstValidationForBtn(input);
    }
 
    passwordTest(input) {
       if (input.value.length === 0) {
-         const message = "Password can't be blank"
+         const message = "Password can't be blank";
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
       } else if (input.value.length < 6 || input.value.length > 15) {
-         const message = "Password must be at least 6 and no longer than 15 characters"
+         const message = "Password must be at least 6 and no longer than 15 characters";
          this.isError(message, input);
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
@@ -237,6 +237,47 @@ export class Validator {
       }
    }
 
+   current_passwordTest(input) {
+      return this.passwordTest(input);
+   }
+   current_passwordValidationForBtn(input) {
+      return this.passwordValidationForBtn(input);
+   }
+
+   new_passwordTest(input) {
+      return this.passwordTest(input);
+   }
+   new_passwordValidationForBtn(input) {
+      return this.passwordValidationForBtn(input);
+   }
+
+   confirm_new_passwordTest(input) {
+      if (input.value.length === 0) {
+         const message = "Password can't be blank";
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else if (input.value != this.form.elements.new_password.value) {
+         const message = "Passwords must match";
+         this.isError(message, input);
+         input.classList.add('input-error');
+         input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
+         return null
+      } else {
+         input.classList.remove('input-error');
+         this.removeError(input);
+         return 1
+      }
+   }
+   confirm_new_passwordValidationForBtn(input) {
+      if (input.value == this.form.elements.new_password.value) {
+         return true
+      } else {
+         return false
+      }
+   }
+
    first_addressTest(input) {
       if (input.value.length === 0) {
          const message = "Field can't be blank"
@@ -244,7 +285,7 @@ export class Validator {
          input.classList.add('input-error');
          input.addEventListener('input', (e) => this[input.name + 'Test'](input), { once: true });
          return null
-      } else if (input.value.length < 2) {//|| input.value.length > 15
+      } else if (input.value.length < 2) {
          const message = "Field must be at least 2 characters"
          this.isError(message, input);
          input.classList.add('input-error');
