@@ -195,6 +195,7 @@ h6 {
   --goods-orange: #F2B385;
   --goods-green: #A5B3FF;
   --goods-red: #E8939D;
+  --goods-blue-text: #5F9DCA;
   --pdng-conteiner: 92px;
   --pdt-section: 150px;
   --width-smaller-container: 1044px;
@@ -252,6 +253,7 @@ h2 {
   font-family: Effra;
   font-size: 50px;
   font-weight: 500;
+  line-height: normal;
 }
 
 h3 {

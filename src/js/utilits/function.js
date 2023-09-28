@@ -96,7 +96,28 @@ export function editCvc(cvcInput) {
       this.value = this.value.replace(/\D/g, "").slice(0, 3);
    });
 }
-
+export function adjustOptionsListPosition(optionsList, upwardsClass) {
+   const windowHeight = window.innerHeight;
+   const optionsListHeight = optionsList.clientHeight;
+   const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
+   if (windowHeight - optionsListOffsetTop < optionsListHeight) {
+      optionsList.classList.add(upwardsClass);
+   } else {
+      optionsList.classList.remove(upwardsClass);
+   }
+}
+export function selectItem(target, itemsBox, itemClass, activeItemClass) {
+   if (target.classList.contains(itemClass)) {
+      if (target.classList.contains(activeItemClass)) {
+         return
+      } else {
+         const items = itemsBox.querySelectorAll(`.${itemClass}`);
+         items.forEach((item) => item.classList.remove(activeItemClass));
+         target.classList.add(activeItemClass);
+         return true
+      }
+   }
+}
 //!!!!Потрібна?
 //export async function determineAuthState(link) {
 //   try {

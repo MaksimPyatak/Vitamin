@@ -1,0 +1,76 @@
+// Загальні стилі
+@import "./components/global";
+
+main {
+   //max-width: 1920px;
+   width: 100%;
+   margin-top: 100px;
+   margin-bottom: 100px;
+   flex: 1 1 auto;
+
+   @media (max-width: 650px) {
+      margin-top: 70px;
+      margin-bottom: 60px;
+   }
+}
+
+.catalogue {
+   &__title-swiper {
+      width: 100%;
+      margin-bottom: 60px;
+
+      @media (max-width:650px) {
+         margin-bottom: 0;
+      }
+   }
+}
+
+.reviews {
+   width: 100%;
+
+   &__container {}
+
+   &__title {
+      max-width: 446px;
+      margin-bottom: 50px;
+
+      @media (max-width: 425px) {
+         margin-bottom: 30px;
+      }
+   }
+
+   &__swiper-block {
+      width: 100%;
+
+      @media (max-width: 1024px) {
+         width: calc(100% + 2 * var(--pdng-conteiner));
+         margin: 0 -56px;
+      }
+
+      @media (max-width: 768px) {
+         margin: 0 -48px;
+      }
+
+      @media (max-width: 425px) {
+         margin: 0 -20px;
+      }
+   }
+}
+
+
+//.main-page {}
+
+@import "../../node_modules/swiper/swiper.scss";
+@import '../../node_modules/swiper/modules/navigation/navigation.scss';
+@import '../../node_modules/swiper/modules/pagination/pagination.scss';
+//@import '../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
+
+@import "./components/header";
+@import "./components/footer";
+@import "./components/home-page/reviews-section";
+@import "./components/common/reviews-swiper";
+@import "./components/common/review-components";
+@import "./components/catalogue/title-swiper";
+@import './components/common/catalog-menu.scss';
+@import './components/catalogue/products';
+@import './components/catalogue/catalog-product';

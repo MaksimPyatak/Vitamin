@@ -1,3 +1,4 @@
+import { adjustOptionsListPosition } from "../utilits/function.js";
 //Додати ще, щоб при фокусуванні не відкривався список опцій, а просто був елемент в фокусі, а вже при натисканні ентр або стрілки в низ можна буловідкрити список. Після вибору опції залишати  елемент в фокусі для можливості здійснення повторного відкриття списку за допомогою ентр або стрілки вниз
 const selectElements = document.querySelectorAll('.select');
 selectElements.forEach(function (selectElement) {
@@ -176,16 +177,16 @@ selectElements.forEach(function (selectElement) {
    }
 });
 
-function adjustOptionsListPosition(optionsList, upwardsClass) {
-   const windowHeight = window.innerHeight;
-   const optionsListHeight = optionsList.clientHeight;
-   const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
-   if (windowHeight - optionsListOffsetTop < optionsListHeight) {
-      optionsList.classList.add(upwardsClass);
-   } else {
-      optionsList.classList.remove(upwardsClass);
-   }
-}
+//function adjustOptionsListPosition(optionsList, upwardsClass) {
+//   const windowHeight = window.innerHeight;
+//   const optionsListHeight = optionsList.clientHeight;
+//   const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
+//   if (windowHeight - optionsListOffsetTop < optionsListHeight) {
+//      optionsList.classList.add(upwardsClass);
+//   } else {
+//      optionsList.classList.remove(upwardsClass);
+//   }
+//}
 function removeUpwardsClass(optionsList, upwardsClass) {
    optionsList.classList.remove(upwardsClass);
 }
