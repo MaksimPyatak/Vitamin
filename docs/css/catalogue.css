@@ -1431,10 +1431,6 @@ button.swiper-pagination-bullet {
   height: 100%;
 }
 
-.swiper-slide--style--first .swiper-slide__bg-img--rezolution--small {
-  display: none;
-}
-
 .swiper-slide--style--first .swiper-slide__img--size--small {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,17 +1,20 @@
 import { returnAuthUser } from "./firebase.js";
 
 const profileLinkIcon = document.querySelector('.header__profile-logo');
-let profileLink;
+//let profileLink;
 
 returnAuthUser()
    .then((user) => {
+      console.log(user);
       if (user) {
-         profileLink = 'subscriptions.html';
+         profileLinkIcon.href = 'subscriptions.html';
+         //profileLink = 'subscriptions.html';
       } else {
-         profileLink = 'sign-in.html';
+         profileLinkIcon.href = 'sign-in.html';
+         //profileLink = 'sign-in.html';
       }
    });
 
-if (profileLinkIcon) {
-   profileLinkIcon.addEventListener('click', () => window.location.href = profileLink);
-}
+//if (profileLinkIcon) {
+//   profileLinkIcon.addEventListener('click', () => window.location.href = profileLink);
+//}
