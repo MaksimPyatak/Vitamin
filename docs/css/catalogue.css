@@ -1591,12 +1591,8 @@ button.swiper-pagination-bullet {
           align-items: center;
 }
 
+.swiper-slide__img img,
 .swiper-slide__img picture {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide__img img {
   height: 100%;
 }
 
@@ -1991,7 +1987,8 @@ button.swiper-pagination-bullet {
     max-height: 472px;
   }
 
-  .swiper-slide__img img {
+  .swiper-slide__img img,
+  .swiper-slide__img picture {
     width: 100%;
     height: auto;
   }
@@ -2285,7 +2282,8 @@ button.swiper-pagination-bullet {
             align-items: center;
   }
 
-  .swiper-slide__img img {
+  .swiper-slide__img img,
+  .swiper-slide__img picture {
     width: auto;
     height: 100%;
   }
@@ -2447,7 +2445,8 @@ button.swiper-pagination-bullet {
             align-items: center;
   }
 
-  .swiper-slide__img img {
+  .swiper-slide__img img,
+  .swiper-slide__img picture {
     width: auto;
     height: 100%;
   }
