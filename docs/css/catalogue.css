@@ -1719,7 +1719,7 @@ button.swiper-pagination-bullet {
 }
 
 .catalog-menu__list--opening {
-  display: block;
+  display: block !important;
 }
 
 .catalog-menu__item {
