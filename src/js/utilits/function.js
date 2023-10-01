@@ -106,18 +106,61 @@ export function adjustOptionsListPosition(optionsList, upwardsClass) {
       optionsList.classList.remove(upwardsClass);
    }
 }
-export function selectItem(target, itemsBox, itemClass, activeItemClass) {
-   if (target.classList.contains(itemClass)) {
-      if (target.classList.contains(activeItemClass)) {
-         return
-      } else {
-         const items = itemsBox.querySelectorAll(`.${itemClass}`);
-         items.forEach((item) => item.classList.remove(activeItemClass));
-         target.classList.add(activeItemClass);
-         return true
-      }
+export function selectItem(target, itemClass, activeItemClass) {
+   if (target.classList.contains(itemClass) && target.classList.contains(activeItemClass)) {
+      return
+   } else {
+      return true
    }
 }
+
+
+export function renderFilteredCards(products, parentElement, productsType) {
+   products.forEach((data) => {
+      const card = renderCard(data, productsType, data.id);
+      parentElement.appendChild(card);
+   })
+}
+export function productsFilter(products, keyParam, valueParam) {
+   const filterProducts = [];
+   products.forEach((doc) => {
+      const data = doc.data().base;
+      if (data[keyParam] == valueParam) {
+         data.id = doc.id;
+         filterProducts.push(data);
+      }
+   })
+   return filterProducts
+}
+export function renderCard(data, productsType, id) {
+   const card = document.createElement('a');
+   card.href = `product.html#${id}`
+   card.classList.add('product-card');
+   card.innerHTML = `
+   <div class="product-card__sale-box ${data.sale == '' ? 'product-card__sale-box--dispaly--none' : ''}">
+     <div>-${data.sale}%</div>
+   </div>
+   <div class="product-card__img-block">
+     <div class="product-card__wrapper-img">
+     <picture>
+     <source srcset="${data.webP}" type="image/webp">
+     <img src="${data.png}" alt="${data.name}">
+     </picture>
+     </div>
+   </div>
+   <div class="product-card__content">
+     <div class="product-card__info-block">
+       <div class="product-card__type product-card__type--color--@@type" style="color:${productsType.data()[data.type].text_color}">${productsType.data()[data.type].name}</div>
+       <div class="product-card__title">${data.name}</div>
+     </div>
+     <div class="product-card__prise-block">
+       <div class="product-card__prise ${data.sale != '' ? 'product-card__prise--text--strikethrough' : ''}">${data.price}</div>
+       <div class="product-card__sale-prise ${data.sale == '' ? 'product-card__sale-prise--dispaly--none' : ''}">${data.sale_price}</div>
+     </div>
+   </div>`;
+   return card
+}
+
 //!!!!Потрібна?
 //export async function determineAuthState(link) {
 //   try {

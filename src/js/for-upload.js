@@ -43,6 +43,7 @@ async function addProduct(event) {
    try {
       prodact.base.name = elements.name.value;
       prodact.base.type = elements.type.value;
+      prodact.base.is_sale = elements.sale.value ? true : false;
       prodact.base.sale = elements.sale.value;
       prodact.base.price = elements.price.value;
       prodact.base.sale_price = elements.sale_price.value;
