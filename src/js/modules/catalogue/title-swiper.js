@@ -8,6 +8,7 @@ const swiper = new Swiper('.title-swiper', {
    },
    pagination: {
       el: '.swiper-pagination',
+      clickable: true,
    },
    mousewheel: {
       invert: true,

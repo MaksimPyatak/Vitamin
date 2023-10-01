@@ -1,0 +1,51 @@
+input {
+   width: 500px;
+   height: 30px;
+   padding: 0 20px;
+   margin-bottom: 20px;
+   border-radius: 7px;
+   display: block;
+}
+
+textarea {
+   width: 500px;
+   height: 50px;
+   padding: 0 20px;
+   margin-bottom: 20px;
+   border-radius: 7px;
+   display: block;
+}
+
+label {
+   display: flex;
+
+   div {
+      margin: 0 10px;
+      font-size: 18px;
+
+   }
+}
+
+.important-box {
+   display: flex;
+
+   input {
+      width: 200px;
+
+      margin-right: 20px;
+   }
+
+   textarea {
+      //height: 30px;
+   }
+}
+
+#important-item,
+#add-description-item {
+   margin-bottom: 20px;
+   //display: block;
+}
+
+#submit {
+   display: block;
+}

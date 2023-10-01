@@ -26,6 +26,10 @@
          padding: 4px 6px;
          font-size: 10px;
       }
+
+      &--dispaly--none {
+         display: none;
+      }
    }
 
    &__img-block {
@@ -112,10 +116,37 @@
 
    }
 
-   &__type--color--vitamin {
-      color: #6B5EBB;
-   }
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
 
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
+
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
+
+
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
+
+
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
+
+
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
+
+
+   //&__type--color--vitamin {
+   //   color: #6B5EBB;
+   //}
    &__title {
       margin-bottom: 17px;
       color: #000;
@@ -165,5 +196,9 @@
    &__sale-prise {
       color: #D32D2C;
       font-weight: 700;
+
+      &--display--none {
+         display: none;
+      }
    }
 }

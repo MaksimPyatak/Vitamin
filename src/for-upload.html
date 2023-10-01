@@ -13,9 +13,35 @@
       <input type="text" name="sale" placeholder="Sale" />
       <input type="text" name="price" placeholder="Prise" />
       <input type="text" name="sale_price" placeholder="Sale price" />
-      <input type="file" name="png" placeholder="PNG" />
-      <input type="file" name="webP" placeholder="webP" />
-      <button type="submit">Submit</button>
+      <label for="png">
+        <div>PNG</div>
+        <input type="file" name="png" placeholder="PNG" />
+      </label>
+      <label for="webP">
+        <div>webP</div>
+        <input type="file" name="webP" placeholder="webP" />
+      </label>
+
+      <input type="text" name="med_form" placeholder="Med form" />
+      <input type="text" name="description_med_form" placeholder="description med form" />
+      <input type="text" name="quantity_in_package" placeholder="quantity_in_package" />
+      <input type="number" name="number" placeholder="number" />
+      <h1>Description</h1>
+      <div class="description-block">
+        <textarea name="description_text" id="description_text" placeholder="Description text"></textarea>
+        <textarea name="description_list" class="description-list" placeholder="Description list"></textarea>
+      </div>
+      <button type="button" id="add-description-item">Add item of description list</button>
+
+      <h1>Important information</h1>
+      <div class="important-block">
+        <div class="important-box">
+          <input type="text" name="key" placeholder="Key" />
+          <textarea name="value" placeholder="Value"></textarea>
+        </div>
+      </div>
+      <button type="button" id="important-item">Add important block</button>
+      <button id="submit" type="submit">Submit</button>
     </form>
   </body>
 

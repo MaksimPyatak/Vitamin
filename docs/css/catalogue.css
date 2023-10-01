@@ -1770,6 +1770,7 @@ button.swiper-pagination-bullet {
   grid-template-rows: 1fr;
   grid-auto-rows: 1fr;
   gap: 32px;
+  align-self: flex-start;
 }
 
 .products__card {
@@ -1804,6 +1805,10 @@ button.swiper-pagination-bullet {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.product-card__sale-box--dispaly--none {
+  display: none;
 }
 
 .product-card__img-block {
@@ -1863,10 +1868,6 @@ button.swiper-pagination-bullet {
   line-height: normal;
 }
 
-.product-card__type--color--vitamin {
-  color: #6B5EBB;
-}
-
 .product-card__title {
   margin-bottom: 17px;
   color: #000;
@@ -1902,6 +1903,10 @@ button.swiper-pagination-bullet {
 .product-card__sale-prise {
   color: #D32D2C;
   font-weight: 700;
+}
+
+.product-card__sale-prise--display--none {
+  display: none;
 }
 
 @media (min-width: 481px) {
