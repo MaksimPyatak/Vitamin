@@ -7,6 +7,7 @@ const openingBox = document.querySelector('.catalog-menu__opening-box');
 const backArrow = document.querySelector('.catalog-menu__opening-icon');
 const catalogList = document.querySelector('.catalog-menu__list');
 const items = catalogList.querySelectorAll(`.catalog-menu__item`);
+const selectedItem = document.querySelector('.catalog-menu__selected-item');
 let productsType = {};
 let products = {};
 try {
@@ -18,7 +19,6 @@ try {
    console.log(error);
 }
 function filterProducts(param, products, productsType) {
-   //! якщо парам це локалХаш  то він є рядком і ми шукаємо по ньому в спимску необхідний елемент
    items.forEach((item) => item.classList.remove('catalog-menu__item--state--active'));
    if (typeof param == 'string') {
       items.forEach((item) => {
@@ -42,6 +42,8 @@ function filterProducts(param, products, productsType) {
 
 function markMenuItem(item) {
    item.classList.add('catalog-menu__item--state--active');
+
+   selectedItem.innerHTML = item.innerHTML;
    catalogList.classList.remove('catalog-menu__list--opening');
    backArrow.classList.remove('catalog-menu__opening-icon--opening');
    productsBlock.innerHTML = '';
