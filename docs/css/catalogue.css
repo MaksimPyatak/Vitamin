@@ -2268,6 +2268,7 @@ button.swiper-pagination-bullet {
   .swiper-slide__content-block {
     max-width: unset;
     width: 100%;
+    padding: 0 50px;
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
