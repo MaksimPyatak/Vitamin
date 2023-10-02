@@ -23,16 +23,41 @@ main {
          margin-bottom: 0;
       }
    }
+
+   &__products {
+      margin-bottom: 100px;
+
+      @media (max-width:650px) {
+         margin-bottom: 60px;
+      }
+   }
+
+   &__you-may-like {
+      width: 100%;
+      margin: 0 auto 100px;
+      //margin-bottom: 100px;
+
+      @media (max-width:650px) {
+         margin-bottom: 60px;
+      }
+
+      .swiper-slide {
+         margin: 0 auto;
+
+         @media (max-width:650px) {
+            width: 100%;
+         }
+      }
+   }
 }
 
 .reviews {
    width: 100%;
 
-   &__container {}
-
    &__title {
       max-width: 446px;
       margin-bottom: 50px;
+      line-height: normal;
 
       @media (max-width: 425px) {
          margin-bottom: 30px;

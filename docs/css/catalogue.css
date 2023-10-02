@@ -329,6 +329,19 @@ main {
   margin-bottom: 60px;
 }
 
+.catalogue__products {
+  margin-bottom: 100px;
+}
+
+.catalogue__you-may-like {
+  width: 100%;
+  margin: 0 auto 100px;
+}
+
+.catalogue__you-may-like .swiper-slide {
+  margin: 0 auto;
+}
+
 .reviews {
   width: 100%;
 }
@@ -336,6 +349,7 @@ main {
 .reviews__title {
   max-width: 446px;
   margin-bottom: 50px;
+  line-height: normal;
 }
 
 .reviews__swiper-block {
@@ -2321,6 +2335,18 @@ button.swiper-pagination-bullet {
 
   .catalogue__title-swiper {
     margin-bottom: 0;
+  }
+
+  .catalogue__products {
+    margin-bottom: 60px;
+  }
+
+  .catalogue__you-may-like {
+    margin-bottom: 60px;
+  }
+
+  .catalogue__you-may-like .swiper-slide {
+    width: 100%;
   }
 
   .header {
