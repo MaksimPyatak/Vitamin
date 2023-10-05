@@ -20,6 +20,7 @@ export const js = () => {
       )
       //.pipe(notify(file => `Оброблено файл: ${file.relative}`)) //вивести повідомлення
       .pipe(webpack({
+         devtool: 'source-map',
          mode: app.isBuild ? 'production' : 'development',
          entry,
          output: {

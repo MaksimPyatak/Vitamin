@@ -2,6 +2,7 @@ import { Validator } from "./utilits/classes.js";
 import { db, signOutFunc, auth, returnAuthUser, userAuth } from "./modules/firebase.js";
 import { signInWithEmailAndPassword, updatePassword } from "firebase/auth";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
+import { changeBackgrounHeader } from "./utilits/function.js";
 
 const form = document.forms.change_password;
 const elForm = form.elements;
@@ -109,3 +110,5 @@ function showDawnloadInfoBlock() {
 }
 
 signOutLink.addEventListener('click', signOutFunc);
+
+changeBackgrounHeader();

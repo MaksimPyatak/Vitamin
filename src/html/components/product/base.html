@@ -1,0 +1,66 @@
+<div class="base">
+  <div class="base__img-block">
+    <img src="@img/product-card/Arc.svg" alt="Yellow arc" class="base__arc-img" />
+    <div class="base__img-wrapper">
+      <div class="base__img-box">
+        <picture>
+          <source class="base__webp-img" src="" type="image/webp" />
+          <img class="base__png-img" src="" alt="" />
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="base__content-block">
+    <div class="base__content-wrapper">
+      <a href="catalogue.html" class="base__back-link">
+        <img src="@img/product-card/Back_arrow.svg" alt="Back arrow" />
+        <div>Back to shop</div>
+      </a>
+      <div class="base__product-type"></div>
+      <h3 class="base__product-title"></h3>
+      <div class="base__count-block count-block">
+        <div class="count-block__info-block">
+          <div class="count-block__icon-block">
+            <img class="count-block__container-icon" src="" alt="" />
+          </div>
+          <div class="count-block__text-block">
+            <div class="count-block__amount-in-container"></div>
+            <div class="count-block__dosage"></div>
+          </div>
+        </div>
+        <div class="count-block__quantity-choice">@@include('../common/quantity-choice.html', {})</div>
+      </div>
+      <div class="base__add-to-cart add-to-cart">
+        <div class="add-to-cart__autoship-block">@@include('../common/autoship.html', {})</div>
+        <div class="add-to-cart__btn-block">
+          <div class="add-to-cart__price-block">
+            <div class="add-to-cart__block-at-discont">
+              <div class="add-to-cart__price add-to-cart__price--text--strikethrough"></div>
+              <div class="add-to-cart__sale-block add-to-cart__sale-block--not-show">
+                <div class="add-to-cart__sale"></div>
+              </div>
+            </div>
+            <div class="add-to-cart__sale-price add-to-cart__sale-price--not-show"></div>
+          </div>
+          <button class="add-to-cart__btn">Add to cart</button>
+        </div>
+      </div>
+      <div class="base__description">
+        <h6 class="base__description-title">Description</h6>
+        <div class="base__description-text"></div>
+        <ul class="base__description-list">
+          <!--<li class="base__description-item"></li>-->
+          <!--Додавати з js  -->
+        </ul>
+      </div>
+      <div class="base__important-info important-info">
+        <h6 class="important-info__title">Important information</h6>
+        <!--<div class="important-info__item-block">-->
+        <!--Додавати з js  -->
+        <!--<div class="important-info__item-block-title"></div>
+          <div class="important-info__item-block-content"></div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

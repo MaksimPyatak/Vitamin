@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 import { Validator } from "./utilits/classes.js";
 import { auth, showLoginError } from "./modules/firebase.js";
+import { changeBackgrounHeader } from "./utilits/function.js";
 
 const form = document.forms.sign_in;
 const elForm = form.elements;
@@ -57,3 +58,5 @@ async function submitFormHandler(event) {
       }
    }
 }
+
+changeBackgrounHeader();

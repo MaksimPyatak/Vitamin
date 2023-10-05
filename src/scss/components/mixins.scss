@@ -191,52 +191,9 @@
    color: $color;
 }
 
-
-//&__button-ract {
-//   @include ract-button($width: 154px, $hight: 50px, $font-size: 1rem, );
-//}
 @mixin ract-button ($width: 100%, $hight: 100%, $font-size: 1.4286rem, $bg-color: var(--main-orange), $color: #FFF, $br-color: rgba(211, 44, 44, 0.2), $width-xs, $hight-xs) {
    @include button($width, $hight, $font-size, $bg-color, $width-xs, $hight-xs);
    border-radius: 12px;
    background: $bg-color;
    color: $color;
 }
-
-// Текст з двома лініями з двох боків -ТЕКСТ----
-//Додаємо в основний блок
-//@mixin discover-more($color: inherit, $background: rgba(255, 255, 255, 0.4)) {
-//   width: fit-content;
-//   height: 13px;
-
-//   .discover-more__link {
-//      position: relative;
-//      font-size: 10px;
-//      line-height: 120%;
-//      letter-spacing: 0.12em;
-//      text-transform: uppercase;
-//      color: $color;
-//      display: flex;
-//      padding: 0 65px 0 16px;
-
-//      &::before,
-//      &::after {
-//         content: " ";
-//         position: absolute;
-//         top: 35%;
-//         display: block;
-//         background: $background;
-//      }
-
-//      &::before {
-//         left: 0;
-//         width: 8px;
-//         height: 1px;
-//      }
-
-//      &::after {
-//         right: 0;
-//         width: 56px;
-//         height: 1px;
-//      }
-//   }
-//}

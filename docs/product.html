@@ -5,14 +5,13 @@
   <meta http-equiv="X-UA-Compatible, Content-Security-Policy" content="IE=edge 'unsafe-inline'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
-  <link rel="stylesheet" href="css/style.min.css?_v=20231002151325" />
+  <link rel="stylesheet" href="css/product.min.css?_v=20231005171413" />
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
-  <title>Главная - Орех Причерноморья</title>
-  <!--<script src="@@script?_v=20231002151325"></script>-->
-  <script src="js/authState.min.js?_v=20231002151325" async></script>
+  <title>Medstogo - Product</title>
+  <!--<script src="@@script?_v=20231005171413"></script>-->
+  <script src="js/authState.min.js?_v=20231005171413" async></script>
 </head>
 
-  <!--, "style-preload": "css/main.min.css"-->
   <body>
     <div class="wrapper">
       <header class="header">
@@ -27,8 +26,9 @@
     <div class="header__burger">
       <span></span>
     </div>
-    <a href="index.html" class="header__logo">
+    <a href="index.html" class="header__logo header__logo--color--white">
       <img src="img/header/logo.svg" alt="Logotype" />
+      <img src="img/header/white-logo.svg" alt="Logotype" />
     </a>
     <div class="header__body">
       <a href="subscriptions.html" class="header__profile-logo">
@@ -42,11 +42,114 @@
   </div>
 </header>
 
-      <main class="main-page">
-        <h1>Product</h1>
+      <main class="product">
+        <div class="catalogue__base"><div class="base">
+  <div class="base__img-block">
+    <img src="img/product-card/Arc.svg" alt="Yellow arc" class="base__arc-img" />
+    <div class="base__img-wrapper">
+      <div class="base__img-box">
+        <picture>
+          <source class="base__webp-img" src="" type="image/webp" />
+          <img class="base__png-img" src="" alt="" />
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="base__content-block">
+    <div class="base__content-wrapper">
+      <a href="catalogue.html" class="base__back-link">
+        <img src="img/product-card/Back_arrow.svg" alt="Back arrow" />
+        <div>Back to shop</div>
+      </a>
+      <div class="base__product-type"></div>
+      <h3 class="base__product-title"></h3>
+      <div class="base__count-block count-block">
+        <div class="count-block__info-block">
+          <div class="count-block__icon-block">
+            <img class="count-block__container-icon" src="" alt="" />
+          </div>
+          <div class="count-block__text-block">
+            <div class="count-block__amount-in-container"></div>
+            <div class="count-block__dosage"></div>
+          </div>
+        </div>
+        <div class="count-block__quantity-choice"><div class="quantity-choice">
+  <div class="quantity-choice__minus-block quantity-choice__minus-block--not-active">
+    <img src="img/product-card/minus.svg" alt="Minus" />
+  </div>
+  <div class="quantity-choice__out-block">1</div>
+  <div class="quantity-choice__plus-block">
+    <img src="img/product-card/plus.svg" alt="Plus" />
+  </div>
+</div>
+</div>
+      </div>
+      <div class="base__add-to-cart add-to-cart">
+        <div class="add-to-cart__autoship-block"><div class="autoship">
+  <div class="autoship__select-block autoship__select-block--not-active">
+    <div class="autoship__start-label">Autoship this item every</div>
+    <div class="autoship__start-label-small">Deliver every</div>
+    <div class="autoship__select-box">
+      <div class="autoship__select-header">
+        <div class="autoship__select-header-text">30</div>
+        <img class="autoship__select-arrow" src="img/product-card/Back_arrow.svg" alt="Back arrow" />
+      </div>
+      <ul class="autoship__select-list autoship__select-list--not-show">
+        <li class="autoship__select-item autoship__select-item--active">30</li>
+        <li class="autoship__select-item">45</li>
+        <li class="autoship__select-item">60</li>
+        <li class="autoship__select-item">90</li>
+      </ul>
+    </div>
+    <div class="autoship__finish-label">days</div>
+  </div>
+  <div class="autoship__checkbox">
+    <label for="autoship" class="autoship__checkbox-label">
+      <input type="checkbox" name="autoship" id="autoship" class="autoship__checkbox-input" />
+      <div class="autoship__castom-checkbox autoship__castom-checkbox--hecked">
+        <div class="autoship__check-mark">
+          <img src="img/product-card/check-mark.svg" alt="Chack mark" />
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+</div>
+        <div class="add-to-cart__btn-block">
+          <div class="add-to-cart__price-block">
+            <div class="add-to-cart__block-at-discont">
+              <div class="add-to-cart__price add-to-cart__price--text--strikethrough"></div>
+              <div class="add-to-cart__sale-block add-to-cart__sale-block--not-show">
+                <div class="add-to-cart__sale"></div>
+              </div>
+            </div>
+            <div class="add-to-cart__sale-price add-to-cart__sale-price--not-show"></div>
+          </div>
+          <button class="add-to-cart__btn">Add to cart</button>
+        </div>
+      </div>
+      <div class="base__description">
+        <h6 class="base__description-title">Description</h6>
+        <div class="base__description-text"></div>
+        <ul class="base__description-list">
+          <!--<li class="base__description-item"></li>-->
+          <!--Додавати з js  -->
+        </ul>
+      </div>
+      <div class="base__important-info important-info">
+        <h6 class="important-info__title">Important information</h6>
+        <!--<div class="important-info__item-block">-->
+        <!--Додавати з js  -->
+        <!--<div class="important-info__item-block-title"></div>
+          <div class="important-info__item-block-content"></div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+        <div class="catalogue__you-may-like"></div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css?_v=20231002151325" />-->
       <footer class="footer">
   <div class="footer__container">
     <a href="/" class="footer__logo">
@@ -96,8 +199,7 @@
   </div>
 </footer>
 
-      <!---->
     </div>
-    <script src="js/app.min.js?_v=20231002151325"></script>
+    <script src="js/product.min.js?_v=20231005171413"></script>
   </body>
 </html>

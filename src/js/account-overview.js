@@ -5,6 +5,7 @@ import { Validator } from "./utilits/classes.js";
 import { validationNumberInput, editPhone } from "./utilits/function.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
+import { changeBackgrounHeader } from "./utilits/function.js";
 
 const inputFile = document.querySelector('#file');
 const fileWrapper = document.querySelector('#file-wrapper');
@@ -120,3 +121,5 @@ function showDawnloadInfoBlock() {
 }
 
 signOutLink.addEventListener('click', signOutFunc);
+
+changeBackgrounHeader();

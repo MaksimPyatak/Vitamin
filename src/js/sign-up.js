@@ -4,6 +4,7 @@ import { auth, showLoginError, storage, db } from "./modules/firebase.js";
 import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { changeBackgrounHeader } from "./utilits/function.js";
 
 import "./modules/sign-up/add-file-name.js";
 
@@ -109,3 +110,4 @@ function submitFormHandler(event) {
    }
 }
 
+changeBackgrounHeader();

@@ -2,6 +2,7 @@ import { editNumberCard, editExpiration, editCvc } from "./utilits/function.js";
 import { Validator } from "./utilits/classes.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
+import { changeBackgrounHeader } from "./utilits/function.js";
 
 const cardNumber = document.querySelector('#card_number');
 editNumberCard(cardNumber);
@@ -101,3 +102,5 @@ function showDawnloadInfoBlock() {
 }
 
 signOutLink.addEventListener('click', signOutFunc);
+
+changeBackgrounHeader();

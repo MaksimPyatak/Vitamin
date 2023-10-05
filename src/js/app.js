@@ -7,4 +7,7 @@ import "./modules/profileLinkIcon.js";
 import "./modules/button.js";
 import "./modules/home-page.js";
 import "./modules/reviews-swiper.js";
+import { changeBackgrounHeader } from "./utilits/function.js";
+
+changeBackgrounHeader();
 

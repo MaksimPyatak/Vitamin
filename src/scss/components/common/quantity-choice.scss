@@ -1,0 +1,44 @@
+.quantity-choice {
+   width: 176px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-align: center;
+   font-family: Effra;
+   font-size: 20px;
+   line-height: normal;
+
+   @media (max-width: 425px) {
+      width: 149px;
+      font-size: 16px;
+   }
+
+   &__minus-block,
+   &__plus-block {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #F5F5F5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+         width: 24px;
+         display: block;
+      }
+
+      &--not-active {
+         img {
+            opacity: 0.3;
+         }
+      }
+   }
+
+   &__out-block {
+      flex: 1 1 auto;
+   }
+
+   &__plus-block {}
+}

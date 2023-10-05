@@ -30,6 +30,7 @@ function filterProducts(param, products, productsType) {
       markMenuItem(param);
       param = param.dataset.filter;
    }
+
    if ('' != param) {
       const keyParam = param.substring(1, param.indexOf('='));
       const valueParam = param.substring(param.indexOf('=') + 1);
@@ -42,7 +43,6 @@ function filterProducts(param, products, productsType) {
 
 function markMenuItem(item) {
    item.classList.add('catalog-menu__item--state--active');
-
    selectedItem.innerHTML = item.innerHTML;
    catalogList.classList.remove('catalog-menu__list--opening');
    backArrow.classList.remove('catalog-menu__opening-icon--opening');
@@ -67,24 +67,9 @@ function openList() {
       backArrow.classList.remove('catalog-menu__opening-icon--opening');
    }
 }
-//catalogList.addEventListener('click', (e) => {
-//   if (selectItem(e.target, catalogList, 'catalog-menu__item', 'catalog-menu__item--state--active')) {
-//      items.forEach((item) => item.classList.remove('catalog-menu__item--state--active'));
-//      e.target.classList.add('catalog-menu__item--state--active');
-//      catalogList.classList.remove('catalog-menu__list--opening');
-//      backArrow.classList.remove('catalog-menu__opening-icon--opening');
-//   }
-//})
 catalogList.addEventListener('click', (e) => {
    if (e.target.classList.contains('catalog-menu__item') && !e.target.classList.contains('catalog-menu__item--state--active')
    ) {
-
-      //items.forEach((item) => item.classList.remove('catalog-menu__item--state--active'));
-      //e.target.classList.add('catalog-menu__item--state--active');
-      //catalogList.classList.remove('catalog-menu__list--opening');
-      //backArrow.classList.remove('catalog-menu__opening-icon--opening');
-      //productsBlock.innerHTML = '';
-      //filterProducts(e.target.dataset.filter, products, productsType);
       filterProducts(e.target, products, productsType);
    }
 })

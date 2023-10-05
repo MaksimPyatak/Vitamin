@@ -648,6 +648,10 @@ main {
     font-size: 45px;
   }
 
+  h3 {
+    font-size: 36px;
+  }
+
   h4 {
     font-size: 32px;
   }
@@ -692,6 +696,10 @@ main {
   h2 {
     font-size: 40px;
     line-height: 42px;
+  }
+
+  h3 {
+    font-size: 30px;
   }
 
   h4 {
@@ -832,6 +840,10 @@ main {
   }
 
   h2 {
+    font-size: 24px;
+  }
+
+  h3 {
     font-size: 24px;
   }
 

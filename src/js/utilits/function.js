@@ -134,7 +134,7 @@ export function productsFilter(products, keyParam, valueParam) {
 }
 export function renderCard(data, productsType, id) {
    const card = document.createElement('a');
-   card.href = `product.html#${id}`
+   card.href = `product.html?id=${id}`
    card.classList.add('product-card');
    card.innerHTML = `
    <div class="product-card__sale-box ${data.sale == '' ? 'product-card__sale-box--dispaly--none' : ''}">
@@ -154,11 +154,36 @@ export function renderCard(data, productsType, id) {
        <div class="product-card__title">${data.name}</div>
      </div>
      <div class="product-card__prise-block">
-       <div class="product-card__prise ${data.sale != '' ? 'product-card__prise--text--strikethrough' : ''}">${data.price}</div>
-       <div class="product-card__sale-prise ${data.sale == '' ? 'product-card__sale-prise--dispaly--none' : ''}">${data.sale_price}</div>
+       <div class="product-card__prise ${data.sale != '' ? 'product-card__prise--text--strikethrough' : ''}">$${data.price}</div>
+       <div class="product-card__sale-prise ${data.sale == '' ? 'product-card__sale-prise--display--none' : ''}">$${data.sale_price}</div>
      </div>
    </div>`;
    return card
+}
+export function changeBackgrounHeader(changedLogo) {
+   window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+         header.classList.add('header--active');
+         if (changedLogo) {
+            changeLogoOfHeader(true);
+         }
+      } else {
+         header.classList.remove('header--active');
+         if (changedLogo) {
+            changeLogoOfHeader(false);
+         }
+      }
+   })
+}
+
+export function changeLogoOfHeader(remove) {
+   const logo = document.querySelector('.header__logo');
+   if (remove) {
+      logo.classList.remove('header__logo--color--white');
+   } else {
+      logo.classList.add('header__logo--color--white');
+   }
 }
 
 //!!!!Потрібна?
