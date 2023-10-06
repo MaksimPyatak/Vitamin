@@ -61,52 +61,97 @@ function submitFormHandler(event) {
       submitBtn.classList.add('no-active-button');
       submitBtn.disabled = true;
       body.style.cursor = 'wait';
-      submitBtn.style.cursor = 'wait';
-      createUserWithEmailAndPassword(auth, userProfile.account_overview.email, userProfile.account_overview.password)
-         .then((userCredential) => {
+      //submitBtn.style.cursor = 'wait';
+      //createUserWithEmailAndPassword(auth, userProfile.account_overview.email, userProfile.account_overview.password)
+      //   .then((userCredential) => {
+      //      const user = userCredential.user;
+      //      return user
+      //   })
+      //   .then((user) => {
+      //      userProfile.account_overview.uid = user.uid;
+      //      if (userProfile.account_overview.wholesale) {
+      //         const userFileRef = ref(storage, `/users/permissions/${Date.now()}${elForm.file.files[0].name}`)
+      //         return uploadBytes(userFileRef, elForm.file.files[0])
+      //      }
+      //      return
+      //   })
+      //   .then((uploadResult) => {
+      //      if (uploadResult) {
+      //         userProfile.account_overview.file = {
+      //            name: uploadResult.metadata.name,
+      //            fullPath: uploadResult.metadata.fullPath
+      //         }
+      //      }
+      //      return
+      //   })
+      //   .then(() => {
+      //      return setDoc(doc(db, "users", userProfile.account_overview.uid), userProfile)
+      //   })
+      //   .then(() => window.location.replace("subscriptions.html"))
+      //   .catch((error) => {
+      //      submitBtn.classList.remove('no-active-button')
+      //      submitBtn.disabled = false;
+      //      submitBtn.style.cursor = 'pointer';
+      //      body.style.cursor = 'pointer';
+      //      switch (error.code) {
+      //         case AuthErrorCodes.EMAIL_EXISTS:
+      //            const message = `The entered e-mail is already registered.`;
+      //            regValidator.isError(message, email)
+      //            break;
+      //         //case AuthErrorCodes.EMAIL_EXISTS:
+
+      //         //break;
+      //         default:
+      //            console.log(error.message);
+      //            regValidator.isError(error.message, password)
+      //            break;
+      //      }
+      //   });
+      async function createUserAndUploadFile(auth, userProfile, elForm) {
+         try {
+            const userCredential = await createUserWithEmailAndPassword(auth, userProfile.account_overview.email, userProfile.account_overview.password);
             const user = userCredential.user;
-            return user
-         })
-         .then((user) => {
-            userProfile.account_overview.uid = user.uid;
-            if (userProfile.account_overview.wholesale) {
-               const userFileRef = ref(storage, `/users/permissions/${Date.now()}${elForm.file.files[0].name}`)
-               return uploadBytes(userFileRef, elForm.file.files[0])
+            const currentUser = {
+               uid: user.uid,
             }
-            return
-         })
-         .then((uploadResult) => {
-            if (uploadResult) {
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            //userProfile.account_overview.uid = user.uid;
+
+            if (userProfile.account_overview.wholesale) {
+               const userFileRef = ref(storage, `/users/permissions/${Date.now()}${elForm.file.files[0].name}`);
+               const uploadResult = await uploadBytes(userFileRef, elForm.file.files[0]);
+
                userProfile.account_overview.file = {
                   name: uploadResult.metadata.name,
                   fullPath: uploadResult.metadata.fullPath
-               }
+               };
             }
-            return
-         })
-         .then(() => {
-            return setDoc(doc(db, "users", userProfile.account_overview.uid), userProfile)
-         })
-         .then(() => window.location.replace("subscriptions.html"))
-         .catch((error) => {
-            submitBtn.classList.remove('no-active-button')
+
+            await setDoc(doc(db, "users", user.uid), userProfile);
+
+            window.location.replace("index.html");
+         } catch (error) {
+            submitBtn.classList.remove('no-active-button');
             submitBtn.disabled = false;
             submitBtn.style.cursor = 'pointer';
             body.style.cursor = 'pointer';
+
             switch (error.code) {
                case AuthErrorCodes.EMAIL_EXISTS:
                   const message = `The entered e-mail is already registered.`;
-                  regValidator.isError(message, email)
+                  regValidator.isError(message, email);
                   break;
-               //case AuthErrorCodes.EMAIL_EXISTS:
-
-               //break;
                default:
-                  console.log(error.message);
-                  regValidator.isError(error.message, password)
+                  console.error(error.message);
+                  regValidator.isError(error.message, password);
                   break;
             }
-         });
+         }
+      }
+
+      // Виклик функції createUserAndUploadFile
+      createUserAndUploadFile(auth, userProfile, elForm);
+
    }
 }
 

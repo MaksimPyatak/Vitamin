@@ -10,41 +10,6 @@ import { changeBackgrounHeader } from "./utilits/function.js";
 const inputFile = document.querySelector('#file');
 const fileWrapper = document.querySelector('#file-wrapper');
 const fileInfo = document.querySelector('.add-file__info');
-const ZIP_LENGTH = 6;
-
-let userId;
-let userProfile = {};
-
-returnAuthUser()
-   .then((result) => userId = result.uid)
-   .then(async () => {
-      const docRef = doc(db, 'users', userId);
-      const docSnapshot = await getDoc(docRef);
-      if (docSnapshot.exists()) {
-         userProfile.account_overview = docSnapshot.data().account_overview;
-      } else {
-         console.log('Документ не існує');
-      }
-   })
-   .then(() => {
-      for (let i = 0; i < elForm.length; i++) {
-         const element = elForm[i];
-         if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
-            element.value = userProfile.account_overview[element.name];
-         }
-         if (userProfile.account_overview.wholesale) {
-            fileWrapper.style.display = 'block';
-            inputFile.setAttribute('data-isFile', true);
-            inputFile.disabled = false;
-            fileInfo.innerHTML = userProfile.account_overview.file.name;
-         }
-         if (element.name == 'state') {
-            element.dispatchEvent(new Event('dowload', { bubbles: true }));
-         }
-      }
-   })
-   .catch((error) => console.log(error))
-
 const downloadInfoBlock = document.querySelector('.header__download-info-block');
 const signOutLink = document.querySelector('.item__sign-out');
 const form = document.forms.overview;
@@ -54,6 +19,69 @@ const phoneInput = elForm.phone;
 const regValidator = new Validator(form);
 const submitBtn = form.querySelector('.form__submit');
 const body = document.querySelector('body');
+
+const ZIP_LENGTH = 6;
+
+const user = await returnAuthUser()
+const userId = user.uid;
+const userProfile = {};
+
+try {
+   const docSnapshot = await getDoc(doc(db, 'users', userId));
+   if (docSnapshot.exists()) {
+      userProfile.account_overview = docSnapshot.data().account_overview;
+   } else {
+      console.log('Документ не існує');
+   }
+} catch (error) {
+   console.log(error);
+}
+for (let i = 0; i < elForm.length; i++) {
+   const element = elForm[i];
+   if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
+      element.value = userProfile.account_overview[element.name];
+   }
+   if (userProfile.account_overview.wholesale) {
+      fileWrapper.style.display = 'block';
+      inputFile.setAttribute('data-isFile', true);
+      inputFile.disabled = false;
+      fileInfo.innerHTML = userProfile.account_overview.file.name;
+   }
+   if (element.name == 'state') {
+      element.dispatchEvent(new Event('dowload', { bubbles: true }));
+   }
+}
+
+//returnAuthUser()
+//   .then((result) => userId = result.uid)
+//   .then(async () => {
+//      const docRef = doc(db, 'users', userId);
+//      const docSnapshot = await getDoc(docRef);
+//      if (docSnapshot.exists()) {
+//         userProfile.account_overview = docSnapshot.data().account_overview;
+//      } else {
+//         console.log('Документ не існує');
+//      }
+//   })
+//   .then(() => {
+//      for (let i = 0; i < elForm.length; i++) {
+//         const element = elForm[i];
+//         if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
+//            element.value = userProfile.account_overview[element.name];
+//         }
+//         if (userProfile.account_overview.wholesale) {
+//            fileWrapper.style.display = 'block';
+//            inputFile.setAttribute('data-isFile', true);
+//            inputFile.disabled = false;
+//            fileInfo.innerHTML = userProfile.account_overview.file.name;
+//         }
+//         if (element.name == 'state') {
+//            element.dispatchEvent(new Event('dowload', { bubbles: true }));
+//         }
+//      }
+//   })
+//   .catch((error) => console.log(error))
+
 regValidator.blurValidation();
 validationNumberInput(zipNumberInput, ZIP_LENGTH);
 editPhone(phoneInput);

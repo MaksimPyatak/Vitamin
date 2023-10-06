@@ -1,4 +1,4 @@
-import { auth } from "./modules/firebase.js";
+import { auth, returnAuthUser } from "./modules/firebase.js";
 const profilePageUrl = [
    '/account-overview.html',
    '/orders.html',
@@ -6,13 +6,11 @@ const profilePageUrl = [
    '/subscriptions.html',
    '/change-password.html',
 ]
-//const authPageUrl = [,
-//]
-auth.onAuthStateChanged((user) => {
-   if (!user) {
-      if (profilePageUrl.includes(window.location.pathname)) {
-         window.location.href = 'sign-in.html';
-         console.log(window.location.href);
-      }
+
+const currentUser = await returnAuthUser();
+if (!currentUser) {
+   if (profilePageUrl.includes(window.location.pathname)) {
+      window.location.href = 'sign-in.html';
+      console.log(window.location.href);
    }
-});
+}

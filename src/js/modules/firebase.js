@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, AuthErrorCodes, signOut } from "firebase/auth";
+import { getAuth, AuthErrorCodes, signOut, onAuthStateChanged } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
@@ -52,6 +52,7 @@ export const showSignupError = (error) => {
 export function signOutFunc() {
    signOut(auth)
       .then(() => {
+         localStorage.removeItem('currentUser');
          console.log('You signed out');
          window.location.replace('sign-in.html');
       })
@@ -60,20 +61,57 @@ export function signOutFunc() {
       });
 }
 
-export function returnAuthUser() {
-   return new Promise(function (resolve, reject) {
-      auth.onAuthStateChanged((user) => {
-         resolve(user)
+//export function returnAuthUser() {
+//   return new Promise(function (resolve, reject) {
+//      auth.onAuthStateChanged((user) => {
+//         console.log(user);
+//         resolve(user)
+//      });
+//   })
+//}
+
+export async function returnAuthUser() {
+   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+   if (currentUser) {
+      return currentUser
+   }
+   return new Promise(async (resolve, reject) => {
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+         unsubscribe();
+
+         if (user) {
+            const currentUser = {
+               uid: user.uid,
+            };
+            console.log(currentUser);
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            resolve(currentUser);
+         } else {
+            resolve(null);
+         }
       });
-   })
+   });
+   //onAuthStateChanged(auth, (user) => {
+   //   console.log(user);
+   //   if (user) {
+   //      const currentUser = {
+   //         uid: user.uid,
+   //      }
+   //      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+   //   } else {
+   //      currentUser = user;
+   //   }
+   //   return currentUser
+   //});
 }
-export let userAuth;
-export let uidUserAuth;
-returnAuthUser()
-   .then((result) => {
-      userAuth = result;
-      return result
-   })
+
+//export let userAuth;
+//export let uidUserAuth;
+//returnAuthUser()
+//   .then((result) => {
+//      userAuth = result;
+//      return result
+//   })
    //.then((result) => {
    //   uidUserAuth = result.uid;
    //   console.log(uidUserAuth);
