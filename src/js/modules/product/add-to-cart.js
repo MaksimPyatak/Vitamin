@@ -74,9 +74,9 @@ function selectOption(e) {
    })
 }
 
-const btnAddToCart = document.querySelector('.add-to-cart__btn');
-btnAddToCart.addEventListener('click',)
+//const btnAddToCart = document.querySelector('.add-to-cart__btn');
+//btnAddToCart.addEventListener('click',)
 
-function addToCart() {
-   productForCart
-}
+//function addToCart() {
+//   productForCart
+//}
