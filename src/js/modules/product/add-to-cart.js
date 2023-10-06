@@ -1,10 +1,14 @@
 
 const quantityOutBlock = document.querySelector('.quantity-choice__out-block');
-const minus = document.querySelector('.quantity-choice__minus-block');
-const plus = document.querySelector('.quantity-choice__plus-block');
-const maxQuantity = 10;
 
-function updateQuantity(change) {
+const productForCart = {
+   //id,
+   //name,
+   //count,
+   //price,
+}
+
+export function updateQuantity(change, minus, plus, maxQuantity, price, element) {
    let currentQuantity = parseInt(quantityOutBlock.innerHTML);
 
    currentQuantity += change;
@@ -16,17 +20,10 @@ function updateQuantity(change) {
    }
 
    quantityOutBlock.innerHTML = currentQuantity;
+   element.innerHTML = `$${(+price * +currentQuantity).toFixed(2)}`;
    minus.classList.toggle('quantity-choice__minus-block--not-active', currentQuantity === 1);
    plus.classList.toggle('quantity-choice__plus-block--not-active', currentQuantity === maxQuantity);
 }
-
-minus.addEventListener('click', () => {
-   updateQuantity(-1);
-});
-
-plus.addEventListener('click', () => {
-   updateQuantity(1);
-});
 
 const autoshipCheckbox = document.querySelector('#autoship');
 const selectBlock = document.querySelector('.autoship__select-block');
@@ -46,12 +43,24 @@ selectHeader.addEventListener('click', () => {
       selectList.classList.remove('autoship__select-list--not-show');
       selectArrow.classList.add('autoship__select-arrow--open-list');
       selectList.addEventListener('click', selectOption);
+      document.addEventListener('click', closeSelect);
    } else {
       selectList.classList.add('autoship__select-list--not-show');
       selectArrow.classList.remove('autoship__select-arrow--open-list');
-      selectList.removeEventListener('click', selectOption)
+      selectList.removeEventListener('click', selectOption);
+      document.removeEventListener('click', closeSelect);
    }
 })
+
+function closeSelect(e) {
+   if (!selectBlock.contains(e.target) && selectBlock != e.target) {
+      selectList.classList.add('autoship__select-list--not-show');
+      selectArrow.classList.remove('autoship__select-arrow--open-list');
+      selectList.removeEventListener('click', selectOption);
+      document.removeEventListener('click', closeSelect);
+   }
+}
+
 function selectOption(e) {
    selectItems.forEach((item) => {
       if (e.target == item) {
@@ -63,4 +72,11 @@ function selectOption(e) {
          selectList.removeEventListener('click', selectOption)
       }
    })
+}
+
+const btnAddToCart = document.querySelector('.add-to-cart__btn');
+btnAddToCart.addEventListener('click',)
+
+function addToCart() {
+   productForCart
 }

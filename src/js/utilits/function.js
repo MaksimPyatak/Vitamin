@@ -155,7 +155,7 @@ export function renderCard(data, productsType, id) {
      </div>
      <div class="product-card__prise-block">
        <div class="product-card__prise ${data.sale != '' ? 'product-card__prise--text--strikethrough' : ''}">$${data.price}</div>
-       <div class="product-card__sale-prise ${data.sale == '' ? 'product-card__sale-prise--display--none' : ''}">$${data.sale_price}</div>
+       <div class="product-card__sale-prise ${data.sale == '' ? 'product-card__sale-prise--display--none' : ''}">$${(data.sale * data.price / 100).toFixed(2)}</div>
      </div>
    </div>`;
    return card
