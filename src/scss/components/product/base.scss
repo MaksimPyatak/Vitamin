@@ -12,8 +12,7 @@
       width: 100%;
 
       @media (max-width: 1024px) {
-         max-height: 450px;
-         //height: min-content;
+         //max-height: 450px;
          padding-top: 110px;
          padding-bottom: 19px;
       }
@@ -52,20 +51,32 @@
    }
 
    &__img-box {
-      width: 608px;
-      height: 562px;
+      position: relative;
+      max-width: 608px;
+      width: 100%;
 
-      @media (max-width: 1024px) {
+      //width: 608px;
+      //height: 562px;
+      div {
          width: 100%;
-         height: 100%;
+         padding-top: 92.5%;
+
       }
 
+      //@media (max-width: 1024px) {
+      //   width: 100%;
+      //   height: 100%;
+      //}
+
       picture {
+         position: absolute;
+         top: 0;
+         left: 0;
          width: 100%;
          height: 100%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
+         //display: flex;
+         //justify-content: center;
+         //align-items: center;
       }
    }
 
@@ -75,7 +86,7 @@
       object-fit: contain;
 
       @media (max-width: 1024px) {
-         height: 100%;
+         //height: 100%;
       }
    }
 
