@@ -1280,6 +1280,8 @@ button.swiper-pagination-bullet {
 }
 
 .menu-footer__contact img {
+  width: 22px;
+  height: 22px;
   margin-right: 10px;
 }
 

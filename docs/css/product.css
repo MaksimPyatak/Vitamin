@@ -691,6 +691,8 @@ main {
 }
 
 .menu-footer__contact img {
+  width: 22px;
+  height: 22px;
   margin-right: 10px;
 }
 
@@ -816,6 +818,11 @@ main {
 
 .base__count-block {
   margin-bottom: 40px;
+}
+
+.base__package-icon {
+  width: 50px;
+  height: 60px;
 }
 
 .base__add-to-cart {
@@ -1112,6 +1119,7 @@ main {
 .quantity-choice__minus-block img,
 .quantity-choice__plus-block img {
   width: 24px;
+  height: 24px;
   display: block;
 }
 

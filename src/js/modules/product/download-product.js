@@ -43,7 +43,7 @@ try {
    const prodName = document.querySelector('.base__product-title');
    prodName.innerHTML = product.base.name;
 
-   const containerIcon = document.querySelector('.count-block__container-icon');
+   const containerIcon = document.querySelector('.count-block__package-icon');
    containerIcon.src = medForm[product.full.med_form];
 
    const amountInContainer = document.querySelector('.count-block__amount-in-container');
