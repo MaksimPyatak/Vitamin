@@ -1191,6 +1191,10 @@ main {
   opacity: 0.5;
 }
 
+.autoship__select-block--not-active .autoship__select-box {
+  cursor: no-drop;
+}
+
 .autoship__select-block--not-active .autoship__select-header div,
 .autoship__select-block--not-active .autoship__select-header img {
   opacity: 0.5;
@@ -1211,6 +1215,7 @@ main {
   margin-right: 15px;
   border-radius: 8px;
   background: #F5F5F5;
+  cursor: pointer;
 }
 
 .autoship__select-header {
@@ -1312,6 +1317,7 @@ main {
   padding: 3px;
   border-radius: 30px;
   border: 2px solid #DEDEDE;
+  cursor: pointer;
 }
 
 .autoship__check-mark {

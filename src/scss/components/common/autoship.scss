@@ -18,6 +18,10 @@
                opacity: 0.5;
             }
 
+            &__select-box {
+               cursor: no-drop;
+            }
+
             &__select-header {
 
                div,
@@ -57,6 +61,7 @@
       margin-right: 15px;
       border-radius: 8px;
       background: #F5F5F5;
+      cursor: pointer;
 
       @media (max-width: 1240px) {
          margin-right: 8px;
@@ -78,9 +83,6 @@
       @media (max-width: 480px) {
          padding: 0 12px 0 12px;
       }
-
-      //img {
-      //}
    }
 
    &__select-arrow {
@@ -163,6 +165,7 @@
       padding: 3px;
       border-radius: 30px;
       border: 2px solid #DEDEDE;
+      cursor: pointer;
    }
 
    &__check-mark {
