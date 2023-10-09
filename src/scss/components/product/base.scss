@@ -94,10 +94,11 @@
       position: relative;
       width: 100%;
       padding-right: var(--pdng-conteiner);
-      padding-bottom: 19px;
+      //padding-bottom: 19px;
+      border-bottom: 1px solid #F2F2F2;
 
       @media (max-width: 1024px) {
-         padding: 0 var(--pdng-conteiner) 19px var(--pdng-conteiner);
+         padding: 0 var(--pdng-conteiner) 0 var(--pdng-conteiner);
       }
    }
 
@@ -120,12 +121,13 @@
 
       @media (max-width: 1024px) {
          max-width: unset;
-         padding: 0 0 130px 0;
+         padding: 0 0 60px 0;
       }
    }
 
    &__back-link {
       position: sticky;
+      width: max-content;
       height: 22px;
       top: 44px;
       margin-top: 44px;
@@ -290,6 +292,11 @@
       @media (max-width: 480px) {
          margin-bottom: 23px;
       }
+
+      img {
+         width: 50px;
+         height: 60px;
+      }
    }
 
    &__container-icon {
@@ -363,7 +370,12 @@
    }
 
    &__price-block {
+      width: 215px;
       margin-right: 10px;
+
+      @media (max-width: 425px) {
+         width: 145px;
+      }
    }
 
    &__block-at-discont {
@@ -392,7 +404,6 @@
          }
       }
    }
-
 
    &__sale-block {
       width: 36px;

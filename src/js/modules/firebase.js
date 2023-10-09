@@ -61,15 +61,6 @@ export function signOutFunc() {
       });
 }
 
-//export function returnAuthUser() {
-//   return new Promise(function (resolve, reject) {
-//      auth.onAuthStateChanged((user) => {
-//         console.log(user);
-//         resolve(user)
-//      });
-//   })
-//}
-
 export async function returnAuthUser() {
    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
    if (currentUser) {
@@ -83,7 +74,6 @@ export async function returnAuthUser() {
             const currentUser = {
                uid: user.uid,
             };
-            console.log(currentUser);
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
             resolve(currentUser);
          } else {
@@ -91,29 +81,4 @@ export async function returnAuthUser() {
          }
       });
    });
-   //onAuthStateChanged(auth, (user) => {
-   //   console.log(user);
-   //   if (user) {
-   //      const currentUser = {
-   //         uid: user.uid,
-   //      }
-   //      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-   //   } else {
-   //      currentUser = user;
-   //   }
-   //   return currentUser
-   //});
 }
-
-//export let userAuth;
-//export let uidUserAuth;
-//returnAuthUser()
-//   .then((result) => {
-//      userAuth = result;
-//      return result
-//   })
-   //.then((result) => {
-   //   uidUserAuth = result.uid;
-   //   console.log(uidUserAuth);
-   //   return result
-   //});

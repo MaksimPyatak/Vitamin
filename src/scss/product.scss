@@ -12,9 +12,20 @@ main {
    }
 }
 
+.catalogue {
+   &__base {
+      margin-bottom: 100px;
+
+      @media (max-width:650px) {
+         margin-bottom: 60px;
+      }
+   }
+}
+
 @import "./components/header";
 @import "./components/footer";
 @import './components/product/base';
 @import './components/product/you-may-like';
 @import './components/common/quantity-choice';
 @import './components/common/autoship';
+@import './components/catalogue/catalog-product';

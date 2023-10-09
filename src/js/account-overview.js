@@ -2,7 +2,7 @@ import "./modules/select.js";
 import "./modules/sign-up/add-file-name.js";
 
 import { Validator } from "./utilits/classes.js";
-import { validationNumberInput, editPhone } from "./utilits/function.js";
+import { validationNumberInput, editPhone, showDawnloadInfoBlock } from "./utilits/function.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
 import { changeBackgrounHeader } from "./utilits/function.js";
@@ -10,7 +10,7 @@ import { changeBackgrounHeader } from "./utilits/function.js";
 const inputFile = document.querySelector('#file');
 const fileWrapper = document.querySelector('#file-wrapper');
 const fileInfo = document.querySelector('.add-file__info');
-const downloadInfoBlock = document.querySelector('.header__download-info-block');
+//const downloadInfoBlock = document.querySelector('.header__download-info-block');
 const signOutLink = document.querySelector('.item__sign-out');
 const form = document.forms.overview;
 const elForm = form.elements;
@@ -143,10 +143,10 @@ async function submitFormHandler(event) {
       //regValidator.isError(error.message)
    }
 }
-function showDawnloadInfoBlock() {
-   downloadInfoBlock.classList.remove('download-info-block--display--none');
-   window.setTimeout(() => downloadInfoBlock.classList.add('download-info-block--display--none'), 2000);
-}
+//function showDawnloadInfoBlock() {
+//   downloadInfoBlock.classList.remove('download-info-block--display--none');
+//   window.setTimeout(() => downloadInfoBlock.classList.add('download-info-block--display--none'), 2000);
+//}
 
 signOutLink.addEventListener('click', signOutFunc);
 

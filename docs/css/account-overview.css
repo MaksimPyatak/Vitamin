@@ -645,6 +645,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 
 .download-info-block--display--none {
@@ -1308,6 +1309,10 @@ main {
     height: 70px;
   }
 
+  .header__download-info-block {
+    height: 70px;
+  }
+
   .header__header-container {
     margin: 0 20px 0 20px;
   }
@@ -1331,6 +1336,12 @@ main {
 
   .header__button {
     display: none;
+  }
+
+  .download-info-block {
+    width: 100%;
+    height: 70px;
+    border-radius: unset;
   }
 
   .footer {
@@ -1473,11 +1484,6 @@ main {
   .header__button {
     width: 154px;
     height: 50px;
-  }
-
-  .download-info-block {
-    width: 100%;
-    height: 70px;
   }
 
   .form__submit {

@@ -8,5 +8,6 @@ import "./modules/profileLinkIcon.js";
 import "./modules/button.js";
 import './modules/product/download-product.js';
 import "./modules/product/add-to-cart.js";
+import "./modules/product/you-may-like.js";
 
 changeBackgrounHeader(true);

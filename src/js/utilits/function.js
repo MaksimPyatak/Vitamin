@@ -1,4 +1,6 @@
-//import { signOutFunc } from "../modules/firebase.js";
+import { getDoc, doc } from "firebase/firestore";
+import { db, } from "../modules/firebase.js";
+
 
 export function validationNumberInput(numberInput, maxLength,) {
    //input.addEventListener('input', function () {
@@ -106,6 +108,17 @@ export function adjustOptionsListPosition(optionsList, upwardsClass) {
       optionsList.classList.remove(upwardsClass);
    }
 }
+
+export function showDawnloadInfoBlock(mesadge) {
+   const downloadInfoBlock = document.querySelector('.header__download-info-block');
+   if (mesadge) {
+      downloadInfoBlock.innerHTML = mesadge;
+   }
+   downloadInfoBlock.classList.remove('download-info-block--display--none');
+   window.setTimeout(() => downloadInfoBlock.classList.add('download-info-block--display--none'), 2000);
+}
+
+//??????!!!!
 export function selectItem(target, itemClass, activeItemClass) {
    if (target.classList.contains(itemClass) && target.classList.contains(activeItemClass)) {
       return
@@ -186,12 +199,22 @@ export function changeLogoOfHeader(remove) {
    }
 }
 
-//!!!!Потрібна?
-//export async function determineAuthState(link) {
-//   try {
-//      const user = await signOut(auth);
-//      return user
-//   } catch (error) {
-//      console.log(error);
-//   }
-//}
+export async function checkCart(currentUser) {
+   let cart = {};
+   const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+   if (localCurrentUser) {
+      const snapshotCurrentUser = await getDoc(doc(db, 'users', localCurrentUser.uid));
+      const currentUserData = snapshotCurrentUser.data();
+      if (currentUserData && currentUserData.cart) {
+         cart = currentUserData.cart;
+      }
+   } else {
+      const cartData = localStorage.getItem('cart');
+      if (cartData) {
+         cart = JSON.parse(cartData);
+      }
+   }
+
+   return cart;
+}
