@@ -1,6 +1,7 @@
 import { getDoc, doc, setDoc } from "firebase/firestore";
 import { db, } from "../firebase.js";
-import { showDawnloadInfoBlock, checkCart } from "../../utilits/function.js";
+import { showDawnloadInfoBlock, checkCart, } from "../../utilits/function.js";
+import { whichEmptyCart } from "../cart.js";
 //import { updateQuantity } from "./add-to-cart.js";
 
 window.addEventListener('load', checkCart);
@@ -96,17 +97,6 @@ try {
 } catch (error) {
    console.log(error);
 }
-
-//async function checkCart() {
-//   if (!localStorage.getItem('currentUser')) {
-//      cart = JSON.parse(localStorage.getItem('cart'));
-//      return
-//   }
-//   const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-//   const snapshotCurrentUser = await getDoc(doc(db, 'users', localCurrentUser.uid));
-//   const currentUser = snapshotCurrentUser.data();
-//   cart = currentUser.cart ? currentUser.cart : {};
-//}
 
 const minus = document.querySelector('.quantity-choice__minus-block');
 const plus = document.querySelector('.quantity-choice__plus-block');
@@ -205,7 +195,8 @@ async function addToCart() {
 
    if (localCurrentUser) {
       try {
-         await setDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart }, { merge: true })
+         await setDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart }, { merge: true });
+         whichEmptyCart();
          showDawnloadInfoBlock('Added to cart');
          backLink.style['z-index'] = 1;
          window.setTimeout(() => backLink.style['z-index'] = 51, 2000);

@@ -7,7 +7,7 @@ flsFunctions.isWebp();
 import "./modules/profileLinkIcon.js";
 import "./modules/button.js";
 import './modules/product/download-product.js';
-import "./modules/product/add-to-cart.js";
 import "./modules/product/you-may-like.js";
+import "./modules/cart.js";
 
 changeBackgrounHeader(true);

@@ -3,30 +3,6 @@ import { db, } from "../modules/firebase.js";
 
 
 export function validationNumberInput(numberInput, maxLength,) {
-   //input.addEventListener('input', function () {
-   //   const inputValue = this.value.toString();
-   //   console.log(inputValue);
-   //   console.log(inputValue.toLowerCase().search(/^\d{3}\s(?:\D*\d{3}\s*)*$/));
-   //   if (inputValue.length > maxLength) {
-   //      this.value = inputValue.slice(0, maxLength);
-   //   } else if (inputValue.toLowerCase().search(/[^0-9]/g) >= 0 && inputValue.length < 4) {
-   //      console.log('reg1');
-   //      this.value = this.dataset.previousValue || '';
-   //   } else if (inputValue.length == 4 && inputValue[3] != ' ' && inputValue.toLowerCase().search(/[0-9]{3}[0-9]/g) >= 0) {
-   //      console.log(' - ');
-   //      this.value = inputValue.substring(0, 3) + ' ' + inputValue.substring(3);
-   //   } else if (inputValue.toLowerCase().search(/[0-9]{3}\s[^0-9]{1,3}/g) < 0 && inputValue.length > 3) { //&& inputValue.toLowerCase().search(/[^0-9]{3}\s[^0-9]/g) <= 0
-   //      console.log('reg2');
-   //      this.value = this.dataset.previousValue || '';
-   //      //} else if (inputValue.length == 4 && inputValue.toLowerCase().search(/[0-9]{3}[^0-9]/g)) {
-   //      //   console.log(' - ');
-   //      //   this.value = inputValue.substring(0, 3) + ' ' + inputValue.substring(3);
-   //   } else {
-   //      this.dataset.previousValue = inputValue;
-   //   }
-   //})
-   //const numberInput = document.getElementById("numberInput");
-
    numberInput.addEventListener("input", function () {
       const sanitizedValue = this.value.replace(/\D/g, "");
       const firstThreeDigits = sanitizedValue.slice(0, 3);
@@ -127,7 +103,6 @@ export function selectItem(target, itemClass, activeItemClass) {
    }
 }
 
-
 export function renderFilteredCards(products, parentElement, productsType) {
    products.forEach((data) => {
       const card = renderCard(data, productsType, data.id);
@@ -199,22 +174,45 @@ export function changeLogoOfHeader(remove) {
    }
 }
 
-export async function checkCart(currentUser) {
+export async function checkCart() {
    let cart = {};
    const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+   try {
 
-   if (localCurrentUser) {
-      const snapshotCurrentUser = await getDoc(doc(db, 'users', localCurrentUser.uid));
-      const currentUserData = snapshotCurrentUser.data();
-      if (currentUserData && currentUserData.cart) {
-         cart = currentUserData.cart;
+      if (localCurrentUser) {
+         const snapshotCurrentUser = await getDoc(doc(db, 'users', localCurrentUser.uid));
+         const currentUserData = snapshotCurrentUser.data();
+         if (currentUserData && currentUserData.cart) {
+            cart = currentUserData.cart;
+         }
+      } else {
+         const cartData = localStorage.getItem('cart');
+         if (cartData) {
+            cart = JSON.parse(cartData);
+         }
       }
-   } else {
-      const cartData = localStorage.getItem('cart');
-      if (cartData) {
-         cart = JSON.parse(cartData);
-      }
+   } catch (error) {
+      console.log(error);
    }
-
    return cart;
+}
+
+export function getScrollbarWidth() {
+   // Creating invisible container
+   const outer = document.createElement('div')
+   outer.style.visibility = 'hidden'
+   outer.style.overflow = 'scroll' // forcing scrollbar to appear
+   outer.style.msOverflowStyle = 'scrollbar' // needed for WinJS apps
+   document.body.appendChild(outer)
+
+   // Creating inner element and placing it in the container
+   const inner = document.createElement('div')
+   outer.appendChild(inner)
+
+   // Calculating difference between container's full width and the child width
+   const scrollbarWidth = outer.offsetWidth - inner.offsetWidth
+   // Removing temporary elements from the DOM
+   outer.parentNode.removeChild(outer)
+
+   return scrollbarWidth
 }
