@@ -178,7 +178,6 @@ export async function checkCart() {
    let cart = {};
    const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
    try {
-
       if (localCurrentUser) {
          const snapshotCurrentUser = await getDoc(doc(db, 'users', localCurrentUser.uid));
          const currentUserData = snapshotCurrentUser.data();
