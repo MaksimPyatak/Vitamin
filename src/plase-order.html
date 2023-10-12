@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Place order", "style": "css/place-order.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Place order</h1>
+      <header class="header">
+        <div class="header__container">
+          <a href="index.html" class="header__logo-box">
+            <img src="@img/header/logo.svg" alt="Logotype" class="header__logo-icon" />
+          </a>
+        </div>
+      </header>
+      <main class="place-order">
+        <div class="place-order__container">
+          <div class="place-order__form">@@include('html/components/place-order/form.html', {})</div>
+          <div class="place-order__products-block">@@include('html/components/place-order/products-block.html', {})</div>
+          <footer class="footer">
+            <ul class="footer__menu-list">
+              <li class="footer__menu-item">
+                <a href="footer-menu-text.html"> Return Policy</a>
+              </li>
+              <li class="footer__menu-item">
+                <a href="footer-menu-text.html"> Privacy Policy</a>
+              </li>
+              <li class="footer__menu-item">
+                <a href="footer-menu-text.html"> Terms & Conditions</a>
+              </li>
+            </ul>
+            <div class="footer__paymant-logos">
+              <div class="footer__payment-logo">
+                <img src="@img/place-order/Payment_logos 3.png" alt="Payment logo" />
+              </div>
+              <div class="footer__payment-logo">
+                <img src="@img/place-order/Payment_logos 2.png" alt="Payment logo" />
+              </div>
+            </div>
+          </footer>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/place-order.min.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 import "./modules/select.js";
 import "./modules/sign-up/add-file-name.js";
+import "./modules/cart.js";
 
 import { Validator } from "./utilits/classes.js";
 import { validationNumberInput, editPhone, showDawnloadInfoBlock } from "./utilits/function.js";
@@ -38,49 +39,21 @@ try {
 }
 for (let i = 0; i < elForm.length; i++) {
    const element = elForm[i];
-   if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
-      element.value = userProfile.account_overview[element.name];
-   }
-   if (userProfile.account_overview.wholesale) {
-      fileWrapper.style.display = 'block';
-      inputFile.setAttribute('data-isFile', true);
-      inputFile.disabled = false;
-      fileInfo.innerHTML = userProfile.account_overview.file.name;
-   }
-   if (element.name == 'state') {
-      element.dispatchEvent(new Event('dowload', { bubbles: true }));
+   if (userProfile.account_overview) {
+      if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
+         element.value = userProfile.account_overview[element.name];
+      }
+      if (userProfile.account_overview.wholesale) {
+         fileWrapper.style.display = 'block';
+         inputFile.setAttribute('data-isFile', true);
+         inputFile.disabled = false;
+         fileInfo.innerHTML = userProfile.account_overview.file.name;
+      }
+      if (element.name == 'state') {
+         element.dispatchEvent(new Event('dowload', { bubbles: true }));
+      }
    }
 }
-
-//returnAuthUser()
-//   .then((result) => userId = result.uid)
-//   .then(async () => {
-//      const docRef = doc(db, 'users', userId);
-//      const docSnapshot = await getDoc(docRef);
-//      if (docSnapshot.exists()) {
-//         userProfile.account_overview = docSnapshot.data().account_overview;
-//      } else {
-//         console.log('Документ не існує');
-//      }
-//   })
-//   .then(() => {
-//      for (let i = 0; i < elForm.length; i++) {
-//         const element = elForm[i];
-//         if (userProfile.account_overview[element.name] && !element.disabled && element.name != 'file') {
-//            element.value = userProfile.account_overview[element.name];
-//         }
-//         if (userProfile.account_overview.wholesale) {
-//            fileWrapper.style.display = 'block';
-//            inputFile.setAttribute('data-isFile', true);
-//            inputFile.disabled = false;
-//            fileInfo.innerHTML = userProfile.account_overview.file.name;
-//         }
-//         if (element.name == 'state') {
-//            element.dispatchEvent(new Event('dowload', { bubbles: true }));
-//         }
-//      }
-//   })
-//   .catch((error) => console.log(error))
 
 regValidator.blurValidation();
 validationNumberInput(zipNumberInput, ZIP_LENGTH);
@@ -103,6 +76,10 @@ async function submitFormHandler(event) {
    event.preventDefault();
    if (!regValidator.validation()) {
       return
+   }
+
+   if (!userProfile.account_overview) {
+      userProfile.account_overview = {};
    }
 
    userProfile.account_overview.email = elForm.email.value;
@@ -143,10 +120,6 @@ async function submitFormHandler(event) {
       //regValidator.isError(error.message)
    }
 }
-//function showDawnloadInfoBlock() {
-//   downloadInfoBlock.classList.remove('download-info-block--display--none');
-//   window.setTimeout(() => downloadInfoBlock.classList.add('download-info-block--display--none'), 2000);
-//}
 
 signOutLink.addEventListener('click', signOutFunc);
 

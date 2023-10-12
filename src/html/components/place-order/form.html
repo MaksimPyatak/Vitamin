@@ -1,0 +1,24 @@
+<form class="place-order-form" name="place-order-form" id="place-order-form">
+  <h4 class="place-order-form__title">Delivery Information</h4>
+  <div class="place-order-form__account-fieldset">@@include('../common/profile-inputs.html', {})</div>
+  <h4 class="place-order-form__title">Biling</h4>
+  <fieldset class="place-order-form__payment-fieldset form__fieldset">
+    <div class="form__item">
+      <label for="card_number">Card Number</label>
+      <input type="text" name="card_number" id="card_number" />
+      <div class="form__error error" id="error-card_number"></div>
+    </div>
+    <div class="form__item form__item--duble">
+      <div class="form__subitem">
+        <label for="card_expiration">Expiration</label>
+        <input type="text" name="card_expiration" id="card_expiration" />
+        <div class="form__error error" id="error-card_expiration"></div>
+      </div>
+      <div class="form__subitem">
+        <label for="card_cvc">CVC</label>
+        <input type="password" name="card_cvc" id="card_cvc" />
+        <div class="form__error error" id="error-card_cvc"></div>
+      </div>
+    </div>
+  </fieldset>
+</form>

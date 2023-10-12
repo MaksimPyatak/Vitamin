@@ -1,0 +1,109 @@
+// Загальні стилі
+@import "./components/global";
+
+main {
+   max-width: 1920px;
+   width: 100%;
+   flex: 1 1 auto;
+}
+
+.header {
+   width: 100%;
+   height: 110px;
+
+   @media (max-width: 650px) {
+      height: 70px;
+   }
+
+   &__container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+   }
+
+   &__logo-box {
+      display: block;
+      width: 42px;
+      height: 50px;
+
+      @media (max-width: 650px) {
+         width: 33.6px;
+         height: 40px;
+      }
+   }
+
+   &__logo-icon {
+      width: 100%;
+      height: 100%;
+   }
+}
+
+.place-order {
+   margin-top: 50px;
+
+   &__container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr auto;
+      gap: 80px 32px;
+   }
+
+   &__form {
+      width: 100%;
+   }
+
+   &__products-block {
+      width: 100%;
+   }
+}
+
+.footer {
+   width: 100%;
+   padding: 30px 0;
+   border-top: 1px solid #F2F2F2;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   @media (max-width: 1240px) {
+      flex-direction: column;
+
+   }
+
+   &__menu-list {
+      margin-right: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 15px 30px;
+
+      @media (max-width: 1240px) {
+         margin-bottom: 15px;
+         margin-right: 0;
+      }
+   }
+
+   &__menu-item {
+      opacity: 0.5;
+   }
+
+   &__paymant-logos {
+      display: flex;
+      align-items: center;
+   }
+
+   &__payment-logo {
+      &:not(:last-child) {
+         margin-right: 10px;
+      }
+
+      img {
+         width: 100%;
+      }
+   }
+}
+
+@import "./components/common/profile-inputs";
+@import "./components/common/select";
+@import "./components/place-order/form";
+@import "./components/place-order/products-block";

@@ -7,7 +7,6 @@ import { whichEmptyCart } from "../cart.js";
 window.addEventListener('load', checkCart);
 
 const locationSearchObj = new URLSearchParams(window.location.search);
-//const productId = locationSearchObj.get('id');
 
 const price = document.querySelector('.add-to-cart__price');
 const salePrice = document.querySelector('.add-to-cart__sale-price');
@@ -25,10 +24,9 @@ let cart = await checkCart();
 let productsType = {};
 let product = {};
 let medForm = {};
-//let currentUser = {};
 const productForCart = {
    id: locationSearchObj.get('id'),
-   count: 1,//parseInt(quantityOutBlock.innerHTML)
+   count: 1,
    autoship: autoshipCheckbox.checked,
    autoshipPeriodicity: +selectHeaderText.innerHTML,
 }
@@ -101,9 +99,6 @@ try {
 const minus = document.querySelector('.quantity-choice__minus-block');
 const plus = document.querySelector('.quantity-choice__plus-block');
 const maxQuantity = 10;
-
-//const priceToCount = product.base.sale == !!'' ? product.base.price : (product.base.sale * product.base.price / 100).toFixed(2);
-//const elementForShowCount = product.base.sale == !!'' ? price : salePrice;
 
 minus.addEventListener('click', () => {
    updateQuantity(-1);
@@ -183,19 +178,25 @@ async function addToCart() {
    const zIndexValue = 1;
    const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+   try {
+      cart = await checkCart();
+   } catch (error) {
+      console.log(error);
+   }
+
+   if (cart[productForCart.id]) {
+      cart[productForCart.id].count += productForCart.count;
+      cart[productForCart.id].autoship = productForCart.autoship;
+      cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
+   } else {
+      cart[productForCart.id] = {};
+      cart[productForCart.id].count = productForCart.count;
+      cart[productForCart.id].autoship = productForCart.autoship;
+      cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
+   }
+
    if (localCurrentUser) {
       try {
-         cart = await checkCart();
-         if (cart[productForCart.id]) {
-            cart[productForCart.id].count += productForCart.count;
-            cart[productForCart.id].autoship = productForCart.autoship;
-            cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
-         } else {
-            cart[productForCart.id] = {};
-            cart[productForCart.id].count = productForCart.count;
-            cart[productForCart.id].autoship = productForCart.autoship;
-            cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
-         }
          await setDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart }, { merge: true });
          await whichEmptyCart();
          showDawnloadInfoBlock('Added to cart');
@@ -207,6 +208,7 @@ async function addToCart() {
       return
    }
    localStorage.setItem('cart', JSON.stringify(cart));
+   await whichEmptyCart();
    showDawnloadInfoBlock('Added to cart');
    backLink.style['z-index'] = zIndexValue;
    window.setTimeout(() => backLink.style['z-index'] = 51, 2000);

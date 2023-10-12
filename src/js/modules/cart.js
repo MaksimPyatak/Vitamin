@@ -158,13 +158,11 @@ function useSelect(card, autoshipCheckbox, selectBlock, productUid) {
 function removeCard() {
    const cardUid = this.dataset.uid;
    delete cart[cardUid];
-   //const cardForDel = cartBox.querySelector(`#${cardUid}`);
    const cardForDel = document.getElementById(cardUid);
    cardForDel.remove();
    calcAmount();
    pressingTime = Date.now();
    runSaveCart();
-   console.log(cart);
 }
 
 function addFancToQuantityButtons(card) {
@@ -229,6 +227,7 @@ async function saveCart() {
          return
       }
       localStorage.setItem('cart', JSON.stringify(cart));
+      iconCart.classList.toggle('header__cart-icon--not-empty', Object.keys(cart).length);
    }
 }
 
