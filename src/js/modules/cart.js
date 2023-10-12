@@ -1,5 +1,5 @@
 import { checkCart, getScrollbarWidth } from "../utilits/function.js";
-import { getDoc, doc, setDoc } from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { db, } from "./firebase.js";
 
 let cart;
@@ -86,7 +86,7 @@ async function addCards(cart) {
             const imgBlock = card.querySelector('.cart-card__img-block');
             imgBlock.style.background = typeProduct[product.base.type].bg_color;
 
-            const crissCross = document.querySelector('.cart-card__criss-cross');
+            const crissCross = card.querySelector('.cart-card__criss-cross');
             crissCross.addEventListener('click', removeCard);
             addFancToQuantityButtons(card);
 
@@ -158,11 +158,13 @@ function useSelect(card, autoshipCheckbox, selectBlock, productUid) {
 function removeCard() {
    const cardUid = this.dataset.uid;
    delete cart[cardUid];
-   const cardForDel = cartBox.querySelector(`#${cardUid}`)
+   //const cardForDel = cartBox.querySelector(`#${cardUid}`);
+   const cardForDel = document.getElementById(cardUid);
    cardForDel.remove();
    calcAmount();
    pressingTime = Date.now();
    runSaveCart();
+   console.log(cart);
 }
 
 function addFancToQuantityButtons(card) {
@@ -173,18 +175,18 @@ function addFancToQuantityButtons(card) {
       pressingTime = Date.now();
       updateQuantity.call(this, -1, card);
       //saveCart();
-      makeDefaultQountBtn.call(this);
+      makeDefaultCountBtn.call(this);
       runSaveCart();
    });
 
    cartCardPlus.addEventListener('click', function () {
       pressingTime = Date.now();
       updateQuantity.call(this, 1, card);
-      makeDefaultQountBtn.call(this);
+      makeDefaultCountBtn.call(this);
       runSaveCart();
    });
 
-   function makeDefaultQountBtn() {
+   function makeDefaultCountBtn() {
       cartCardMinus.classList.toggle('cart-card__quantity-choice-minus-block--not-active', +cart[this.dataset.uid].count === 1);
       cartCardPlus.classList.toggle('cart-card__quantity-choice-plus-block--not-active', +cart[this.dataset.uid].count === maxQuantity);
    }
@@ -219,7 +221,7 @@ async function saveCart() {
 
       if (localCurrentUser) {
          try {
-            await setDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart }, { merge: true });
+            await updateDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart });
             iconCart.classList.toggle('header__cart-icon--not-empty', Object.keys(cart).length);
          } catch (error) {
             console.log(error);

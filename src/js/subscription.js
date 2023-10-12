@@ -1,3 +1,4 @@
+import "./modules/cart.js";
 import { signOutFunc, } from "./modules/firebase.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
 

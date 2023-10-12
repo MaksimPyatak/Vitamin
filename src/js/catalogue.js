@@ -8,6 +8,7 @@ import "./modules/button.js";
 import "./modules/reviews-swiper.js";
 import './modules/catalogue/title-swiper.js';
 import './modules/catalogue/download-product.js';
+import "./modules/cart.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
 
 changeBackgrounHeader();

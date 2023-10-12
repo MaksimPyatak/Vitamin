@@ -180,23 +180,24 @@ const btnAddToCart = document.querySelector('.add-to-cart__btn');
 btnAddToCart.addEventListener('click', addToCart)
 
 async function addToCart() {
-   if (cart[productForCart.id]) {
-      cart[productForCart.id].count += productForCart.count;
-      cart[productForCart.id].autoship = productForCart.autoship;
-      cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
-   } else {
-      cart[productForCart.id] = {};
-      cart[productForCart.id].count = productForCart.count;
-      cart[productForCart.id].autoship = productForCart.autoship;
-      cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
-   }
    const zIndexValue = 1;
    const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
 
    if (localCurrentUser) {
       try {
+         cart = await checkCart();
+         if (cart[productForCart.id]) {
+            cart[productForCart.id].count += productForCart.count;
+            cart[productForCart.id].autoship = productForCart.autoship;
+            cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
+         } else {
+            cart[productForCart.id] = {};
+            cart[productForCart.id].count = productForCart.count;
+            cart[productForCart.id].autoship = productForCart.autoship;
+            cart[productForCart.id].autoshipPeriodicity = productForCart.autoshipPeriodicity;
+         }
          await setDoc(doc(db, 'users', localCurrentUser.uid), { cart: cart }, { merge: true });
-         whichEmptyCart();
+         await whichEmptyCart();
          showDawnloadInfoBlock('Added to cart');
          backLink.style['z-index'] = 1;
          window.setTimeout(() => backLink.style['z-index'] = 51, 2000);
