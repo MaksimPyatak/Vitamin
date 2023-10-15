@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', whichEmptyCart);
 export async function whichEmptyCart() {
    cart = await checkCart();
    iconCart.classList.toggle('header__cart-icon--not-empty', Object.keys(cart).length);
+   const typeProductSnapshot = await getDoc(doc(db, 'constData', 'typeProduct'));
+   typeProduct = typeProductSnapshot.data();
    await addCards(cart);
    calcAmount();
    console.log(cart);
@@ -77,9 +79,6 @@ async function addCards(cart) {
             const product = productSnapshot.data();
             products[productUid] = product;
 
-            const typeProductSnapshot = await getDoc(doc(db, 'constData', 'typeProduct'));
-            typeProduct = typeProductSnapshot.data();
-
             const card = createCard(product, productData, productUid);
             cardsWrapper.appendChild(card);
 
@@ -91,13 +90,18 @@ async function addCards(cart) {
             addFancToQuantityButtons(card);
 
             const autoshipCheckbox = card.querySelector('#cart-autoship');
+            autoshipCheckbox.checked = productData.autoship;
             const selectBlock = card.querySelector('.cart-autoship__select-block');
+            isChectedAutoship();
             autoshipCheckbox.addEventListener('change', () => {
-               selectBlock.classList.toggle('cart-autoship__select-block--not-active', !autoshipCheckbox.checked);
-               cart[productUid].autoship = autoshipCheckbox.checked ? true : false;
+               isChectedAutoship();
                pressingTime = Date.now();
                runSaveCart();
             });
+            function isChectedAutoship() {
+               selectBlock.classList.toggle('cart-autoship__select-block--not-active', !autoshipCheckbox.checked);
+               cart[productUid].autoship = autoshipCheckbox.checked ? true : false;
+            }
 
             const selectHeader = card.querySelector('.cart-autoship__select-header');
             selectHeader.addEventListener('click', () => useSelect(card, autoshipCheckbox, selectBlock, productUid))

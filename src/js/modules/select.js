@@ -36,7 +36,6 @@ selectElements.forEach(function (selectElement) {
    }
    selectElement.addEventListener('dowload', () => {
       selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${selectElement.value}`;
-      console.log('update select - ' + selectElement.value)
    }, { once: true });
    const selectItem = selectList.querySelectorAll('.new-select__item');
    selectList.style.display = 'none';
@@ -77,11 +76,7 @@ selectElements.forEach(function (selectElement) {
 
    function choiseSelect() {
       const isOpen = selectHead.classList.contains('on');
-      if (!isOpen) {
-         openSelect();
-      } else {
-         closeSelect();
-      }
+      isOpen ? closeSelect() : openSelect();
    }
 
    function openSelect() {
@@ -176,17 +171,6 @@ selectElements.forEach(function (selectElement) {
       });
    }
 });
-
-//function adjustOptionsListPosition(optionsList, upwardsClass) {
-//   const windowHeight = window.innerHeight;
-//   const optionsListHeight = optionsList.clientHeight;
-//   const optionsListOffsetTop = optionsList.getBoundingClientRect().top;
-//   if (windowHeight - optionsListOffsetTop < optionsListHeight) {
-//      optionsList.classList.add(upwardsClass);
-//   } else {
-//      optionsList.classList.remove(upwardsClass);
-//   }
-//}
 function removeUpwardsClass(optionsList, upwardsClass) {
    optionsList.classList.remove(upwardsClass);
 }

@@ -60,7 +60,11 @@ export function signOutFunc() {
          console.log(error);
       });
 }
-
+/**
+ * Повертає авторизованого користувача (якщо він збережений в локальному
+ *  сховищі, то з локального сховища, якщо ні, то робить запит на firebase),
+ *  якщо він авторизований, або null, якщо ні.
+ */
 export async function returnAuthUser() {
    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
    if (currentUser) {

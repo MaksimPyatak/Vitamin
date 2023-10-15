@@ -1,12 +1,12 @@
-<div class="products-block">
-  <div class="products-block__drop-down-header products-block__drop-down-header--display--none">
+<div class="products-block accordion">
+  <div class="products-block__drop-down-header products-block__drop-down-header--display--none accordion__header">
     <div class="products-block__drop-down-title-block">
-      <div class="products-block__container-drop-down">
+      <div class="products-block__drop-down-container">
         <div class="products-block__drop-down-icon">
           <img src="@img/header/cart-icon.svg" alt="Cart icon" />
         </div>
         <div class="products-block__drop-down-title">Today’s total</div>
-        <div class="products-block__drop-down-arrow">
+        <div class="products-block__drop-down-arrow accordion__arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
             <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M14.8788 7.53624L13.4339 9L7.43942 2.92751L1.44495 9L-3.2942e-07 7.53624L7.43942 3.25187e-07L14.8788 7.53624Z" fill="black" />
           </svg>
@@ -15,26 +15,28 @@
     </div>
     <div class="products-block__drop-down-title-costs"></div>
   </div>
-  <div class="products-block__products-box"></div>
-  <div class="products-block__calc-box">
-    <ul class="products-block__costs-list">
-      <li class="products-block__costs-item">
-        <div class="products-block__costs-item-title">Subtotal</div>
-        <div class="products-block__costs"></div>
-      </li>
-      <li class="products-block__costs-item products-block__costs-item--type--discount">
-        <div class="products-block__costs-item-title">Discount</div>
-        <div class="products-block__costs"></div>
-      </li>
-      <li class="products-block__costs-item">
-        <div class="products-block__costs-item-title">Shipping</div>
-        <div class="products-block__costs"></div>
-      </li>
-    </ul>
-    <div class="products-block__total-costs-block">
-      <div class="products-block__total-costs-title">Today’s Total:</div>
-      <div class="products-block__total-costs"></div>
+  <div class="products-block__content accordion__content">
+    <div class="products-block__products-box"></div>
+    <div class="products-block__calc-box">
+      <ul class="products-block__costs-list">
+        <li class="products-block__costs-item">
+          <div class="products-block__costs-item-title">Subtotal</div>
+          <div class="products-block__costs products-block__costs--type--subtotal"></div>
+        </li>
+        <li class="products-block__costs-item products-block__costs-item--type--discount">
+          <div class="products-block__costs-item-title">Discount</div>
+          <div class="products-block__costs products-block__costs--type--discount"></div>
+        </li>
+        <li class="products-block__costs-item">
+          <div class="products-block__costs-item-title">Shipping</div>
+          <div class="products-block__costs products-block__costs--type--shipping"></div>
+        </li>
+      </ul>
+      <div class="products-block__total-costs-block">
+        <div class="products-block__total-costs-title">Today’s Total:</div>
+        <div class="products-block__total-costs"></div>
+      </div>
+      <button class="products-block__form-btn no-active-button" type="submit" form="place-order-form">Place order</button>
     </div>
-    <button class="products-block__form-btn" type="submit" form="place-order-form">Place order</button>
   </div>
 </div>

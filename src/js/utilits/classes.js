@@ -1,3 +1,5 @@
+//import { container } from "webpack";
+
 /**
          * Додає клас до елементу @param objectClass
          * @param tabsClass клас об'єкта, де розміщені кнопки управління
@@ -119,10 +121,10 @@ export class Validator {
       }
    }
    blurValidation(form = this.form) {
-      for (let i = 0; i < form.elements.length; i++) {
+      for (let i = 0; i < form.elements.length; i++) form: {
          const element = form.elements[i];
          if (element.name == 'file') {
-            break
+            break form
          }
          element.addEventListener('blur', (e) => {
             if (typeof this[element.name + 'Test'] == 'function') {
@@ -133,7 +135,6 @@ export class Validator {
    }
 
    backgroundValdation(form = this.form) {
-      //let isValid = false;
       let n = 0;
       for (let i = 0; i < form.elements.length; i++) {
          const element = form.elements[i];
@@ -571,5 +572,40 @@ export class Validator {
       } else {
          return
       }
+   }
+}
+
+export class Accordion {
+   constructor(accordion) {
+      this.accordion = accordion;
+      this.header = accordion.querySelector('.accordion__header');
+      this.content = accordion.querySelector('.accordion__content');
+      this.arrow = accordion.querySelector('.accordion__arrow');
+      this.#activateAccordeon();
+      this.#removeAccordion();
+   }
+
+   #activateAccordeon() {
+      this.header.addEventListener('click', () => this.#playAccordion());
+   }
+
+   #playAccordion() {
+      this.arrow.classList.toggle('accordion__arrow--active');
+      if (this.content.style.maxHeight) {
+         this.content.style.maxHeight = null;
+      } else {
+         this.content.style.maxHeight = this.content.scrollHeight + "px";
+      }
+   }
+
+   #removeAccordion() {
+      window.addEventListener('resize', () => {
+         if (window.innerWidth < 769) {
+            this.content.style.maxHeight = null;
+         }
+         if (window.innerWidth > 768) {
+            this.content.style.maxHeight = 'unset';
+         }
+      })
    }
 }
