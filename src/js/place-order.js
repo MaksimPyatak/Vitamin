@@ -1,7 +1,7 @@
 import "./modules/select.js";
 
 import { Validator, Accordion } from "./utilits/classes.js";
-import { validationNumberInput, editPhone, showDawnloadInfoBlock, checkCart, changeBackgrounHeader } from "./utilits/function.js";
+import { validationNumberInput, editPhone, changeBackgrounHeader, editNumberCard, editExpiration, editCvc } from "./utilits/function.js";
 import { db, returnAuthUser, } from "./modules/firebase.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";
 
@@ -23,6 +23,13 @@ const discountBox = document.querySelector('.products-block__costs--type--discou
 const shippingBox = document.querySelector('.products-block__costs--type--shipping');
 const totalCostsBox = document.querySelector('.products-block__total-costs');
 const totalCostsTitleBox = document.querySelector('.products-block__drop-down-title-costs');
+
+const cardNumber = document.querySelector('#card_number');
+editNumberCard(cardNumber);
+const cardExpiration = document.querySelector('#card_expiration');
+editExpiration(cardExpiration);
+const cardCvc = document.querySelector('#card_cvc')
+editCvc(cardCvc);
 
 const ZIP_LENGTH = 6;
 const orderDate = Date.now();

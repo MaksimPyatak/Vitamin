@@ -1,486 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible, Content-Security-Policy" content="IE=edge 'unsafe-inline'" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
-    <link rel="stylesheet" href="css/style.min.css?_v=20231016013350" />
-    <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
-    <title>Medstogo - Home</title>
-    <!--<script src="@@script?_v=20231016013350"></script>-->
-    <script src="js/authState.min.js?_v=20231016013350" async></script>
-  </head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible, Content-Security-Policy" content="IE=edge 'unsafe-inline'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
+  <title>Medstogo - Home</title>
+  <!--<script src="@@script"></script>-->
+  <script src="js/authState.min.js" async></script>
+</head>
 
   <body>
     <div class="wrapper">
       <header class="header">
-        <div class="header__download-info-block download-info-block download-info-block--display--none">
-          <div class="download-info-block__icon-bloc">
-            <img src="img/header/check_mark.svg" alt="Check mark" />
-          </div>
-          <div class="download-info-block__text">Changes successfully saved</div>
-        </div>
-        <div class="header__cart">
-          <div class="cart">
-            <div class="cart__title-block">
-              <h6 class="cart__title">Cart</h6>
-              <div class="cart__title-criss-cross">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M1 17L17 0.999998" stroke="black" stroke-width="2" />
-                  <path d="M17 17L1 0.999999" stroke="black" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-            <div class="cart__cards">
-              <div class="cart__cards-wrapper"></div>
-            </div>
-            <div class="cart__btn-block">
-              <a href="plase-order.html">
-                <button class="cart__btn">Check Out •&nbsp;$<span class="cart__sum"></span></button>
-              </a>
-              <div class="cart__min-order"><span>Minimum order amount is $700</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="header__zero"></div>
-        <div class="header__header-container">
-          <div class="header__burger">
-            <span></span>
-          </div>
-          <a href="index.html" class="header__logo">
-            <img src="img/header/logo.svg" alt="Logotype" />
-            <img src="img/header/white-logo.svg" alt="Logotype" />
-          </a>
-          <div class="header__body">
-            <a href="subscriptions.html" class="header__profile-logo">
-              <img src="img/header/profile-icon.svg" alt="profile-logo" />
-            </a>
-            <div class="header__cart-icon">
-              <span></span>
-              <img src="img/header/cart-icon.svg" alt="Cart" />
-            </div>
-            <button class="header__button" data-link="quiz.html">Take the quiz</button>
-          </div>
-        </div>
-      </header>
+  <div class="header__download-info-block download-info-block download-info-block--display--none">
+    <div class="download-info-block__icon-bloc">
+      <img src="img/header/check_mark.svg" alt="Check mark" />
+    </div>
+    <div class="download-info-block__text">Changes successfully saved</div>
+  </div>
+  <div class="header__cart"><div class="cart">
+  <div class="cart__title-block">
+    <h6 class="cart__title">Cart</h6>
+    <div class="cart__title-criss-cross">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M1 17L17 0.999998" stroke="black" stroke-width="2" />
+        <path d="M17 17L1 0.999999" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
+  </div>
+  <div class="cart__cards">
+    <div class="cart__cards-wrapper"></div>
+  </div>
+  <div class="cart__btn-block">
+    <a href="plase-order.html">
+      <button class="cart__btn">Check Out •&nbsp;$<span class="cart__sum"></span></button>
+    </a>
+    <div class="cart__min-order"><span>Minimum order amount is $700</span></div>
+  </div>
+</div>
+</div>
+  <div class="header__zero"></div>
+  <div class="header__header-container">
+    <div class="header__burger">
+      <span></span>
+    </div>
+    <a href="index.html" class="header__logo ">
+      <img src="img/header/logo.svg" alt="Logotype" />
+      <img src="img/header/white-logo.svg" alt="Logotype" />
+    </a>
+    <div class="header__body">
+      <a href="subscriptions.html" class="header__profile-logo">
+        <img src="img/header/profile-icon.svg" alt="profile-logo" />
+      </a>
+      <div class="header__cart-icon">
+        <span></span>
+        <img src="img/header/cart-icon.svg" alt="Cart" />
+      </div>
+      <button class="header__button" data-link="quiz.html">Take the quiz</button>
+    </div>
+  </div>
+</header>
 
       <main class="main-page">
         <!--  -->
         <section class="title-section">
-          <div class="title-section__container">
-            <div class="title-section__content-box">
-              <h1 class="title-section__title">Find out what <span>vitamins</span> your body needs right now.</h1>
-              <div class="title-section__subtitle subtitle-20">Answer a few simple questions and automatically get a personalazed list of vitamins in minutes</div>
-              <div class="title-section__links-block">
-                <button class="title-section__button" data-link="quiz.html">Take the quiz</button>
-                <a href="catalogue.html" class="title-section__shop-link">
-                  <p>Go to the shop</p>
-                  <img src="img/home-page/arrow-right.svg" alt="right arrow" />
-                </a>
-              </div>
-            </div>
-            <div class="title-section__img-box">
-              <div class="title-section__big-circle">
-                <div>
-                  <img src="img/home-page/big-circle.svg" alt="big purple circle" />
-                </div>
-              </div>
-              <div class="title-section__jars">
-                <div>
-                  <picture
-                    ><source srcset="img/home-page/jar.webp" type="image/webp" />
-                    <img src="img/home-page/jar.png" alt="jars"
-                  /></picture>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="title-section__bg-container">
-            <div class="title-section__left-block"></div>
-          </div>
-          <div class="title-section__little-circle">
-            <div>
-              <img src="img/home-page/little-yellow-circle.svg" alt="yellow circle" />
-            </div>
-          </div>
-          <div class="title-section__yellow-arc">
-            <img src="img/home-page/yellow-arc.svg" alt="yellow arc" />
-          </div>
-          <div class="title-section__arc">
-            <img src="img/home-page/arc.svg" alt="arc" />
-          </div>
-        </section>
+  <div class="title-section__container">
+    <div class="title-section__content-box">
+      <h1 class="title-section__title">Find out what <span>vitamins</span> your body needs right now.</h1>
+      <div class="title-section__subtitle subtitle-20">Answer a few simple questions and automatically get a personalazed list of vitamins in minutes</div>
+      <div class="title-section__links-block">
+        <button class="title-section__button" data-link="quiz.html">Take the quiz</button>
+        <a href="catalogue.html" class="title-section__shop-link">
+          <p>Go to the shop</p>
+          <img src="img/home-page/arrow-right.svg" alt="right arrow" />
+        </a>
+      </div>
+    </div>
+    <div class="title-section__img-box">
+      <div class="title-section__big-circle">
+        <div>
+          <img src="img/home-page/big-circle.svg" alt="big purple circle" />
+        </div>
+      </div>
+      <div class="title-section__jars">
+        <div><img src="img/home-page/jar.png" alt="jars" /></div>
+      </div>
+    </div>
+  </div>
+  <div class="title-section__bg-container">
+    <div class="title-section__left-block"></div>
+  </div>
+  <div class="title-section__little-circle">
+    <div>
+      <img src="img/home-page/little-yellow-circle.svg" alt="yellow circle" />
+    </div>
+  </div>
+  <div class="title-section__yellow-arc">
+    <img src="img/home-page/yellow-arc.svg" alt="yellow arc" />
+  </div>
+  <div class="title-section__arc">
+    <img src="img/home-page/arc.svg" alt="arc" />
+  </div>
+</section>
 
         <!--  -->
         <section class="second-section">
-          <div class="second-section__title-block">
-            <div class="second-section__bg-layer">
-              <div class="second-section__bg-logo">
-                <img src="img/home-page/big-logo.svg" alt="big logotype" />
-              </div>
-              <img src="img/home-page/little-yellow-circle.svg" alt="yellow circle" class="second-section__yellow-circle" />
-            </div>
-            <div class="second-section__content-layer">
-              <h1 class="second-section__title">Healthy doesn&#8217;t have to be hard. We make it easy.</h1>
-            </div>
-          </div>
-          <div class="second-section__list-block">
-            <ul class="second-section__list">
-              <li class="second-section__item">
-                <div class="second-section__img-item">
-                  <img src="img/home-page/fist-item.svg" alt="icon" />
-                </div>
-                <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
-              </li>
-              <li class="second-section__item">
-                <div class="second-section__img-item">
-                  <img src="img/home-page/second-item.svg" alt="icon" />
-                </div>
-                <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
-              </li>
-              <li class="second-section__item">
-                <div class="second-section__img-item">
-                  <img src="img/home-page/third-item.svg" alt="icon" />
-                </div>
-                <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
-              </li>
-            </ul>
-          </div>
-          <div class="second-section__img-block">
-            <div class="second-section__jars-box">
-              <div class="second-section__wrapper-jars-box">
-                <div class="second-section__first-jars">
-                  <picture
-                    ><source srcset="img/home-page/first-jar.webp" type="image/webp" />
-                    <img src="img/home-page/first-jar.jpg" alt="jar"
-                  /></picture>
-                </div>
-                <div class="second-section__second-jars">
-                  <picture
-                    ><source srcset="img/home-page/second-jar.webp" type="image/webp" />
-                    <img src="img/home-page/second-jar.jpg" alt="jar"
-                  /></picture>
-                </div>
-                <div class="second-section__third-jars">
-                  <picture
-                    ><source srcset="img/home-page/third-jar.webp" type="image/webp" />
-                    <img src="img/home-page/third-jar.jpg" alt="jar"
-                  /></picture>
-                </div>
-              </div>
-            </div>
-            <div class="second-section__pills-box">
-              <div class="second-section__wrapper-pills-box">
-                <picture
-                  ><source srcset="img/home-page/pills.webp" type="image/webp" />
-                  <img src="img/home-page/pills.jpg" alt="image of pils"
-                /></picture>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div class="second-section__title-block">
+    <div class="second-section__bg-layer">
+      <div class="second-section__bg-logo">
+        <img src="img/home-page/big-logo.svg" alt="big logotype" />
+      </div>
+      <img src="img/home-page/little-yellow-circle.svg" alt="yellow circle" class="second-section__yellow-circle" />
+    </div>
+    <div class="second-section__content-layer">
+      <h1 class="second-section__title">Healthy doesn&#8217;t have to be hard. We make it easy.</h1>
+    </div>
+  </div>
+  <div class="second-section__list-block">
+    <ul class="second-section__list">
+      <li class="second-section__item">
+        <div class="second-section__img-item">
+          <img src="img/home-page/fist-item.svg" alt="icon" />
+        </div>
+        <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
+      </li>
+      <li class="second-section__item">
+        <div class="second-section__img-item">
+          <img src="img/home-page/second-item.svg" alt="icon" />
+        </div>
+        <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
+      </li>
+      <li class="second-section__item">
+        <div class="second-section__img-item">
+          <img src="img/home-page/third-item.svg" alt="icon" />
+        </div>
+        <h5>Healthy doesn&#8217;t have to be hard. We make it easy.</h5>
+      </li>
+    </ul>
+  </div>
+  <div class="second-section__img-block">
+    <div class="second-section__jars-box">
+      <div class="second-section__wrapper-jars-box">
+        <div class="second-section__first-jars">
+          <img src="img/home-page/first-jar.jpg" alt="jar" />
+        </div>
+        <div class="second-section__second-jars">
+          <img src="img/home-page/second-jar.jpg" alt="jar" />
+        </div>
+        <div class="second-section__third-jars">
+          <img src="img/home-page/third-jar.jpg" alt="jar" />
+        </div>
+      </div>
+    </div>
+    <div class="second-section__pills-box">
+      <div class="second-section__wrapper-pills-box">
+        <img src="img/home-page/pills.jpg" alt="image of pils" />
+      </div>
+    </div>
+  </div>
+</section>
 
         <!--  -->
         <section class="choose-products">
-          <div class="tell-about-yourself">
-            <div class="tell-about-yourself__container">
-              <div class="tell-about-yourself__icon-title">
-                <img src="img/home-page/hand-and-heards.svg" alt="hand and heard" />
-              </div>
-              <h1 class="tell-about-yourself__title">Tell us a little about yourself. We&#8217;re good listeners.</h1>
-              <div class="tell-about-yourself__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
-              <button class="tell-about-yourself__button" data-link="quiz.html">Take the quiz</button>
-            </div>
-            <div class="tell-about-yourself__semicercle">
-              <img src="img/home-page/yellow-semicircle.svg" alt="yellow yellow-semicircle" />
-            </div>
-            <div class="tell-about-yourself__circle">
-              <img src="img/home-page/big-circle.svg" alt="Purple circle" />
-            </div>
-          </div>
+  <div class="tell-about-yourself">
+  <div class="tell-about-yourself__container">
+    <div class="tell-about-yourself__icon-title">
+      <img src="img/home-page/hand-and-heards.svg" alt="hand and heard" />
+    </div>
+    <h1 class="tell-about-yourself__title">Tell us a little about yourself. We&#8217;re good listeners.</h1>
+    <div class="tell-about-yourself__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
+    <button class="tell-about-yourself__button" data-link="quiz.html">Take the quiz</button>
+  </div>
+  <div class="tell-about-yourself__semicercle">
+    <img src="img/home-page/yellow-semicircle.svg" alt="yellow yellow-semicircle" />
+  </div>
+  <div class="tell-about-yourself__circle">
+    <img src="img/home-page/big-circle.svg" alt="Purple circle" />
+  </div>
+</div>
 
-          <!--  -->
-          <div class="choose-products__second-block">
-            <div class="choose-products__swiper-box">
-              <div class="choose-products__swiper swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="swiper-card" style="background: #89d4a7">
-                      <div class="swiper-card__img">
-                        <picture
-                          ><source srcset="img/home-page/minerals-jar.webp" type="image/webp" />
-                          <img src="img/home-page/minerals-jar.png" alt="jar"
-                        /></picture>
-                      </div>
-                      <div class="swiper-card__medical-kind">Minerals</div>
-                      <div class="swiper-card__title">Reacted Zinc</div>
-                      <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="swiper-card" style="background: #9c91e0">
-                      <div class="swiper-card__img">
-                        <picture
-                          ><source srcset="img/home-page/vitamins-jar.webp" type="image/webp" />
-                          <img src="img/home-page/vitamins-jar.png" alt="jar"
-                        /></picture>
-                      </div>
-                      <div class="swiper-card__medical-kind">Vitamins & Dietary Supplements</div>
-                      <div class="swiper-card__title">Ortho B Complex</div>
-                      <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="swiper-card" style="background: #89d4a7">
-                      <div class="swiper-card__img">
-                        <picture
-                          ><source srcset="img/home-page/minerals-jar.webp" type="image/webp" />
-                          <img src="img/home-page/minerals-jar.png" alt="jar"
-                        /></picture>
-                      </div>
-                      <div class="swiper-card__medical-kind">Minerals</div>
-                      <div class="swiper-card__title">Reacted Zinc</div>
-                      <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="swiper-card" style="background: #9c91e0">
-                      <div class="swiper-card__img">
-                        <picture
-                          ><source srcset="img/home-page/vitamins-jar.webp" type="image/webp" />
-                          <img src="img/home-page/vitamins-jar.png" alt="jar"
-                        /></picture>
-                      </div>
-                      <div class="swiper-card__medical-kind">Vitamins & Dietary Supplements</div>
-                      <div class="swiper-card__title">Ortho B Complex</div>
-                      <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="choose-products__title-block">
-              <div class="choose-products__bg-title-block">
-                <div class="choose-products__bg-title-wrapper">
-                  <img src="img/home-page/full-orange-big-logo.svg" alt="full orange big logotype" />
-                </div>
-                <div class="choose-products__bg-logo">
-                  <div class="choose-products__bg-title-wrapper">
-                    <img src="img/home-page/full-white-big-logo.svg" alt="full white big logotype" />
-                  </div>
-                </div>
-              </div>
-              <div class="choose-products__title-block-content">
-                <h1 class="choose-products__title">Choose your products</h1>
-                <div class="choose-products__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
-                <a href="catalogue.html" class="choose-products__shop-link">
-                  <p>Go to the shop</p>
-                  <img src="img/home-page/arrow-right-white.svg" alt="right arrow" />
-                </a>
-              </div>
-            </div>
+  <!--  -->
+  <div class="choose-products__second-block">
+    <div class="choose-products__swiper-box">
+      <div class="choose-products__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="swiper-card" style="background: #89D4A7">
+  <div class="swiper-card__img">
+    <img src="img/home-page/minerals-jar.png" alt="jar" />
+  </div>
+  <div class="swiper-card__medical-kind">Minerals</div>
+  <div class="swiper-card__title">Reacted Zinc</div>
+  <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
+</div>
+</div>
+          <div class="swiper-slide"><div class="swiper-card" style="background: #9C91E0">
+  <div class="swiper-card__img">
+    <img src="img/home-page/vitamins-jar.png" alt="jar" />
+  </div>
+  <div class="swiper-card__medical-kind">Vitamins & Dietary Supplements</div>
+  <div class="swiper-card__title">Ortho B Complex</div>
+  <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
+</div>
+</div>
+          <div class="swiper-slide"><div class="swiper-card" style="background: #89D4A7">
+  <div class="swiper-card__img">
+    <img src="img/home-page/minerals-jar.png" alt="jar" />
+  </div>
+  <div class="swiper-card__medical-kind">Minerals</div>
+  <div class="swiper-card__title">Reacted Zinc</div>
+  <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
+</div>
+</div>
+          <div class="swiper-slide"><div class="swiper-card" style="background: #9C91E0">
+  <div class="swiper-card__img">
+    <img src="img/home-page/vitamins-jar.png" alt="jar" />
+  </div>
+  <div class="swiper-card__medical-kind">Vitamins & Dietary Supplements</div>
+  <div class="swiper-card__title">Ortho B Complex</div>
+  <div class="swiper-card__description">B vitamins are essential for your nervous system and proper brain functioning.</div>
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="choose-products__title-block">
+      <div class="choose-products__bg-title-block">
+        <div class="choose-products__bg-title-wrapper">
+          <img src="img/home-page/full-orange-big-logo.svg" alt="full orange big logotype" />
+        </div>
+        <div class="choose-products__bg-logo">
+          <div class="choose-products__bg-title-wrapper">
+            <img src="img/home-page/full-white-big-logo.svg" alt="full white big logotype" />
           </div>
-        </section>
+        </div>
+      </div>
+      <div class="choose-products__title-block-content">
+        <h1 class="choose-products__title">Choose your products</h1>
+        <div class="choose-products__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
+        <a href="catalogue.html" class="choose-products__shop-link">
+          <p>Go to the shop</p>
+          <img src="img/home-page/arrow-right-white.svg" alt="right arrow" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
         <!--  -->
         <section class="reviews-section">
-          <div class="reviews-section__container">
-            <div class="reviews-section__title-block">
-              <div class="reviews-section__content">
-                <div class="reviews-section__icon-box">
-                  <img src="img/home-page/dialog-icon.svg" alt="Icon of reviews" />
-                </div>
-                <h1 class="reviews-section__title">What healthy and happy customer says</h1>
-                <div class="reviews-section__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
-              </div>
-              <div class="reviews-section__img-block">
-                <div class="reviews-section__img-box">
-                  <picture
-                    ><source srcset="img/home-page/spoons.webp" type="image/webp" />
-                    <img src="img/home-page/spoons.png" alt="Spoons with tablets"
-                  /></picture>
-                </div>
-              </div>
-            </div>
-            <div class="reviews-section__swiper-block">
-              <div class="swiper-reviews swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="review">
-                      <div class="review__box">
-                        <div class="review__stars-box">
-                          <img src="img/reviews/Stars.svg" alt="Stars" />
-                        </div>
-                        <div class="review__text">
-                          <div class="review__title">Easy monitoring your weight goal!</div>
-                          <div class="review__subtitle">Love Vitamins! The individual packets make it so easy to remember you daily vitamins and makes travelling easy!!! 👍🏽</div>
-                        </div>
-                        <div class="review__avatar-block">
-                          <div class="review__avatar-box">
-                            <picture
-                              ><source srcset="img/reviews/avatar1.webp" type="image/webp" />
-                              <img src="img/reviews/avatar1.png" alt="Avatar"
-                            /></picture>
-                          </div>
-                          <div class="review__avatar-name">David S.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="review">
-                      <div class="review__box">
-                        <div class="review__stars-box">
-                          <img src="img/reviews/Stars.svg" alt="Stars" />
-                        </div>
-                        <div class="review__text">
-                          <div class="review__title">High quality vitamins & supplements</div>
-                          <div class="review__subtitle">High quality vitamins & supplements, very easy on my stomach too. Great service! I really like the flexibility and options available in the subscriptions.</div>
-                        </div>
-                        <div class="review__avatar-block">
-                          <div class="review__avatar-box">
-                            <picture
-                              ><source srcset="img/reviews/avatar2.webp" type="image/webp" />
-                              <img src="img/reviews/avatar2.png" alt="Avatar"
-                            /></picture>
-                          </div>
-                          <div class="review__avatar-name">Bridget T.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="review">
-                      <div class="review__box">
-                        <div class="review__stars-box">
-                          <img src="img/reviews/Stars.svg" alt="Stars" />
-                        </div>
-                        <div class="review__text">
-                          <div class="review__title">I love it</div>
-                          <div class="review__subtitle">I love it. It makes me feel good each morning and then it also makes me feel accomplished.</div>
-                        </div>
-                        <div class="review__avatar-block">
-                          <div class="review__avatar-box">
-                            <picture
-                              ><source srcset="img/reviews/avatar3.webp" type="image/webp" />
-                              <img src="img/reviews/avatar3.png" alt="Avatar"
-                            /></picture>
-                          </div>
-                          <div class="review__avatar-name">Jenna Y.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="review">
-                      <div class="review__box">
-                        <div class="review__stars-box">
-                          <img src="img/reviews/Stars.svg" alt="Stars" />
-                        </div>
-                        <div class="review__text">
-                          <div class="review__title">Easy monitoring your weight goal!</div>
-                          <div class="review__subtitle">Love Vitamins! The individual packets make it so easy to remember you daily vitamins and makes travelling easy!!! 👍🏽</div>
-                        </div>
-                        <div class="review__avatar-block">
-                          <div class="review__avatar-box">
-                            <picture
-                              ><source srcset="img/reviews/avatar1.webp" type="image/webp" />
-                              <img src="img/reviews/avatar1.png" alt="Avatar"
-                            /></picture>
-                          </div>
-                          <div class="review__avatar-name">David S.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div class="reviews-section__container">
+    <div class="reviews-section__title-block">
+      <div class="reviews-section__content">
+        <div class="reviews-section__icon-box">
+          <img src="img/home-page/dialog-icon.svg" alt="Icon of reviews" />
+        </div>
+        <h1 class="reviews-section__title">What healthy and happy customer says</h1>
+        <div class="reviews-section__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
+      </div>
+      <div class="reviews-section__img-block">
+        <div class="reviews-section__img-box">
+          <img src="img/home-page/spoons.png" alt="Spoons with tablets" />
+        </div>
+      </div>
+    </div>
+    <div class="reviews-section__swiper-block"><div class="swiper-reviews swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><div class="review">
+  <div class="review__box">
+    <div class="review__stars-box">
+      <img src="img/reviews/Stars.svg" alt="Stars" />
+    </div>
+    <div class="review__text">
+      <div class="review__title">Easy monitoring your weight goal!</div>
+      <div class="review__subtitle">Love Vitamins! The individual packets make it so easy to remember you daily vitamins and makes travelling easy!!! 👍🏽</div>
+    </div>
+    <div class="review__avatar-block">
+      <div class="review__avatar-box">
+        <img src="img/reviews/avatar1.png" alt="Avatar" />
+      </div>
+      <div class="review__avatar-name">David S.</div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="swiper-slide"><div class="review">
+  <div class="review__box">
+    <div class="review__stars-box">
+      <img src="img/reviews/Stars.svg" alt="Stars" />
+    </div>
+    <div class="review__text">
+      <div class="review__title">High quality vitamins & supplements</div>
+      <div class="review__subtitle">High quality vitamins & supplements, very easy on my stomach too. Great service! I really like the flexibility and options available in the subscriptions.</div>
+    </div>
+    <div class="review__avatar-block">
+      <div class="review__avatar-box">
+        <img src="img/reviews/avatar2.png" alt="Avatar" />
+      </div>
+      <div class="review__avatar-name">Bridget T.</div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="swiper-slide"><div class="review">
+  <div class="review__box">
+    <div class="review__stars-box">
+      <img src="img/reviews/Stars.svg" alt="Stars" />
+    </div>
+    <div class="review__text">
+      <div class="review__title">I love it</div>
+      <div class="review__subtitle">I love it. It makes me feel good each morning and then it also makes me feel accomplished. </div>
+    </div>
+    <div class="review__avatar-block">
+      <div class="review__avatar-box">
+        <img src="img/reviews/avatar3.png" alt="Avatar" />
+      </div>
+      <div class="review__avatar-name">Jenna Y.</div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="swiper-slide"><div class="review">
+  <div class="review__box">
+    <div class="review__stars-box">
+      <img src="img/reviews/Stars.svg" alt="Stars" />
+    </div>
+    <div class="review__text">
+      <div class="review__title">Easy monitoring your weight goal!</div>
+      <div class="review__subtitle">Love Vitamins! The individual packets make it so easy to remember you daily vitamins and makes travelling easy!!! 👍🏽</div>
+    </div>
+    <div class="review__avatar-block">
+      <div class="review__avatar-box">
+        <img src="img/reviews/avatar1.png" alt="Avatar" />
+      </div>
+      <div class="review__avatar-name">David S.</div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</div>
+  </div>
+</section>
 
         <!--  -->
         <div class="ready-started">
-          <div class="ready-started__bg">
-            <div class="ready-started__orang-arc">
-              <img src="img/home-page/arc.svg" alt="Arc" />
-            </div>
-            <div class="ready-started__last-orang-arc">
-              <img src="img/home-page/last-orange-arc.svg" alt="Orange arc" />
-            </div>
-            <div class="ready-started__yellow-arc">
-              <img src="img/home-page/yellow-semicircle.svg" alt="Yellow semicircle" />
-            </div>
-            <div class="ready-started__last-yellow-arc">
-              <img src="img/home-page/yellow-arc.svg" alt="Yellow arc" />
-            </div>
-          </div>
-          <div class="ready-started__content">
-            <div class="ready-started__container">
-              <div class="ready-started__icon-box">
-                <img src="img/home-page/hand-heards.svg" alt="hand-heards" />
-              </div>
-              <h1 class="ready-started__title">Ready to get started?</h1>
-              <div class="ready-started__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
-              <button class="ready-started__button" data-link="quiz.html">Take the quiz</button>
-              <a href="catalogue.html" class="ready-started__shop-link">
-                <p>Go to the shop</p>
-                <img src="img/home-page/arrow-right.svg" alt="right arrow" />
-              </a>
-            </div>
-          </div>
-        </div>
+  <div class="ready-started__bg">
+    <div class="ready-started__orang-arc">
+      <img src="img/home-page/arc.svg" alt="Arc" />
+    </div>
+    <div class="ready-started__last-orang-arc">
+      <img src="img/home-page/last-orange-arc.svg" alt="Orange arc" />
+    </div>
+    <div class="ready-started__yellow-arc">
+      <img src="img/home-page/yellow-semicircle.svg" alt="Yellow semicircle" />
+    </div>
+    <div class="ready-started__last-yellow-arc">
+      <img src="img/home-page/yellow-arc.svg" alt="Yellow arc" />
+    </div>
+  </div>
+  <div class="ready-started__content">
+    <div class="ready-started__container">
+      <div class="ready-started__icon-box">
+        <img src="img/home-page/hand-heards.svg" alt="hand-heards" />
+      </div>
+      <h1 class="ready-started__title">Ready to get started?</h1>
+      <div class="ready-started__subtitle subtitle-20">We'll help you create a health plan with vitamins, supplements, and more that help you feel your best today and support you long-term.</div>
+      <button class="ready-started__button" data-link="quiz.html">Take the quiz</button>
+      <a href="catalogue.html" class="ready-started__shop-link">
+        <p>Go to the shop</p>
+        <img src="img/home-page/arrow-right.svg" alt="right arrow" />
+      </a>
+    </div>
+  </div>
+</div>
+
       </main>
       <footer class="footer">
-        <div class="footer__container">
-          <a href="/" class="footer__logo">
-            <img src="img/header/logo.svg" alt="Logotype" />
-          </a>
-          <div class="footer__copyright">© 2020 Vitamins.com / All rights reserved</div>
-          <div class="footer__menu menu-footer">
-            <div class="menu-footer__shop">
-              <div class="menu-footer__title">Shop</div>
-              <ul class="menu-footer__list">
-                <div class="menu-footer__part-list">
-                  <li class="menu-footer__item"><a href="catalogue.html#type=vitamins">Vitamins & Dietary Supplements</a></li>
-                  <li class="menu-footer__item"><a href="catalogue.html#type=weightLoss">Weight Loss</a></li>
-                  <li class="menu-footer__item"><a href="catalogue.html#type=minerals">Minerals</a></li>
-                  <li class="menu-footer__item"><a href="catalogue.html#type=antioxidants">Antioxidants</a></li>
-                </div>
-                <div class="menu-footer__part-list">
-                  <li class="menu-footer__item"><a href="catalogue.html#type=probiotics">Probiotics</a></li>
-                  <li class="menu-footer__item"><a href="catalogue.html#type=painRelief">Pain Relief</a></li>
-                  <li class="menu-footer__item"><a href="catalogue.html#type=prenatalVitamins">Prenatal Vitamins</a></li>
-                </div>
-              </ul>
-            </div>
-            <div class="menu-footer__information">
-              <div class="menu-footer__title">Information</div>
-              <ul class="menu-footer__list">
-                <li class="menu-footer__item"><a href="subscription-text.html">Terms & Conditions</a></li>
-                <li class="menu-footer__item"><a href="subscription-text.html">Privacy Policy</a></li>
-                <li class="menu-footer__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
-                <li class="menu-footer__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
-                <li class="menu-footer__item"><a href="subscription-text.html">Return Policy</a></li>
-              </ul>
-            </div>
-            <div class="menu-footer__contact">
-              <div class="menu-footer__title">Contact</div>
-              <ul class="menu-footer__list">
-                <li class="menu-footer__item"><a href="mailto:support@medstogo.com">support@medstogo.com</a></li>
-                <li class="menu-footer__item">
-                  <a href="https://www.facebook.com/"><img src="img/footer/facebook.svg" alt="Facebook" />Facebook</a>
-                </li>
-                <li class="menu-footer__item">
-                  <a href="https://www.instagram.com/"><img src="img/footer/insta.svg" alt="instagram" />Instagram</a>
-                </li>
-              </ul>
-            </div>
+  <div class="footer__container">
+    <a href="/" class="footer__logo">
+      <img src="img/header/logo.svg" alt="Logotype" />
+    </a>
+    <div class="footer__copyright">© 2020 Vitamins.com / All rights reserved</div>
+    <div class="footer__menu menu-footer">
+      <div class="menu-footer__shop">
+        <div class="menu-footer__title">Shop</div>
+        <ul class="menu-footer__list">
+          <div class="menu-footer__part-list">
+            <li class="menu-footer__item"><a href="catalogue.html#type=vitamins">Vitamins & Dietary Supplements</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html#type=weightLoss">Weight Loss</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html#type=minerals">Minerals</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html#type=antioxidants">Antioxidants</a></li>
           </div>
-        </div>
-      </footer>
+          <div class="menu-footer__part-list">
+            <li class="menu-footer__item"><a href="catalogue.html#type=probiotics">Probiotics</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html#type=painRelief">Pain Relief</a></li>
+            <li class="menu-footer__item"><a href="catalogue.html#type=prenatalVitamins">Prenatal Vitamins</a></li>
+          </div>
+        </ul>
+      </div>
+      <div class="menu-footer__information">
+        <div class="menu-footer__title">Information</div>
+        <ul class="menu-footer__list">
+          <li class="menu-footer__item"><a href="subscription-text.html">Terms & Conditions</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Privacy Policy</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
+          <li class="menu-footer__item"><a href="subscription-text.html">Return Policy</a></li>
+        </ul>
+      </div>
+      <div class="menu-footer__contact">
+        <div class="menu-footer__title">Contact</div>
+        <ul class="menu-footer__list">
+          <li class="menu-footer__item"><a href="mailto:support@medstogo.com">support@medstogo.com</a></li>
+          <li class="menu-footer__item">
+            <a href="https://www.facebook.com/"><img src="img/footer/facebook.svg" alt="Facebook" />Facebook</a>
+          </li>
+          <li class="menu-footer__item">
+            <a href="https://www.instagram.com/"><img src="img/footer/insta.svg" alt="instagram" />Instagram</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <script src="js/app.min.js?_v=20231016013350"></script>
+  </div>
+</footer>
+
+    </div>
+    <script src="js/app.min.js"></script>
   </body>
 </html>
