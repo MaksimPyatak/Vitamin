@@ -1,0 +1,240 @@
+// Загальні стилі
+@import "./components/global";
+
+main {
+   max-width: 1920px;
+   width: 100%;
+   margin-top: 110px;
+   border-top: 1px solid rgb(0, 0, 0, 0.07);
+   padding-top: 52px;
+   flex: 1 1 auto;
+
+   @media (max-width: 650px) {
+      margin-top: 70px;
+   }
+}
+
+.profile-page {
+
+   &__container {
+      width: 100%;
+      margin-bottom: 80px;
+      display: grid;
+      grid-template-columns: minmax(max-content, 217px) 1fr;
+      column-gap: 10.028653%;
+
+      @media (max-width: 1024px) {
+         grid-template-columns: repeat(1, 1fr);
+      }
+
+      @media (max-width: 1024px) {
+         margin-bottom: 60px;
+      }
+
+      @media (max-width: 768px) {
+         margin-bottom: 45px;
+      }
+   }
+
+   &__menu {
+      max-width: 217px;
+      width: 100%;
+      min-width: max-content;
+
+      @media (max-width: 1024px) {
+         display: none;
+      }
+
+      .profile-menu__item {
+         &:nth-child(1) {
+            font-weight: 700;
+         }
+      }
+   }
+
+   &__content {
+      //max-width: 920px;
+      width: 100%;
+   }
+}
+
+.content {
+
+   &__title-block {
+      width: 100%;
+      margin-bottom: 45px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3.478261%;
+      row-gap: 1px;
+
+      @media (max-width: 768px) {
+         grid-template-columns: repeat(1, 1fr);
+      }
+
+      @media (max-width: 425px) {
+         margin-bottom: 30px;
+      }
+   }
+
+   &__title {
+      margin-right: -100px;
+      //line-height: normal;
+
+      @media (max-width: 768px) {
+         margin-right: 0;
+      }
+   }
+
+   &__subscriptions {}
+
+   &__subscription {
+      margin-bottom: 20px;
+
+      @media (max-width: 650px) {
+         margin-bottom: 15px;
+      }
+   }
+}
+
+.subscription {
+   padding: 30px 40px;
+   border-radius: 16px;
+   background: #FAF8F6;
+   display: flex;
+   align-items: center;
+
+   @media (max-width: 650px) {
+      padding: 20px;
+      flex-direction: column;
+   }
+
+   &__img-block {
+      min-width: 120px;
+      width: 120px;
+      min-height: 170px;
+      height: 170px;
+      margin-right: 30px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 650px) {
+         width: 100%;
+         min-height: 132px;
+         height: 132px;
+         margin-right: unset;
+         margin-bottom: 20px;
+      }
+
+      picture {
+         width: 120px;
+         height: 112px;
+      }
+   }
+
+   &__img {
+      width: 100%;
+   }
+
+   &__content {
+      width: 100%;
+      flex: 1 1 auto;
+
+   }
+
+   &__prouct-type {
+      margin-bottom: 5px;
+      font-weight: 600;
+      line-height: normal;
+   }
+
+   &__title-block {
+      width: 100%;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 768px) {
+         padding-bottom: 20px;
+         margin-bottom: 20px;
+      }
+   }
+
+   &__title {
+      margin-right: 20px;
+      font-family: Effra;
+      font-size: 20px;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+         font-size: 16px;
+      }
+   }
+
+   &__price {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+         font-size: 16px;
+      }
+   }
+
+   &__unsubscribe-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media (max-width: 520px) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+   }
+
+   &__delivery-info {
+      margin-right: 20px;
+
+      @media (max-width: 520px) {
+         margin-right: unset;
+         margin-bottom: 20px;
+      }
+   }
+
+   &__shipment {
+      margin-bottom: 4px;
+      line-height: normal;
+      opacity: 0.5;
+
+      @media (max-width: 768px) {
+         margin-bottom: 2px;
+         font-size: 12px;
+      }
+   }
+
+   &__next-delivery {
+      font-size: 16px;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+         font-size: 14px;
+      }
+   }
+
+   &__unsubscribe-btn {
+      @include empty-button ($width: 164px, $hight: 50px, $font-size: 16px, $bg-color: inherit, $color: #D32D2C, $br-color: rgba(211, 44, 44, 0.2), $width-xs: 100%, $hight-xs: 50px, );
+
+      @media (max-width: 520px) {
+         width: 100%;
+      }
+   }
+}
+
+
+@import "./components/header";
+@import "./components/footer";
+@import "./components/common/profile-menu";
