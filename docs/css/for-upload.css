@@ -17,20 +17,27 @@ textarea {
 }
 
 label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 label div {
   margin: 0 10px;
   font-size: 18px;
 }
 
 .important-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .important-box input {
   width: 200px;
   margin-right: 20px;
 }
+
 #important-item,
 #add-description-item {
   margin-bottom: 20px;
