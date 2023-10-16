@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Home", "style": "css/order-placed.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Order placed</h1>
+      <main class="order-placed">
+        <div class="order-placed__container">
+          <div class="order-placed__wrapper">
+            <a href="index.html" class="order-placed__logo-block">
+              <img src="@img/big-logo.svg" alt="Logotype" class="order-placed__logo" />
+            </a>
+            <h6 class="order-placed__title">Thanks for your order!</h6>
+            <div class="order-placed__subtitle">Your order is now being processed, and will be despatched shortly.</div>
+            <a class="order-placed__btn-link" href="index.html"><button class="order-placed__btn">Go to main page</button></a>
+            <div class="order-placed__coment">
+              <p>If you have any problems with your order, please contact us by telephone on <span>+44 (0)20 7424 2800</span> <span>(Mon-Fri,</span> <span>10am-6pm</span> GMT).</p>
+            </div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/order-placed.min.js"></script>
   </body>
 </html>
