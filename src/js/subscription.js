@@ -1,12 +1,9 @@
 import "./modules/cart.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
-import { validationNumberInput, editPhone, showDawnloadInfoBlock } from "./utilits/function.js";
-import { doc, getDoc, setDoc, updateDoc, } from "firebase/firestore";
+import { doc, getDoc, updateDoc, } from "firebase/firestore";
 
 const signOutLink = document.querySelector('.item__sign-out');
-const body = document.querySelector('body');//!!!!!!!
-
 
 signOutLink.addEventListener('click', signOutFunc);
 
@@ -20,7 +17,6 @@ try {
    const docSnapshot = await getDoc(doc(db, 'users', userId));
    if (docSnapshot.exists()) {
       subscriptions = docSnapshot.data().subscriptions;
-      console.log(subscriptions);
    } else {
       console.log('Документ не існує');
    }

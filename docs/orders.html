@@ -5,14 +5,13 @@
   <meta http-equiv="X-UA-Compatible, Content-Security-Policy" content="IE=edge 'unsafe-inline'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
-  <link rel="stylesheet" href="css/style.min.css?_v=20231016222749" />
+  <link rel="stylesheet" href="css/orders.min.css?_v=20231017143106" />
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
-  <title>Главная - Орех Причерноморья</title>
-  <!--<script src="@@script?_v=20231016222749"></script>-->
-  <script src="js/authState.min.js?_v=20231016222749" async></script>
+  <title>Medstogo - Account</title>
+  <!--<script src="@@script?_v=20231017143106"></script>-->
+  <script src="js/authState.min.js?_v=20231017143106" async></script>
 </head>
 
-  <!--, "style-preload": "css/main.min.css"-->
   <body>
     <div class="wrapper">
       <header class="header">
@@ -48,7 +47,7 @@
     <div class="header__burger">
       <span></span>
     </div>
-    <a href="index.html" class="header__logo @@logo-class">
+    <a href="index.html" class="header__logo white-logo">
       <img src="img/header/logo.svg" alt="Logotype" />
       <img src="img/header/white-logo.svg" alt="Logotype" />
     </a>
@@ -65,11 +64,77 @@
   </div>
 </header>
 
-      <main class="main-page">
-        <h1>Orders</h1>
+      <main class="profile-page">
+        <div class="profile-page__container">
+          <aside class="profile-page__menu"><div class="profile-menu">
+  <ul class="profile-menu__list">
+    <li class="profile-menu__item">
+      <a href="subscriptions.html">Subscriptions</a>
+    </li>
+    <li class="profile-menu__item">
+      <a href="orders.html">Orders</a>
+    </li>
+    <!--profile-menu__item--active-->
+    <li class="profile-menu__item">
+      <a href="account-overview.html">Account Overview</a>
+    </li>
+    <li class="profile-menu__item">
+      <a href="payment-methods.html">Payment methods</a>
+    </li>
+    <li class="profile-menu__item">
+      <a href="change-password.html">Change Password</a>
+    </li>
+    <li class="profile-menu__item item__sign-out">Sign out</li>
+  </ul>
+</div>
+</aside>
+          <div class="profile-page__content content">
+            <div class="content__title-block">
+              <h4 class="content__title">Orders</h4>
+            </div>
+            <div class="content__orders">
+              <!--<div class="content__order order">
+                <div class="order__header accordion__header">
+                  <div class="order__header-content">
+                    <div class="order__date-block">
+                      <div class="order__date"></div>
+                      <div class="order__shipping">Shipping</div>
+                    </div>
+                    <div class="order__order-number"></div>
+                  </div>
+                  <div class="order__arrow accordion__arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
+                      <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M6.01714e-05 7.53624L1.44501 9L7.43948 2.92751L13.434 9L14.8789 7.53624L7.43948 8.87142e-08L6.01714e-05 7.53624Z" fill="black" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="order__content accordion__content">
+                  <div class="order__products-block">
+                    <div class="order__product-card product-card">
+                      <div class="product-card__img-block">
+                        <picture>
+                          <source srcset="${product.webP}" type="image/webp" />
+                          <img src="${product.png}" alt="${product.name}" class="product__img" />
+                        </picture>
+                      </div>
+                      <div class="product-card__type">${product.nameType}</div>
+                      <div class="product-card__title">${product.name}</div>
+                      <div class="product-card__price">$${product.amount.toFixed(2)}</div>
+                    </div>
+                  </div>
+                  <div class="order__footer">
+                    <div class="order__amount-block">
+                      <div class="order__amount-title"></div>
+                      <div class="order__amount"></div>
+                    </div>
+                    <button class="order__btn"></button>
+                  </div>
+                </div>
+              </div>-->
+            </div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css?_v=20231016222749" />-->
       <footer class="footer">
   <div class="footer__container">
     <a href="/" class="footer__logo">
@@ -119,8 +184,7 @@
   </div>
 </footer>
 
-      <!---->
     </div>
-    <script src="js/app.min.js?_v=20231016222749"></script>
+    <script src="js/orders.min.js?_v=20231017143106"></script>
   </body>
 </html>

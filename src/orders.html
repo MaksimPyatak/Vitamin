@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Account", "style": "css/orders.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Orders</h1>
+      @@include('html/header.html',{"logo-class":"white-logo"})
+      <main class="profile-page">
+        <div class="profile-page__container">
+          <aside class="profile-page__menu">@@include('html/components/common/profile-menu.html',{})</aside>
+          <div class="profile-page__content content">
+            <div class="content__title-block">
+              <h4 class="content__title">Orders</h4>
+            </div>
+            <div class="content__orders">
+              <!--<div class="content__order order">
+                <div class="order__header accordion__header">
+                  <div class="order__header-content">
+                    <div class="order__date-block">
+                      <div class="order__date"></div>
+                      <div class="order__shipping">Shipping</div>
+                    </div>
+                    <div class="order__order-number"></div>
+                  </div>
+                  <div class="order__arrow accordion__arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
+                      <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M6.01714e-05 7.53624L1.44501 9L7.43948 2.92751L13.434 9L14.8789 7.53624L7.43948 8.87142e-08L6.01714e-05 7.53624Z" fill="black" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="order__content accordion__content">
+                  <div class="order__products-block">
+                    <div class="order__product-card product-card">
+                      <div class="product-card__img-block">
+                        <picture>
+                          <source srcset="${product.webP}" type="image/webp" />
+                          <img src="${product.png}" alt="${product.name}" class="product__img" />
+                        </picture>
+                      </div>
+                      <div class="product-card__type">${product.nameType}</div>
+                      <div class="product-card__title">${product.name}</div>
+                      <div class="product-card__price">$${product.amount.toFixed(2)}</div>
+                    </div>
+                  </div>
+                  <div class="order__footer">
+                    <div class="order__amount-block">
+                      <div class="order__amount-title"></div>
+                      <div class="order__amount"></div>
+                    </div>
+                    <button class="order__btn"></button>
+                  </div>
+                </div>
+              </div>-->
+            </div>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
       @@include('html/footer.html',{})
-      <!---->
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/orders.min.js"></script>
   </body>
 </html>
