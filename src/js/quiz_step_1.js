@@ -22,15 +22,17 @@ function validate(input) {
    if (input.value.length === 0) {
       inputError.innerHTML = "Field can't be blank";
       input.classList.add('error');
+      input.addEventListener('input', () => validate(input), { once: true });
       return false
    } else if (input.value.length < 3 || input.value.length > 15) {
       inputError.innerHTML = "Field must be at least 3 and no longer than 15 characters";
       input.classList.add('error');
+      input.addEventListener('input', () => validate(input), { once: true });
       return false
    } else {
-      input.classList.remove('input-error');
+      input.classList.remove('error');
       inputError.innerHTML = "";
+      input.addEventListener('input', () => validate(input), { once: true });
       return true
    }
-   input.addEventListener('input', () => validate(input), { once: true });
 }

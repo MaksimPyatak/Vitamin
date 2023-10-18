@@ -22,7 +22,7 @@ function validate(input) {
       input.addEventListener('input', () => validate(input), { once: true });
       return false
    } else {
-      input.classList.remove('input-error');
+      input.classList.remove('error');
       inputError.innerHTML = "";
       input.addEventListener('input', () => validate(input), { once: true });
       return true
