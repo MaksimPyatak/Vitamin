@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Quiz", "style": "css/quiz_step_1.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>Quiz</h1>
+      <header class="header">
+        <a href="index.html" class="header__logo-box">
+          <img src="@img/header/white-logo.svg" alt="Logotype" class="header__white-logo" />
+          <img src="@img/header/logo.svg" alt="Logotype" class="header__logo" />
+        </a>
+        <div class="header__page-number">1/9</div>
+      </header>
+      <main class="quiz">
+        <div class="quiz__block">
+          <div class="quiz__title-block">
+            <h1 class="quiz__title">What’s your first name?</h1>
+          </div>
+          <div class="quiz__form-block">
+            <form class="quiz__form">
+              <div class="quiz__input-box">
+                <label for="name"> First Name </label>
+                <div class="quiz__input-wrapper">
+                  <input type="text" name="name" id="name" />
+                  <button class="quiz__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1.46376 15.6855L9.53674e-07 14.2405L6.07249 8.24606L0 2.25159L1.46376 0.806641L9 8.24606L1.46376 15.6855Z" fill="white" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="quiz__input-error"></div>
+              </div>
+              <div class="quiz__arc-box">
+                <img src="@img/quiz/quiz1/top_arc.svg" alt="Arc" />
+                <img src="@img/quiz/quiz1/arc.svg" alt="Arc" />
+              </div>
+              <div class="quiz__circle-box">
+                <img src="@img/quiz/quiz1/circle.svg" alt="Circle" />
+              </div>
+            </form>
+          </div>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
-      @@include('html/footer.html',{})
-      <!---->
+      <footer class="footer">
+        <div class="footer__gradient"></div>
+        <div class="footer__content">
+          <a href="" class="footer__back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.53624 15L9 13.5433L2.92751 7.5L9 1.45672L7.53624 0L0 7.5L7.53624 15Z" fill="white" />
+            </svg>
+            <span>Back</span>
+          </a>
+        </div>
+      </footer>
     </div>
-    <script src="js/app.min.js"></script>
+    <script src="js/quiz_step_1.min.js"></script>
   </body>
 </html>

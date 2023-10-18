@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/head.html',{ "title":"Medstogo - Quiz", "style": "css/quiz_step_3.min.css" })
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <a href="index.html" class="header__logo-box">
+          <img src="@img/header/white-logo.svg" alt="Logotype" class="header__white-logo" />
+          <img src="@img/header/logo.svg" alt="Logotype" class="header__logo" />
+        </a>
+        <div class="header__page-number">3/9</div>
+      </header>
+      <main class="quiz">
+        <div class="quiz__block">
+          <div class="quiz__title-block">
+            <h1 class="quiz__title">What is your eating habits?</h1>
+          </div>
+          <div class="quiz__form-block">
+            <form class="quiz__form">
+              <div class="quiz__buttons-box">
+                <a class="quiz__button-link" href="quiz_step_4.html">
+                  <button type="button" class="quiz__button">Vegan diet</button>
+                </a>
+                <a class="quiz__button-link" href="quiz_step_4.html">
+                  <button type="button" class="quiz__button">Vegetarian diet</button>
+                </a>
+                <a class="quiz__button-link" href="quiz_step_4.html">
+                  <button type="button" class="quiz__button">My diet is generally healthy and includes animal protein, fish and veggies</button>
+                </a>
+                <a class="quiz__button-link" href="quiz_step_4.html">
+                  <button type="button" class="quiz__button">My diet includes fast food and soft drinks</button>
+                </a>
+              </div>
+              <div class="quiz__arc-box">
+                <img src="@img/quiz/quiz3/arc.svg" alt="Arc" />
+              </div>
+              <div class="quiz__circle-box">
+                <img src="@img/quiz/quiz3/circle.svg" alt="Circle" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__gradient"></div>
+        <div class="footer__content">
+          <a href="quiz_step_2.html" class="footer__back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.53624 15L9 13.5433L2.92751 7.5L9 1.45672L7.53624 0L0 7.5L7.53624 15Z" fill="white" />
+            </svg>
+            <span>Back</span>
+          </a>
+        </div>
+      </footer>
+    </div>
+    <script src="js/quiz_step_3.min.js"></script>
+  </body>
+</html>

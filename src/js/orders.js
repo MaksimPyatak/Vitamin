@@ -97,7 +97,7 @@ function createOrderCard(order, orderId) {
             <div class="order__amount-title">
             Order amount:
             </div>
-            <div class="order__amount">$${order.total}</div>
+            <div class="order__amount">$${(order.total).toFixed(2)}</div>
          </div>
          <button class="order__btn">Add to cart</button>
       </div>

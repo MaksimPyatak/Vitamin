@@ -1,0 +1,355 @@
+// Загальні стилі
+@import "./components/global";
+
+body {
+   background: linear-gradient(to right, #8172DD 50%, #FAF8F6 50%);
+
+   @media (max-width: 768px) {
+      background: #FAF8F6;
+   }
+}
+
+.wrapper {}
+
+main {
+   max-width: 1920px;
+   width: 100%;
+   flex: 1 1 auto;
+}
+
+.header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   min-height: 110px;
+   height: 110px;
+   width: 100%;
+   padding: 0 35px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   @media (max-width: 650px) {
+      min-height: 70px;
+      height: 70px;
+      padding: 0 20px;
+   }
+
+   &__logo-box {
+      width: 42px;
+      height: 50px;
+      display: block;
+
+      img {
+         width: 100%;
+         height: 100%;
+      }
+
+      @media (max-width: 768px) {
+         width: 33.6px;
+         height: 40px;
+      }
+   }
+
+   &__white-logo {
+      @media (max-width: 768px) {
+         display: none;
+      }
+   }
+
+   &__logo {
+      display: none;
+
+      @media (max-width: 768px) {
+         display: block;
+      }
+   }
+
+   &__page-number {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: normal;
+
+      @media (max-width: 1024px) {
+         font-size: 27px;
+      }
+
+      @media (max-width: 768px) {
+         font-size: 24px;
+      }
+
+      @media (max-width: 425px) {
+         font-size: 20px;
+      }
+   }
+}
+
+.quiz {
+   //margin: 110px auto 110px;
+   display: flex;
+   justify-content: center;
+
+   @media (max-width: 768px) {
+      //margin: 70px auto;
+   }
+
+   &__block {
+      height: 100%;
+      //max-width: 1920px;
+      width: 100%;
+      padding: 110px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: 768px) {
+         padding: 90px 0;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+   }
+
+   &__title-block {
+      width: 100%;
+      height: 100%;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 768px) {
+         padding-bottom: 15px;
+         align-items: flex-end;
+         font-size: 40px;
+         color: #000;
+         text-align: center;
+      }
+   }
+
+   &__title {
+      max-width: 496px;
+      width: 100%;
+      color: #FFF;
+      font-family: Effra;
+      font-size: 64px;
+      font-weight: 500;
+      line-height: normal;
+
+      @media (max-width: 1024px) {
+         font-size: 52px;
+      }
+
+      @media (max-width: 768px) {
+         font-size: 40px;
+         color: #000;
+         text-align: center;
+      }
+
+      @media (max-width: 425px) {
+         font-size: 24px;
+      }
+   }
+
+   &__form-block {
+      width: 100%;
+      height: 100%;
+
+      @media (max-width: 768px) {
+         padding: 15px;
+      }
+   }
+
+   &__form {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 768px) {
+         align-items: flex-start;
+
+      }
+   }
+
+   &__input-box {
+      max-width: 536px;
+      width: 100%;
+      padding: 0 20px;
+      margin: 0 auto;
+
+      label {
+         display: block;
+         margin-bottom: 15px;
+         color: #000;
+         font-size: 18px;
+         line-height: normal;
+         opacity: 0.5;
+
+         @media (max-width: 768px) {
+            display: none;
+         }
+      }
+   }
+
+   &__input-wrapper {
+      width: 100%;
+      height: 105px;
+      position: relative;
+
+      input {
+         width: 100%;
+         height: 100%;
+         padding: 0 100px 0 40px;
+         border-radius: 16px;
+         background: #FFF;
+         color: #000;
+         font-size: 18px;
+         font-weight: 600;
+         line-height: normal;
+
+         &:focus {
+            border: 2px solid #8172DD;
+         }
+
+         &.error {
+            border: 2px solid #FF7D4E;
+         }
+
+         @media (max-width: 768px) {
+            height: 56px;
+            border-radius: 10px;
+         }
+      }
+   }
+
+   &__btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 69px;
+      height: 69px;
+      background: #DDDDDD;
+      border-radius: 50%;
+
+      &--active {
+         background: #FF7D4E;
+
+      }
+
+      @media (max-width: 768px) {
+         top: 12px;
+         right: 12px;
+         width: 32px;
+         height: 32px;
+      }
+
+      svg {
+         width: 9px;
+         height: 14.879px;
+      }
+   }
+
+   &__input-error {
+      height: 12px;
+      margin-top: 3px;
+      font-size: 10px;
+      line-height: 10px;
+      color: #FF7D4E;
+   }
+
+   &__arc-box {
+      position: absolute;
+      bottom: -110px;
+      right: 10px;
+      min-width: 405px;
+      min-height: 307px;
+      z-index: -1;
+
+      @media (max-width: 768px) {
+         display: none;
+      }
+
+      img:first-child {
+         position: absolute;
+         top: 0;
+         right: 0;
+      }
+
+      img:last-child {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+      }
+   }
+
+   &__circle-box {
+      position: absolute;
+      top: 6px;
+      left: 46px;
+      width: 156px;
+      height: 156px;
+      z-index: -1;
+
+      @media (max-width: 768px) {
+         display: none;
+      }
+   }
+}
+
+.footer {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 102px;
+   display: grid;
+   grid-template-rows: repeat(2, 52px);
+
+   @media (max-width: 768px) {
+      height: 82px;
+      grid-template-rows: repeat(2, 42px);
+   }
+
+   &__gradient {
+      @media (max-width: 768px) {
+         background: linear-gradient(180deg, rgba(250, 248, 246, 0.00) 0%, #FAF8F6 100%);
+      }
+   }
+
+   &__content {
+      @media (max-width: 768px) {
+         background: #FAF8F6;
+      }
+   }
+
+   &__back {
+      margin-left: 35px;
+      display: flex;
+      align-items: center;
+
+      svg {
+         display: block;
+         margin-right: 15px;
+
+         path {
+            @media (max-width: 768px) {
+               fill: #8172DD;
+            }
+         }
+      }
+   }
+
+   span {
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+         color: #000;
+      }
+   }
+}
