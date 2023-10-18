@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html',{ "title":"Главная - Орех Причерноморья", "style": "css/style.min.css" })
-  <!--, "style-preload": "css/main.min.css"-->
+  @@include('html/head.html',{ "title":"Medstogo - Home", "style": "css/404.min.css" })
   <body>
     <div class="wrapper">
-      @@include('html/header.html',{})
-      <main class="main-page">
-        <h1>404</h1>
+      @@include('html/header.html',{"logo-class":""})
+      <main class="error-page">
+        <div class="error-page__wrapper">
+          <div class="error-page__img">
+            <img src="@img/404/404.svg" alt="404" />
+          </div>
+          <h6 class="error-page__title">Page not found</h6>
+          <div class="error-page__text">Unfortunately, the page you requested is out of date or does not exist</div>
+          <a class="error-page__btn" href="index.html"><button>Go to main page</button></a>
+        </div>
       </main>
-      <!-- Підключення додаткового файлу стилів -->
-      <!--<link rel="stylesheet" href="main.min.css" />-->
       @@include('html/footer.html',{})
-      <!---->
     </div>
-    <script src="js/app.min.js"></script>
   </body>
 </html>

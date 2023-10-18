@@ -5,14 +5,17 @@ main {
    max-width: 1920px;
    width: 100%;
    margin-top: 110px;
-   border-top: 1px solid rgb(0, 0, 0, 0.07);
+   //border-top: 1px solid rgb(0, 0, 0, 0.07);
    padding-top: 52px;
    flex: 1 1 auto;
 
    @media (max-width: 650px) {
       margin-top: 70px;
    }
+}
 
+header {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .profile-page {
