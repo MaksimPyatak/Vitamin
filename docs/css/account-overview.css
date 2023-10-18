@@ -1600,7 +1600,7 @@ header {
 }
 
 .profile-menu__item:hover {
-  font-weight: 700;
+  color: #8172DD;
 }
 
 .item__sign-out {
