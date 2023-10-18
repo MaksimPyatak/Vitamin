@@ -8,5 +8,6 @@ import "./modules/profileLinkIcon.js";
 import "./modules/button.js";
 import "./modules/product/you-may-like.js";
 import "./modules/cart.js";
+import "./modules/burger-menu.js";
 
 changeBackgrounHeader(false);

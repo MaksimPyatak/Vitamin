@@ -1,4 +1,5 @@
 import "./modules/cart.js";
+import "./modules/burger-menu.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { changeBackgrounHeader, checkCart, showDawnloadInfoBlock, } from "./utilits/function.js";
 import { doc, getDoc, setDoc, } from "firebase/firestore";

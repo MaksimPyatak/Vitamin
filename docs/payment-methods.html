@@ -5,16 +5,127 @@
   <meta http-equiv="X-UA-Compatible, Content-Security-Policy" content="IE=edge 'unsafe-inline'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Healthy doesn’t have to be hard. We make it easy." />
-  <link rel="stylesheet" href="css/payment-methods.min.css?_v=20231018135015" />
+  <link rel="stylesheet" href="css/payment-methods.min.css" />
   <link rel="icon" href="img/logo-icon.svg" type="image/x-icon" />
   <title>Medstogo - Account</title>
-  <!--<script src="@@script?_v=20231018135015"></script>-->
-  <script src="js/authState.min.js?_v=20231018135015" async></script>
+  <!--<script src="@@script"></script>-->
+  <script src="js/authState.min.js" async></script>
 </head>
 
   <body>
     <div class="wrapper">
       <header class="header">
+  <div class="header__menu"><div class="menu">
+  <div class="menu__header">
+    <div class="menu__criss-cross">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M1 17L17 0.999998" stroke="black" stroke-width="2" />
+        <path d="M17 17L1 0.999999" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
+    <div class="menu__profile-icon">
+      <img src="img/header/profile-icon.svg" alt="Profile icon" />
+    </div>
+  </div>
+  <div class="menu__content">
+    <ul class="menu__main-list">
+      <li class="menu__main-item main-item__shop" data-menu="shop">
+        <div class="menu__main-iem-text">Shop</div>
+        <div class="menu__arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+            <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M1.46376 -1.61251e-06L2.13767e-06 1.45671L6.07249 7.5L1.2735e-07 13.5433L1.46376 15L9 7.5L1.46376 -1.61251e-06Z" fill="black" />
+          </svg>
+        </div>
+      </li>
+      <li class="menu__main-item main-item__information" data-menu="information">
+        <div class="menu__main-iem-text">Information</div>
+        <div class="menu__arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+            <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M1.46376 -1.61251e-06L2.13767e-06 1.45671L6.07249 7.5L1.2735e-07 13.5433L1.46376 15L9 7.5L1.46376 -1.61251e-06Z" fill="black" />
+          </svg>
+        </div>
+      </li>
+      <li class="menu__main-item"><a href="quiz.html">Take the quiz</a></li>
+    </ul>
+    <div class="menu__footer">
+      <div class="menu__email">support@medstogo.com</div>
+      <div class="menu__rights">© 2020 Vitamins.com / All rights reserved</div>
+    </div>
+  </div>
+  <div class="menu__shop-menu shop-menu">
+    <div class="shop-menu__header">
+      <div class="shop-menu__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="34" viewBox="0 0 32 34" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5362 27.2489L21 25.7277L12.9275 17.311L21 8.89431L19.5362 7.37305L10 17.311L19.5362 27.2489Z" fill="black" />
+        </svg>
+      </div>
+      <div class="shop-menu__title">Shop</div>
+    </div>
+    <div class="shop-menu__content">
+      <ul class="shop-menu__menu">
+        <li class="shop-menu__item"><a href="catalogue.html#type=vitamins">Vitamins & Dietary Supplements</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=weightLoss">Weight Loss</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=minerals">Minerals</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=antioxidants">Antioxidants</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=probiotics">Probiotics</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=painRelief">Pain Relief</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#type=prenatalVitamins">Prenatal Vitamins</a></li>
+        <li class="shop-menu__item"><a href="catalogue.html#is_sale=true">Sale%</a></li>
+      </ul>
+      <div class="shop-menu__footer">
+        <div class="shop-menu__footer-title">Don’t know what vitamins your body needs?</div>
+        <div class="shop-menu__footer-text">Answer a few simple questions and automaticallyget a personalazed list of vitamins in minutes</div>
+        <button class="shop-menu__btn">Take the quiz</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu__information-menu information-menu">
+    <div class="information-menu__header">
+      <div class="information-menu__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="34" viewBox="0 0 32 34" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5362 27.2489L21 25.7277L12.9275 17.311L21 8.89431L19.5362 7.37305L10 17.311L19.5362 27.2489Z" fill="black" />
+        </svg>
+      </div>
+      <div class="information-menu__title">Information</div>
+    </div>
+    <ul class="information-menu__list">
+      <li class="information-menu__item"><a href="subscription-text.html">Terms & Conditions</a></li>
+      <li class="information-menu__item"><a href="subscription-text.html">Privacy Policy</a></li>
+      <li class="information-menu__item"><a href="subscription-text.html">Shipping & Delivery</a></li>
+      <li class="information-menu__item"><a href="subscription-text.html">Subscription Cycle & Billing</a></li>
+      <li class="information-menu__item"><a href="subscription-text.html">Return Policy</a></li>
+    </ul>
+  </div>
+  <div class="menu__profile-menu profile-menu">
+    <div class="profile-menu__header">
+      <div class="profile-menu__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="34" viewBox="0 0 32 34" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5362 27.2489L21 25.7277L12.9275 17.311L21 8.89431L19.5362 7.37305L10 17.311L19.5362 27.2489Z" fill="black" />
+        </svg>
+      </div>
+      <div class="profile-menu__title">Profile</div>
+    </div>
+    <ul class="profile-menu__list">
+      <li class="profile-menu__item">
+        <a href="subscriptions.html">Subscriptions</a>
+      </li>
+      <li class="profile-menu__item">
+        <a href="orders.html">Orders</a>
+      </li>
+      <li class="profile-menu__item">
+        <a href="account-overview.html">Account Overview</a>
+      </li>
+      <li class="profile-menu__item">
+        <a href="payment-methods.html">Payment methods</a>
+      </li>
+      <li class="profile-menu__item">
+        <a href="change-password.html">Change Password</a>
+      </li>
+      <li class="profile-menu__item profile-menu__item--sign-out item__sign-out">Sign out</li>
+    </ul>
+  </div>
+</div>
+</div>
   <div class="header__download-info-block download-info-block download-info-block--display--none">
     <div class="download-info-block__icon-bloc">
       <img src="img/header/check_mark.svg" alt="Check mark" />
@@ -96,7 +207,7 @@
             <div class="content__form"><form class="form" name="payment_form">
   <fieldset class="form__fieldset">
     <div class="form__background">
-      <picture><source srcset="img/payment-methods/payment-card.webp" type="image/webp"><img src="img/payment-methods/payment-card.png" alt="Payment card" /></picture>
+      <img src="img/payment-methods/payment-card.png" alt="Payment card" />
     </div>
     <div class="form__input-wrapper">
       <label for="card_number">Card Number</label>
@@ -171,6 +282,6 @@
 </footer>
 
     </div>
-    <script src="js/payment-methods.min.js?_v=20231018135015"></script>
+    <script src="js/payment-methods.min.js"></script>
   </body>
 </html>

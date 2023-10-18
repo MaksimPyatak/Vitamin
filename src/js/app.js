@@ -9,6 +9,7 @@ import "./modules/home-page.js";
 import "./modules/reviews-swiper.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
 import "./modules/cart.js";
+import "./modules/burger-menu.js";
 
 changeBackgrounHeader();
 

@@ -17,6 +17,25 @@
       height: 70px;
    }
 
+   &__menu {
+      //display: none;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      overflow: auto;
+      z-index: 2;
+      transition: left 0.3s ease 0s;
+
+      &--active {
+         left: 0;
+
+         @media (min-width: 651px) {
+            display: none;
+         }
+      }
+   }
 
    &__zero {
       position: absolute;
@@ -293,3 +312,4 @@
 }
 
 @import "./common/mini-cart";
+@import "./common/menu";

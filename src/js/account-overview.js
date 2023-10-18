@@ -1,6 +1,7 @@
 import "./modules/select.js";
 import "./modules/sign-up/add-file-name.js";
 import "./modules/cart.js";
+import "./modules/burger-menu.js";
 
 import { Validator } from "./utilits/classes.js";
 import { validationNumberInput, editPhone, showDawnloadInfoBlock } from "./utilits/function.js";

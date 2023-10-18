@@ -1,4 +1,5 @@
 import "./modules/cart.js";
+import "./modules/burger-menu.js";
 import { editNumberCard, editExpiration, editCvc } from "./utilits/function.js";
 import { Validator } from "./utilits/classes.js";
 import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
