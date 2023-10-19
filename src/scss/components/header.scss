@@ -40,17 +40,18 @@
    &__zero {
       position: absolute;
       top: 0; //-100vh;
+      background: rgba(0, 0, 0, 0.20);
       width: 100vw;
       height: 100vh;
       right: -100vw;
-      transition: all 0.3s ease 0s;
+      opacity: 0;
+      transition: opacity 0.3s ease 0s, right 0s ease 0.3s;
       z-index: 2;
 
       &--active {
          right: 0;
-         background: rgba(0, 0, 0, 0.20);
          opacity: 0.78;
-         transition: all 0.3s ease 0s;
+         transition: opacity 0.3s ease 0s;
       }
    }
 

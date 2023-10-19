@@ -432,20 +432,21 @@ header {
 .header__zero {
   position: absolute;
   top: 0;
+  background: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
   right: -100vw;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease 0s, right 0s ease 0.3s;
+  transition: opacity 0.3s ease 0s, right 0s ease 0.3s;
   z-index: 2;
 }
 
 .header__zero--active {
   right: 0;
-  background: rgba(0, 0, 0, 0.2);
   opacity: 0.78;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
 }
 
 .header__download-info-block {

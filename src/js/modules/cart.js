@@ -9,6 +9,7 @@ let pressingTime;
 let timerId;
 const maxQuantity = 10;
 const localCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+const header = document.querySelector('.header');
 
 const iconCart = document.querySelector('.header__cart-icon');
 document.addEventListener('DOMContentLoaded', whichEmptyCart);
@@ -52,6 +53,7 @@ async function openCart() {
       backLink.style.zIndex = '1';
    }
    document.body.style.paddingRight = `${getScrollbarWidth()}px`;
+   header.style.paddingRight = `${getScrollbarWidth()}px`;
    cartBox.classList.add('header__cart--active');
    zero.addEventListener('click', closeCart);
    const crissCross = cartBox.querySelector('.cart__title-criss-cross');
@@ -66,6 +68,7 @@ function closeCart() {
    }
    cartBox.classList.remove('header__cart--active');
    document.body.style.paddingRight = '0px'
+   header.style.paddingRight = '0px';
 }
 async function addCards(cart) {
    cardsWrapper.innerHTML = '';
