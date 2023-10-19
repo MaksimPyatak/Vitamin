@@ -13,7 +13,7 @@ const inputFile = document.querySelector('#file');
 const fileWrapper = document.querySelector('#file-wrapper');
 const fileInfo = document.querySelector('.add-file__info');
 //const downloadInfoBlock = document.querySelector('.header__download-info-block');
-const signOutLink = document.querySelector('.item__sign-out');
+const signOutLink = document.querySelectorAll('.item__sign-out');
 const form = document.forms.overview;
 const elForm = form.elements;
 const zipNumberInput = elForm.zip;
@@ -122,6 +122,6 @@ async function submitFormHandler(event) {
    }
 }
 
-signOutLink.addEventListener('click', signOutFunc);
+signOutLink.forEach((item) => item.addEventListener('click', signOutFunc));
 
 changeBackgrounHeader();

@@ -44,6 +44,7 @@
       max-width: 790px;
       margin: 0 0 48px 0;
       text-align: center;
+      line-height: 163.418%;
 
       @media (max-width: 1024px) {
          max-width: 760px;
@@ -60,6 +61,10 @@
 
    &__button {
       @include oval-button($width: 260px, $hight: 74px, $font-size: 20px, $bg-color: var(--btn-purple), $width-xs: 154px, $hight-xs: 50px);
+
+      @media (max-width: 425px) {
+         font-size: 16px;
+      }
    }
 
    &__semicercle {

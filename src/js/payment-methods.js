@@ -18,7 +18,7 @@ const regValidator = new Validator(form);
 const submitBtn = form.querySelector('.form__submit');
 const body = document.querySelector('body');
 const downloadInfoBlock = document.querySelector('.header__download-info-block');
-const signOutLink = document.querySelector('.item__sign-out');
+const signOutLink = document.querySelectorAll('.item__sign-out');
 
 let userId;
 let userProfile = {
@@ -103,6 +103,6 @@ function showDawnloadInfoBlock() {
    window.setTimeout(() => downloadInfoBlock.classList.add('download-info-block--display--none'), 2000);
 }
 
-signOutLink.addEventListener('click', signOutFunc);
+signOutLink.forEach((item) => item.addEventListener('click', signOutFunc));
 
 changeBackgrounHeader();

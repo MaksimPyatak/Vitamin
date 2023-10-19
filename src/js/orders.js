@@ -7,9 +7,9 @@ import { Accordion } from "./utilits/classes.js";
 import { whichEmptyCart } from "./modules/cart.js";
 
 
-const signOutLink = document.querySelector('.item__sign-out');
+const signOutLink = document.querySelectorAll('.item__sign-out');
 
-signOutLink.addEventListener('click', signOutFunc);
+signOutLink.forEach((item) => item.addEventListener('click', signOutFunc));
 
 changeBackgrounHeader();
 
@@ -133,9 +133,9 @@ function createProductCart(product) {
       <div class="product-card__content">
          <div class="product-card__title-block">
             <div class="product-card__type" style="color: ${product.text_color};">${product.nameType}</div>
-            <div class="product-card__title">${product.name}</div>
+            <div class="product-card__title">${product.count} x ${product.name}</div>
          </div>
-         <div class="product-card__price">$${(+product.amount).toFixed(2)}</div>
+         <div class="product-card__price">$${(+product.amount * product.count).toFixed(2)}</div>
       </div>
    </div>`;
 

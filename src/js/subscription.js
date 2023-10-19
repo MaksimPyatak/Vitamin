@@ -4,9 +4,9 @@ import { db, signOutFunc, returnAuthUser, } from "./modules/firebase.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
 import { doc, getDoc, updateDoc, } from "firebase/firestore";
 
-const signOutLink = document.querySelector('.item__sign-out');
+const signOutLink = document.querySelectorAll('.item__sign-out');
 
-signOutLink.addEventListener('click', signOutFunc);
+signOutLink.forEach((item) => item.addEventListener('click', signOutFunc));
 
 changeBackgrounHeader();
 

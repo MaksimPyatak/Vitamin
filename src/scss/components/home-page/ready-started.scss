@@ -82,7 +82,11 @@
       }
 
       @media (max-width: 425px) {
-         padding: 60px 0 46px;
+         padding: 60px 0 64px;
+      }
+
+      @media (max-width: 320px) {
+         padding: 60px 0 40px;
       }
    }
 
@@ -121,6 +125,7 @@
 
    &__subtitle {
       margin-bottom: 46px;
+      line-height: 163.418%;
 
       @media (max-width: 425px) {
          margin-bottom: 20px;
@@ -133,6 +138,7 @@
 
       @media (max-width: 425px) {
          margin-bottom: 24px;
+         font-size: 16px;
       }
    }
 

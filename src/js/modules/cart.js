@@ -20,7 +20,6 @@ export async function whichEmptyCart() {
    typeProduct = typeProductSnapshot.data();
    await addCards(cart);
    calcAmount();
-   console.log(cart);
 }
 
 const priceSum = document.querySelector('.cart__sum');
