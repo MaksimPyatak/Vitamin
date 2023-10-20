@@ -56,6 +56,7 @@ async function openCart() {
    header.style.paddingRight = `${getScrollbarWidth()}px`;
    cartBox.classList.add('header__cart--active');
    zero.addEventListener('click', closeCart);
+   submitCart();
    const crissCross = cartBox.querySelector('.cart__title-criss-cross');
    crissCross.addEventListener('click', closeCart);
 
@@ -164,6 +165,7 @@ function useSelect(card, autoshipCheckbox, selectBlock, productUid) {
 function removeCard() {
    const cardUid = this.dataset.uid;
    delete cart[cardUid];
+   submitCart();
    const cardForDel = document.getElementById(cardUid);
    cardForDel.remove();
    calcAmount();
@@ -234,6 +236,7 @@ async function saveCart() {
       }
       localStorage.setItem('cart', JSON.stringify(cart));
       iconCart.classList.toggle('header__cart-icon--not-empty', Object.keys(cart).length);
+      submitCart();
    }
 }
 
@@ -304,3 +307,14 @@ function createCard(product, productData, productUid) {
    card.innerHTML = cardInner;
    return card
 }
+const btn = document.querySelector('.cart__btn');
+
+function submitCart() {
+   if (!Object.keys(cart).length) {
+      btn.style.display = 'none';
+   } else {
+      btn.style.display = 'block';
+   }
+}
+
+btn.addEventListener('click', () => location.assign('plase-order.html'));

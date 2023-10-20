@@ -1167,7 +1167,7 @@ main {
 
 @media (max-width: 650px) {
   .header {
-    height: 70px;
+    min-height: 70px;
   }
 
   .header__logo-box {
@@ -1244,8 +1244,7 @@ main {
   }
 
   .products-block__content {
-    width: calc(100% + 40px);
-    margin: 0 -20px;
+    width: 100%;
     padding: 0px 0px;
   }
 

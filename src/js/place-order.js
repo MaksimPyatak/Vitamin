@@ -3,10 +3,8 @@ import "./modules/select.js";
 import { Validator, Accordion } from "./utilits/classes.js";
 import { validationNumberInput, editPhone, changeBackgrounHeader, editNumberCard, editExpiration, editCvc } from "./utilits/function.js";
 import { db, returnAuthUser, } from "./modules/firebase.js";
-import { doc, getDoc, setDoc, } from "firebase/firestore";
+import { addDoc, doc, getDoc, setDoc, collection } from "firebase/firestore";
 
-
-//const downloadInfoBlock = document.querySelector('.header__download-info-block');
 const accordionBlock = document.querySelector('.products-block');
 const formWrapper = document.querySelector('.place-order__form');
 const calcBlock = document.querySelector('.products-block__calc-box');
@@ -34,7 +32,7 @@ editCvc(cardCvc);
 const ZIP_LENGTH = 6;
 const orderDate = Date.now();
 const user = await returnAuthUser()
-const userId = user.uid;
+const userId = user ? user.uid : null;
 const userProfile = {};
 const userProfileForUploud = {
    account_overview: {},
@@ -54,27 +52,39 @@ let shipping = 9.20;
 let totalCosts = null;//!!!!
 
 try {
-   const docSnapshot = await getDoc(doc(db, 'users', userId));
-   if (docSnapshot.exists()) {
-      userProfile.personalData = docSnapshot.data().account_overview;
-      Object.assign(userProfile.personalData, docSnapshot.data().payment);
-      userProfileForUploud.cart = docSnapshot.data().cart;
-      const typeProductSnapshot = await getDoc(doc(db, 'constData', 'typeProduct'));
-      typeProduct = typeProductSnapshot.data();
-      await renderCartCards(userProfileForUploud.cart);
-      subtotalBox.innerHTML = `$${subtotal.toFixed(2)}`;
-      discountBox.innerHTML = `-$${discount.toFixed(2)}`;
-      shippingBox.innerHTML = `$${shipping}`;
-      totalCostsBox.innerHTML = `$${(subtotal + shipping).toFixed(2)}`;
-      totalCostsTitleBox.innerHTML = `$${(subtotal + shipping).toFixed(2)}`;
-      userProfileForUploud.orders[orderDate].total = subtotal;
-      //userProfileForUploud.orders.date = new Date();
-      console.log(userProfileForUploud);
-   } else {
-      console.log('Документ не існує');
-   }
+   const typeProductSnapshot = await getDoc(doc(db, 'constData', 'typeProduct'));
+   typeProduct = typeProductSnapshot.data();
 } catch (error) {
    console.log(error);
+}
+if (userId) {
+   try {
+      const docSnapshot = await getDoc(doc(db, 'users', userId));
+      if (docSnapshot.exists()) {
+         userProfile.personalData = docSnapshot.data().account_overview;
+         Object.assign(userProfile.personalData, docSnapshot.data().payment);
+         userProfileForUploud.cart = docSnapshot.data().cart;
+         await renderCartCards(userProfileForUploud.cart);
+         countCart();
+      } else {
+         console.log('Документ не існує');
+      }
+   } catch (error) {
+      console.log(error);
+   }
+} else {
+   userProfileForUploud.cart = JSON.parse(localStorage.getItem('cart'));
+   await renderCartCards(userProfileForUploud.cart);
+   countCart();
+}
+
+function countCart() {
+   subtotalBox.innerHTML = `$${subtotal.toFixed(2)}`;
+   discountBox.innerHTML = `-$${discount.toFixed(2)}`;
+   shippingBox.innerHTML = `$${shipping}`;
+   totalCostsBox.innerHTML = `$${(subtotal + shipping).toFixed(2)}`;
+   totalCostsTitleBox.innerHTML = `$${(subtotal + shipping).toFixed(2)}`;
+   userProfileForUploud.orders[orderDate].total = subtotal;
 }
 
 async function renderCartCards(cart) {
@@ -162,7 +172,8 @@ for (let i = 0; i < elForm.length; i++) {
 
 new Accordion(accordionBlock);
 
-window.addEventListener('load', moveBtn);
+//window.addEventListener('load', moveBtn);
+moveBtn();
 window.addEventListener('resize', moveBtn);
 
 function moveBtn() {
@@ -226,25 +237,28 @@ async function submitFormHandler(event) {
    submitBtn.disabled = true;
    body.style.cursor = 'wait';
    submitBtn.style.cursor = 'wait';
+
    try {
       console.log(userProfileForUploud);
-      await setDoc(doc(db, "users", userId), userProfileForUploud, { merge: true });
-      submitBtn.classList.remove('no-active-button')
+      if (userId) {
+         await setDoc(doc(db, "users", userId), userProfileForUploud, { merge: true });
+      } else {
+         await addDoc(collection(db, "orders"), userProfileForUploud, { merge: true });
+      }
+      localStorage.removeItem('cart');
+      submitBtn.classList.remove('no-active-button');
       submitBtn.disabled = false;
       submitBtn.style.cursor = 'pointer';
       body.style.cursor = 'auto';
-      window.location.assign('order-placed.html')
+      window.location.assign('order-placed.html');
    } catch (error) {
-      submitBtn.classList.remove('no-active-button')
+      submitBtn.classList.remove('no-active-button');
       submitBtn.disabled = false;
       submitBtn.style.cursor = 'pointer';
       body.style.cursor = 'auto';
       console.log(error);
       //regValidator.isError(error.message)
    }
-}
-function changePageState(disabled) {
-
 }
 
 changeBackgrounHeader();
