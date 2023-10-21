@@ -38,7 +38,8 @@ selectElements.forEach(function (selectElement) {
       selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${selectElement.value}`;
    }, { once: true });
    const selectItem = selectList.querySelectorAll('.new-select__item');
-   selectList.style.display = 'none';
+   //selectList.style.display = 'none';
+   selectList.classList.remove('on');
    let clicked = false;
    newSelect.addEventListener('click', (event) => {
       if (!clicked) {
@@ -60,7 +61,8 @@ selectElements.forEach(function (selectElement) {
 
    const clickOutsideNewSelect = function (event) {
       if (!newSelect.contains(event.target)) {
-         selectList.style.display = 'none';
+         //selectList.style.display = 'none';
+         selectList.classList.remove('on');
          selectHead.classList.remove('on');
          document.removeEventListener("click", clickOutsideNewSelect);
          currentElementIndex = undefined;
@@ -81,7 +83,8 @@ selectElements.forEach(function (selectElement) {
 
    function openSelect() {
       selectHead.classList.add('on');
-      selectList.style.display = 'block';
+      //selectList.style.display = 'block';
+      selectList.classList.add('on');
       addNavigationForOptions();
       adjustOptionsListPosition(selectList, upwardsClassSelectList);
       document.addEventListener('keydown', handleKeyDown);
@@ -93,7 +96,8 @@ selectElements.forEach(function (selectElement) {
 
    function closeSelect() {
       selectHead.classList.remove('on');
-      selectList.style.display = 'none';
+      //selectList.style.display = 'none';
+      selectList.classList.remove('on');
       removeUpwardsClass(selectList, upwardsClassSelectList);
       removeClass(selectItem, 'new-select__item--active');
       document.removeEventListener('keydown', handleKeyDown);
@@ -123,7 +127,8 @@ selectElements.forEach(function (selectElement) {
       const changeEvent = new Event('change', { bubbles: true });
       selectElement.dispatchEvent(changeEvent);
       selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${item.querySelector('span').textContent}`;
-      selectList.style.display = 'none';
+      //selectList.style.display = 'none';
+      selectList.classList.remove('on');
       selectHead.classList.remove('on');
       removeClass(selectItem, 'new-select__item--active');
       removeUpwardsClass(selectList, upwardsClassSelectList);
@@ -134,7 +139,8 @@ selectElements.forEach(function (selectElement) {
 
    function blurSelect() {
       selectHead.classList.remove('on');
-      selectList.style.display = 'none';
+      //selectList.style.display = 'none';
+      selectList.classList.remove('on');
    }
 
    function addNavigationForOptions() {

@@ -601,7 +601,9 @@ main {
   min-width: -moz-max-content;
   min-width: max-content;
   width: 100%;
-  border: 1px solid #ced4da;
+  max-height: 0;
+  overflow: auto;
+  border: unset;
   padding: 0 15px;
   cursor: pointer;
   background: #fff;
@@ -609,6 +611,8 @@ main {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  -webkit-transition: max-height 0.3s linear 0s;
+  transition: max-height 0.3s linear 0s;
   color: #333333;
   z-index: 3;
 }
@@ -619,7 +623,8 @@ main {
 }
 
 .new-select__list.on {
-  display: block;
+  max-height: 132px;
+  border: 1px solid #ced4da;
 }
 
 .new-select__item {
