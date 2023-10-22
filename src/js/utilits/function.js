@@ -225,17 +225,18 @@ export function getScrollbarWidth() {
  * відображення списку
  * @param  list елемент до якого потрібно застосувати функцію
  */
-export function changeSlectListPosition(list) {
-   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => changeListPosition(entry)), { threshold: 0.99 });
+export function changeSlectListPosition(list, root) {
+   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => changeListPosition(entry)), { root: root, threshold: 0.99, });
 
    function changeListPosition(entry) {
-      //console.log(entry.intersectionRect);
       const rectRoot = entry.rootBounds;
-      const rectTarget = entry.boundingClientRect;
-      if (rectRoot.bottom - rectTarget.bottom < rectTarget.height) {
-         list.classList.add('_position--up');
-      } else {
-         list.classList.remove('_position--up');
+      const rectIntersect = entry.intersectionRect;
+      if (!entry.isIntersecting) {
+         if (rectRoot.bottom <= rectIntersect.bottom) {
+            list.classList.add('_position--up');
+         } else {
+            list.classList.remove('_position--up');
+         }
       }
    }
    observer.observe(list);

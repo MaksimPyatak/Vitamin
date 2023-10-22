@@ -44,6 +44,7 @@ const body = document.querySelector('body');
 const zero = document.querySelector('.header__zero');
 const backLink = document.querySelector('.base__back-link');
 const cardsWrapper = document.querySelector('.cart__cards-wrapper');
+const cards = document.querySelector('.cart__cards');
 
 iconCart.addEventListener('click', openCart);
 async function openCart() {
@@ -160,7 +161,7 @@ function useSelect(card, autoshipCheckbox, selectBlock, productUid) {
          }
       })
    }
-   changeSlectListPosition(selectList);
+   changeSlectListPosition(selectList, cards,);
 }
 
 function removeCard() {

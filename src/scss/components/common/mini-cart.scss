@@ -388,11 +388,11 @@
          opacity: 0;
          transition: max-height 0.3s ease 0s, opacity 0s ease 0.3s;
       }
+   }
 
-      ._position--up {
-         top: unset;
-         bottom: calc(100% + 5px);
-      }
+   ._position--up {
+      top: unset;
+      bottom: calc(100% + 5px);
    }
 
    &__select-item {
