@@ -627,6 +627,11 @@ main {
   border: 1px solid #ced4da;
 }
 
+._position--up {
+  top: unset;
+  bottom: calc(100% + 5px);
+}
+
 .new-select__item {
   height: 44px;
   display: -webkit-box;

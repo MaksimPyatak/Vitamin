@@ -1,4 +1,4 @@
-import { adjustOptionsListPosition } from "../utilits/function.js";
+import { adjustOptionsListPosition, changeSlectListPosition } from "../utilits/function.js";
 //Додати ще, щоб при фокусуванні не відкривався список опцій, а просто був елемент в фокусі, а вже при натисканні ентр або стрілки в низ можна буловідкрити список. Після вибору опції залишати  елемент в фокусі для можливості здійснення повторного відкриття списку за допомогою ентр або стрілки вниз
 const selectElements = document.querySelectorAll('.select');
 selectElements.forEach(function (selectElement) {
@@ -83,7 +83,6 @@ selectElements.forEach(function (selectElement) {
 
    function openSelect() {
       selectHead.classList.add('on');
-      //selectList.style.display = 'block';
       selectList.classList.add('on');
       addNavigationForOptions();
       adjustOptionsListPosition(selectList, upwardsClassSelectList);
@@ -96,7 +95,6 @@ selectElements.forEach(function (selectElement) {
 
    function closeSelect() {
       selectHead.classList.remove('on');
-      //selectList.style.display = 'none';
       selectList.classList.remove('on');
       removeUpwardsClass(selectList, upwardsClassSelectList);
       removeClass(selectItem, 'new-select__item--active');
@@ -127,7 +125,6 @@ selectElements.forEach(function (selectElement) {
       const changeEvent = new Event('change', { bubbles: true });
       selectElement.dispatchEvent(changeEvent);
       selectHead.innerHTML = ` <span class="new-select__arrow arrow"></span>   ${item.querySelector('span').textContent}`;
-      //selectList.style.display = 'none';
       selectList.classList.remove('on');
       selectHead.classList.remove('on');
       removeClass(selectItem, 'new-select__item--active');
@@ -139,7 +136,6 @@ selectElements.forEach(function (selectElement) {
 
    function blurSelect() {
       selectHead.classList.remove('on');
-      //selectList.style.display = 'none';
       selectList.classList.remove('on');
    }
 
@@ -176,7 +172,10 @@ selectElements.forEach(function (selectElement) {
          }
       });
    }
+
+   changeSlectListPosition(selectList);
 });
+
 function removeUpwardsClass(optionsList, upwardsClass) {
    optionsList.classList.remove(upwardsClass);
 }

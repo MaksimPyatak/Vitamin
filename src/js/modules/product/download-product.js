@@ -1,6 +1,6 @@
 import { getDoc, doc, setDoc } from "firebase/firestore";
 import { db, } from "../firebase.js";
-import { showDawnloadInfoBlock, checkCart, } from "../../utilits/function.js";
+import { showDawnloadInfoBlock, checkCart, changeSlectListPosition } from "../../utilits/function.js";
 import { whichEmptyCart } from "../cart.js";
 //import { updateQuantity } from "./add-to-cart.js";
 
@@ -169,6 +169,7 @@ function selectOption(e) {
       }
    })
 }
+changeSlectListPosition(selectList);
 
 const backLink = document.querySelector('.base__back-link');
 const btnAddToCart = document.querySelector('.add-to-cart__btn');

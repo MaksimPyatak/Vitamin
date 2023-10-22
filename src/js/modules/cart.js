@@ -1,4 +1,4 @@
-import { checkCart, getScrollbarWidth } from "../utilits/function.js";
+import { checkCart, getScrollbarWidth, changeSlectListPosition } from "../utilits/function.js";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { db, } from "./firebase.js";
 
@@ -160,6 +160,7 @@ function useSelect(card, autoshipCheckbox, selectBlock, productUid) {
          }
       })
    }
+   changeSlectListPosition(selectList);
 }
 
 function removeCard() {

@@ -1293,18 +1293,26 @@ main {
   top: calc(100% + 5px);
   left: 0;
   width: 100%;
+  max-height: 125px;
   border-radius: 8px;
   padding: 3px 12px 3px 12px;
   background: #F5F5F5;
   overflow: hidden;
-  translate: all 1s line 0;
+  -webkit-transition: max-height 0.3s ease 0s;
+  transition: max-height 0.3s ease 0s;
   z-index: 1;
 }
 
 .cart-autoship__select-list--not-show {
-  height: 0;
+  max-height: 0;
   opacity: 0;
-  translate: all 1s line 0;
+  -webkit-transition: max-height 0.3s ease 0s, opacity 0s ease 0.3s;
+  transition: max-height 0.3s ease 0s, opacity 0s ease 0.3s;
+}
+
+.cart-autoship__select-list ._position--up {
+  top: unset;
+  bottom: calc(100% + 5px);
 }
 
 .cart-autoship__select-item {

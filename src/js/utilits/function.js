@@ -149,8 +149,12 @@ export function renderCard(data, productsType, id) {
    return card
 }
 export function changeBackgrounHeader(changedLogo) {
-   window.addEventListener('scroll', () => {
-      const header = document.querySelector('.header');
+   const header = document.querySelector('.header');
+   let observer = new IntersectionObserver(changeBgHeader, { rootMargin: "-10px 0px 0px" });
+   observer.observe(header);
+
+   window.addEventListener('scroll', changeBgHeader);
+   function changeBgHeader() {
       if (window.scrollY > 50) {
          header.classList.add('header--active');
          if (changedLogo) {
@@ -162,7 +166,7 @@ export function changeBackgrounHeader(changedLogo) {
             changeLogoOfHeader(false);
          }
       }
-   })
+   }
 }
 
 export function changeLogoOfHeader(remove) {
@@ -214,4 +218,25 @@ export function getScrollbarWidth() {
    outer.parentNode.removeChild(outer);
 
    return scrollbarWidth
+}
+
+/**
+ * Перекидає список селекта на селектом, якщо під ним не достатньо місця для 
+ * відображення списку
+ * @param  list елемент до якого потрібно застосувати функцію
+ */
+export function changeSlectListPosition(list) {
+   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => changeListPosition(entry)), { threshold: 0.99 });
+
+   function changeListPosition(entry) {
+      //console.log(entry.intersectionRect);
+      const rectRoot = entry.rootBounds;
+      const rectTarget = entry.boundingClientRect;
+      if (rectRoot.bottom - rectTarget.bottom < rectTarget.height) {
+         list.classList.add('_position--up');
+      } else {
+         list.classList.remove('_position--up');
+      }
+   }
+   observer.observe(list);
 }
