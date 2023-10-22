@@ -2166,12 +2166,11 @@ main {
 }
 
 .autoship__check-mark {
-  position: absolute;
   top: 3px;
   right: unset;
   left: 3px;
   width: 26px;
-  height: 26px;
+  height: 100%;
   border-radius: 13px;
   background: #DEDEDE;
   -webkit-transition: background 0.2s linear 0s, -webkit-transform 0.2s linear 0s;
