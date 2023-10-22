@@ -157,8 +157,9 @@
          border: 2px solid #FF7D4E;
 
          .autoship__check-mark {
-            left: unset;
-            right: 3px;
+            //left: unset;
+            //right: 3px;
+            transform: translateX(100%);
             background: #FF7D4E;
          }
       }
@@ -172,6 +173,7 @@
       border-radius: 30px;
       border: 2px solid #DEDEDE;
       cursor: pointer;
+      transition: background 0.2s linear 0s;
    }
 
    &__check-mark {
@@ -183,6 +185,7 @@
       height: 26px;
       border-radius: 13px;
       background: #DEDEDE;
+      transition: transform 0.2s linear 0s, background 0.2s linear 0s;
 
       img {
          display: none;

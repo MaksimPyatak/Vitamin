@@ -1,4 +1,3 @@
-import "./modules/cart.js";
 import { Validator } from "./utilits/classes.js";
 import { changeBackgrounHeader } from "./utilits/function.js";
 

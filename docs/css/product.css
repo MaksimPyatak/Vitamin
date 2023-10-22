@@ -2147,8 +2147,9 @@ main {
 }
 
 .autoship__checkbox-input:checked + .autoship__castom-checkbox .autoship__check-mark {
-  left: unset;
-  right: 3px;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
   background: #FF7D4E;
 }
 
@@ -2160,6 +2161,8 @@ main {
   border-radius: 30px;
   border: 2px solid #DEDEDE;
   cursor: pointer;
+  -webkit-transition: background 0.2s linear 0s;
+  transition: background 0.2s linear 0s;
 }
 
 .autoship__check-mark {
@@ -2171,6 +2174,10 @@ main {
   height: 26px;
   border-radius: 13px;
   background: #DEDEDE;
+  -webkit-transition: background 0.2s linear 0s, -webkit-transform 0.2s linear 0s;
+  transition: background 0.2s linear 0s, -webkit-transform 0.2s linear 0s;
+  transition: transform 0.2s linear 0s, background 0.2s linear 0s;
+  transition: transform 0.2s linear 0s, background 0.2s linear 0s, -webkit-transform 0.2s linear 0s;
 }
 
 .autoship__check-mark img {
@@ -2433,6 +2440,10 @@ main {
 
   .subtitle-h2 {
     font-size: 16px;
+  }
+
+  header .header__body path {
+    fill: #ffffff;
   }
 
   .footer__container {

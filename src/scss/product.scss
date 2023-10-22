@@ -1,6 +1,16 @@
 // Загальні стилі
 @import "./components/global";
 
+header {
+   .header__body {
+      path {
+         @media (max-width: 1024px) {
+            fill: #ffffff;
+         }
+      }
+   }
+}
+
 main {
    //max-width: 1920px;
    width: 100%;
