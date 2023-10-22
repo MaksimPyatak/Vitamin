@@ -2441,8 +2441,12 @@ main {
     font-size: 16px;
   }
 
-  header .header__body path {
+  .header .header__body path {
     fill: #ffffff;
+  }
+
+  .header--active .header__body path {
+    fill: #000000;
   }
 
   .footer__container {

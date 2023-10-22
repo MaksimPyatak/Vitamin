@@ -1,13 +1,24 @@
 // Загальні стилі
 @import "./components/global";
 
-header {
+.header {
    .header__body {
       path {
          @media (max-width: 1024px) {
             fill: #ffffff;
          }
       }
+   }
+
+   &--active {
+      .header__body {
+         path {
+            @media (max-width: 1024px) {
+               fill: #000000;
+            }
+         }
+      }
+
    }
 }
 
