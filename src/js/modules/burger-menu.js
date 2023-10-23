@@ -14,6 +14,7 @@ bm.addEventListener('click', () => {
    //document.body.style.paddingRight = `${getScrollbarWidth()}px`;
    //header.style.paddingRight = `${getScrollbarWidth()}px`;
    wrapperMaxWidth = wrapper.style.maxWidth;
+   headerMaxWidth = header.style.maxWidth;
    header.style.maxWidth = `${getScrollbarWidth()}px`;
    wrapper.style.maxWidth = `${getScrollbarWidth()}px`;
    body.classList.add('_lock');

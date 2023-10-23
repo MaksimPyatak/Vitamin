@@ -54,6 +54,7 @@ iconCart.addEventListener('click', openCart);
 async function openCart() {
    //document.body.style.paddingRight = `${getScrollbarWidth()}px`;
    //header.style.paddingRight = `${getScrollbarWidth()}px`;
+   cartBox.style.display = 'block';
    wrapperMaxWidth = wrapper.style.maxWidth;
    headerMaxWidth = header.style.maxWidth;
    header.style.maxWidth = `${getScrollbarWidth()}px`;
@@ -77,6 +78,7 @@ function closeCart() {
    //header.style.paddingRight = '0px';
    header.style.maxWidth = headerMaxWidth == '' ? '' : `${headerMaxWidth}px`;
    wrapper.style.maxWidth = wrapperMaxWidth == '' ? '' : `${wrapperMaxWidth}px`;
+   window.setTimeout(() => cartBox.style.display = 'none', 300);
    html.style.overflow = 'visible';
    if (backLink) {
       backLink.style.zIndex = '51';

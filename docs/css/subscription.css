@@ -576,6 +576,7 @@ main {
 }
 
 .header__cart {
+  display: none;
   position: absolute;
   top: 0;
   right: -500px;
