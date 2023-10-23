@@ -10,6 +10,8 @@ main {
 .header {
    width: 100%;
    min-height: 110px;
+   display: flex;
+   align-items: center;
 
    @media (max-width: 650px) {
       min-height: 70px;

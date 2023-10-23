@@ -40,6 +40,7 @@ function calcAmount() {
 }
 
 const cartBox = document.querySelector('.header__cart');
+const html = document.querySelector('html');
 const body = document.querySelector('body');
 const zero = document.querySelector('.header__zero');
 const backLink = document.querySelector('.base__back-link');
@@ -47,14 +48,21 @@ const cardsWrapper = document.querySelector('.cart__cards-wrapper');
 const cards = document.querySelector('.cart__cards');
 
 iconCart.addEventListener('click', openCart);
+
+function preventScroll(event) {
+   event.preventDefault();
+}
 async function openCart() {
-   body.style.overflow = 'hidden';
+   //document.body.style.paddingRight = `${getScrollbarWidth()}px`;
+   //header.style.paddingRight = `${getScrollbarWidth()}px`;
+   //html.style.overflow = 'hidden';
+
+   document.addEventListener('touchmove', preventScroll, { passive: false });
+   document.addEventListener('mousewheel', preventScroll, { passive: false });
    zero.classList.add('header__zero--active');
    if (backLink) {
       backLink.style.zIndex = '1';
    }
-   document.body.style.paddingRight = `${getScrollbarWidth()}px`;
-   header.style.paddingRight = `${getScrollbarWidth()}px`;
    cartBox.classList.add('header__cart--active');
    zero.addEventListener('click', closeCart);
    submitCart();
@@ -64,13 +72,17 @@ async function openCart() {
 }
 function closeCart() {
    zero.classList.remove('header__zero--active');
-   body.style.overflow = 'visible';
+   //body.style.overflow = 'visible';
+   //document.body.style.paddingRight = '0px';
+   //header.style.paddingRight = '0px';
+   //html.style.overflow = 'visible';
+
+   document.removeEventListener('touchmove', preventScroll, { passive: false });
+   document.removeEventListener('mousewheel', preventScroll, { passive: false });
    if (backLink) {
       backLink.style.zIndex = '51';
    }
    cartBox.classList.remove('header__cart--active');
-   document.body.style.paddingRight = '0px'
-   header.style.paddingRight = '0px';
 }
 async function addCards(cart) {
    cardsWrapper.innerHTML = '';
