@@ -42,23 +42,23 @@ function calcAmount() {
 const cartBox = document.querySelector('.header__cart');
 const html = document.querySelector('html');
 const body = document.querySelector('body');
+const wrapper = document.querySelector('.wrapper');
 const zero = document.querySelector('.header__zero');
 const backLink = document.querySelector('.base__back-link');
 const cardsWrapper = document.querySelector('.cart__cards-wrapper');
 const cards = document.querySelector('.cart__cards');
+let wrapperMaxWidth = null;
+let headerMaxWidth = null;
 
 iconCart.addEventListener('click', openCart);
-
-function preventScroll(event) {
-   event.preventDefault();
-}
 async function openCart() {
    //document.body.style.paddingRight = `${getScrollbarWidth()}px`;
    //header.style.paddingRight = `${getScrollbarWidth()}px`;
-   //html.style.overflow = 'hidden';
-
-   document.addEventListener('touchmove', preventScroll, { passive: false });
-   document.addEventListener('mousewheel', preventScroll, { passive: false });
+   wrapperMaxWidth = wrapper.style.maxWidth;
+   headerMaxWidth = header.style.maxWidth;
+   header.style.maxWidth = `${getScrollbarWidth()}px`;
+   wrapper.style.maxWidth = `${getScrollbarWidth()}px`;
+   html.style.overflow = 'hidden';
    zero.classList.add('header__zero--active');
    if (backLink) {
       backLink.style.zIndex = '1';
@@ -75,10 +75,9 @@ function closeCart() {
    //body.style.overflow = 'visible';
    //document.body.style.paddingRight = '0px';
    //header.style.paddingRight = '0px';
-   //html.style.overflow = 'visible';
-
-   document.removeEventListener('touchmove', preventScroll, { passive: false });
-   document.removeEventListener('mousewheel', preventScroll, { passive: false });
+   header.style.maxWidth = headerMaxWidth == '' ? '' : `${headerMaxWidth}px`;
+   wrapper.style.maxWidth = wrapperMaxWidth == '' ? '' : `${wrapperMaxWidth}px`;
+   html.style.overflow = 'visible';
    if (backLink) {
       backLink.style.zIndex = '51';
    }

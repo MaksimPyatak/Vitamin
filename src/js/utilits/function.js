@@ -219,7 +219,8 @@ export function getScrollbarWidth() {
 
    // Removing temporary elements from the DOM
    //outer.parentNode.removeChild(outer);
-   //return 17
+   return document.body.getBoundingClientRect().width
+   return document.body.offsetWidth
    return scrollbarWidth
 }
 
