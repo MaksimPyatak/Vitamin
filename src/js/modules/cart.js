@@ -259,10 +259,10 @@ function createCard(product, productData, productUid) {
    const cardInner = `<div class="cart-card__img-block">
      <div class="cart-card__img-wrapper">
        <div>
-       <picture>
-       <source srcset="${product.base.webP}" type="image/webp">
-       <img  class="cart-card__img" src="${product.base.png}" alt="${product.base.name}">
-       </picture>
+         <picture>
+            <source srcset="${product.base.webP}" type="image/webp">
+            <img  class="cart-card__img" src="${product.base.png}" alt="${product.base.name}">
+         </picture>
        </div>
      </div>
    </div>
