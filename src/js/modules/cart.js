@@ -295,7 +295,7 @@ function createCard(product, productData, productUid) {
      <div class="cart-autoship__checkbox">
        <label for="cart-autoship" class="cart-autoship__checkbox-label">
          <input type="checkbox" name="cart-autoship" id="cart-autoship" class="cart-autoship__checkbox-input"  data-uid="${productUid}"/>
-                 </label>
+       </label>
      </div>
        <div class="cart-autoship__select-block cart-autoship__select-block--not-active">
          <div class="cart-autoship__start-label">Autoship every</div>
